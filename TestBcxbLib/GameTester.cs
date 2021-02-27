@@ -36,18 +36,6 @@ namespace TestBcxbLib {
          Console.ReadLine();
 
 
-         mGame.ERequestModelFile += delegate (short n) {
-
-            var rdr = LocalFileAccess.GetModelFile(n);
-            return rdr;
-         };
-
-         mGame.ERequestEngineFile += delegate (string fName) {
-
-            var rdr = LocalFileAccess.GetModelFile(fName);
-            return rdr;
-         };
-
          mGame.EShowResults += delegate (int scenario) {
 
             TextToSay[] list1 = mGame.lstResults.ToArray();

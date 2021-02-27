@@ -27,6 +27,7 @@ public class CGame {
       public System.Random rn;
 
       public CTeam[] t; // = new CTeam[2]; 
+      public GFileAccess fileAccess = new();
 
       /// <summary>
       /// CGame manages the contents of this list, and then on the
@@ -37,11 +38,12 @@ public class CGame {
 
       public enum RunMode {Normal=1, Auto=2, Fast=3, FastEog=4, FastEOP=5} //(Fast:SAY_INTERVAL=0)
 
-      public event Func<short, StreamReader> ERequestModelFile;
-      public event Func<string, StreamReader> ERequestEngineFile;
-      public event Func<string, TextReader> ERequestTeamFileReader;
-      public event Func<string, StreamWriter> ERequestTeamFileWriter;
-      public event Func<string, StreamWriter> ERequestBoxFileWriter;
+      //These all out #12102a -- 
+      //public event Func<short, StreamReader> ERequestModelFile;
+      //public event Func<string, StreamReader> ERequestEngineFile;
+      //public event Func<string, TextReader> ERequestTeamFileReader;
+      //public event Func<string, StreamWriter> ERequestTeamFileWriter;
+      //public event Func<string, StreamWriter> ERequestBoxFileWriter;
 
       //public double topLevelProb; // The top level result of the dice roll determining 1b, 2b, etc.
       //public double pointInBracket; // Percent didtance into the top level bracket
@@ -259,15 +261,13 @@ public class CGame {
 	   }
 
 
-
-
       public void SetupEngineAndModel() {
       // -----------------------------------------------------------------------
       // Can't do this in the constructor because the event handlers need to
       // be instantiated first.
 
       // Instantiate the engine object, mEng,  
-         var fEngine = ERequestEngineFile("cfeng1");
+         var fEngine = fileAccess.GetModelFile("cfeng1");
          mEng = new CEngine(fEngine);
          mEng.EDoAction += new DDoAction(DoAction);
          mEng.EEngineError += delegate (int n, string list) {
@@ -1761,7 +1761,7 @@ public class CGame {
          // fill aSay. Upper bound to be found at: #RECCNT: 139.
          // rec looks like this: 0x00000000,0x0000,1,"Base hit."   }
          //
-         using (StreamReader f = this.ERequestModelFile(2))
+         using (StreamReader f = fileAccess.GetModelFile(2))
          {
             while ((rec = f.ReadLine()) != null)
             {
@@ -1792,7 +1792,7 @@ public class CGame {
          // rec looks like this:
          // 0x00000000,0x0000,2,002A002B002C0025002D002E002F0030002B002C0025002D002E002F0030   }
          //
-         using (StreamReader f = ERequestModelFile(3))
+         using (StreamReader f = fileAccess.GetModelFile(3))
          {
             while ((rec = f.ReadLine()) != null)
             {
@@ -1826,255 +1826,7 @@ public class CGame {
       string db_NameUse, db_SkillStr, db_stats;
 
 
-      /// <summary>
-      /// TASK: Open sFile, find start of sTeam (eg, NYA2005), and then read
-      /// records filling team roster variables for side, ab.
-      /// </summary>
-      /// <remarks>
-      /// DELETE WHEN CTEAM INPLIMENTED
-      /// </remarks>
-      /// 
-      //public void ReadTeam(int ab) { 
-      //// ----------------------------------------------------
-      //// bx is index into the batter matrix, bp.
-      //// px is index into the pitcher matrix, pp.
-
-      //   int ptr;
-      //   int j, bx, px;
-      //   int slot, posn, slotDh, posnDh;
-      //   //int pitSlot=0, pitPosn=0; string pitStats = "";
-         
-      //   PlayState = PLAY_STATE.START;
-
-      //   // Open the team table.
-      //   //string fileName = @"C:\Prj\BCXBWinPrj\CSApp\TeamPackages\" + sFile + ".bcxb";
-      //   //string fileName = @"C:\Prj\General\CF2001\PlayerData2010\Teams\" + sFile + ".bcxt";
-      //   //string fileName = @"C:\Prj\PlayerData2010\Teams\" + sFile + ".bcxt";
-      //   //StreamReader f = new StreamReader(fileName);
-      //   using (StreamReader f = ERequestTeamFileReader(fileName[ab])) {
-
-      //      // Line 1: Read the version...
-      //      rec = f.ReadLine();
-      //      sVer = rec.Trim();
-
-      //      // Line 2:Read the team record...
-      //      string[] aRec = (f.ReadLine()).Split(',');
-      //      nick[ab] = aRec[3]; city[ab] = aRec[2]; lineName[ab] = aRec[1];
-
-      //      // Line 3: League-level stats...
-      //      aRec = (f.ReadLine()).Split(',');
-      //      db_stats = aRec[1];
-      //      if (db_stats[0] != '0')
-      //         throw new Exception("Error in ReadTeam: Expected '0'");
-      //      ptr = 1;
-      //      lgStats[ab].ab = CBCXCommon.GetHex(db_stats, ref ptr, 5);
-      //      lgStats[ab].h = CBCXCommon.GetHex(db_stats, ref ptr, 4);
-      //      lgStats[ab].b2 = CBCXCommon.GetHex(db_stats, ref ptr, 4);
-      //      lgStats[ab].b3 = CBCXCommon.GetHex(db_stats, ref ptr, 3);
-      //      lgStats[ab].hr = CBCXCommon.GetHex(db_stats, ref ptr, 3);
-      //      lgStats[ab].so = CBCXCommon.GetHex(db_stats, ref ptr, 4);
-      //      lgStats[ab].sh = CBCXCommon.GetHex(db_stats, ref ptr, 3);
-      //      lgStats[ab].sf = CBCXCommon.GetHex(db_stats, ref ptr, 3);
-      //      lgStats[ab].bb = CBCXCommon.GetHex(db_stats, ref ptr, 4);
-      //      lgStats[ab].ibb = CBCXCommon.GetHex(db_stats, ref ptr, 3);
-      //      lgStats[ab].hbp = CBCXCommon.GetHex(db_stats, ref ptr, 3);
-      //      lgStats[ab].sb = CBCXCommon.GetHex(db_stats, ref ptr, 3);
-      //      lgStats[ab].cs = CBCXCommon.GetHex(db_stats, ref ptr, 3);
-      //      //lgStats[ab].ip = (double)(CBCXCommon.GetHex(db_stats, ref ptr, 5)) / 3.0;
-      //      lgStats[ab].ip3 = CBCXCommon.GetHex(db_stats, ref ptr, 5);
-      //      lgStats[ab].ave = lgStats[ab].ab == 0 ?
-      //         0.0 :
-      //         Math.Round((double)lgStats[ab].h / (double)lgStats[ab].ab, 3);
-
-      //      lgMean[ab].FillLgParas(lgStats[ab]);
-      //      lgMean[ab].h /= fMean0; // This applies the fudge factor...   
-
-      //      //This section moved to CHittingParamSet.CombineLeagueMeans...
-      //      //----------------------------------------------------------
-      //      //if (ab == 1)
-      //      //{
-      //      //   // Combine the means for the 2 teams into a single set...
-      //      //   cmean.h = (mean[0].h + mean[1].h) / 2.0;
-      //      //   cmean.b2 = (mean[0].b2 + mean[1].b2) / 2.0;
-      //      //   cmean.b3 = (mean[0].b3 + mean[1].b3) / 2.0;
-      //      //   cmean.hr = (mean[0].hr + mean[1].hr) / 2.0;
-      //      //   cmean.so = (mean[0].so + mean[1].so) / 2.0;
-      //      //   cmean.bb = (mean[0].bb + mean[1].bb) / 2.0;
-      //      //   cmean.oth = 1.0 - (cmean.h + cmean.so + cmean.bb);
-      //      //   cmean.sb = (mean[0].sb + mean[1].sb) / 2.0;
-      //      //   cmean.fPitBase = (mean[0].fPitBase + mean[1].fPitBase) / 2.0;
-      //      //   cmean.fSacBunt = (mean[0].fSacBunt + mean[1].fSacBunt) / 2.0;
-      //      //}
-
-      //      // Lines 4+: Player records (batter & pitcher)
-      //      bx = 0;
-      //      px = 0;
-      //      CBatter b;
-      //      CPitcher p;
-      //      while ((rec = f.ReadLine()) != null)
-      //      {
-      //         aRec = rec.Split(',');
-      //         db_NameUse = aRec[0]; db_SkillStr = aRec[1]; db_stats = aRec[2];
-
-      //         // First read the batter stats, for both batters & pitchers...
-      //         ptr = 1;
-      //         if (usingDh) ptr += 2;
-      //         slot = CBCXCommon.GetHex(db_stats, ref ptr, 1);
-      //         posn = CBCXCommon.GetHex(db_stats, ref ptr, 1);
-      //         if (!usingDh) ptr += 2;
-
-      //         bx++;
-      //         if (bx >= SZ_BAT) throw new Exception("Too many batters in " + teamTag[ab]);
-      //         b = t[ab].bat[bx] = new CBatter(this);
-      //         //if (bx > 25) MessageBox.Show("Too many batters in " + sTeam);
-      //         b.bname = db_NameUse;
-      //         b.skillStr = db_SkillStr;
-      //         FillBatStats(db_stats, ref b.br, ref ptr);
-      //         b.par.FillBatParas(b.br, lgMean[ab]);
-      //         b.when = (slot == 10 ? 0 : slot);
-      //         if (slot > 0 && slot <= 9) t[ab].linup[slot] = bx; //So 10 (non-hitting pitcher) is slot 0
-      //         b.where = (posn == 10 ? 10 : posn); //dh is 10 in the file, keep that.
-      //         if (posn > 0 && posn <= 9) t[ab].who[posn] = bx;
-      //         b.used = (slot > 0 || posn > 0);
-      //         b.bx = bx;
-      //         b.px = 0; //See below, this is assigned for pitchers.
-      //         b.sidex = (side)ab; //Tells which team he's on, 0 or 1.
-
-      //         if (db_stats[0] == '2')
-      //         {
-      //            // It's a Pitcher record...
-      //            px++; //Initialized to 0, so starts with 1.
-      //            if (px == 1) t[ab].curp = 1;  //First pitcher listed starts today.
-      //            if (px >= SZ_PIT) throw new Exception("Too many pitchers in " + teamTag[ab]);
-      //            p = t[ab].pit[px] = new CPitcher();
-      //            b.px = px;
-      //            p.pname = db_NameUse;
-      //            FillPitStats(db_stats, ref p.pr, ref ptr); //Continue with same value of ptr...
-      //            p.par.FillPitParas(p.pr, lgMean[ab]);
-      //            b.px = p.px = px;
-      //            p.sidex = (side)ab;
-      //         }
-      //      }
-      //   }
-
-      //}
-
  
-
-   public TextReader GetTeamFileReader (string fName) {
-   // ------------------------------------------------------------------
-   // This allows other classes, like forms, to have access to the event...   
-      if (fName == null || fName == "") 
-         throw new Exception("File name is missing in GetTeamFileReader");
-      TextReader f = ERequestTeamFileReader(fName);
-      return f;
-
-   }
-
-
-   /// <summary> 
-   /// Update the skill string for 1 position for 1 player... 
-   /// </summary>
-   /// ------------------------------------------------------
-   /// 
-   public void PersistSkill(int ab1, int bx1, string skillStr) { 
- 
-      int bx, n;
-      List<StringBuilder> roster = LoadRoster(t[ab1].fileName);
- 
-   // Write the roster back out to file, replacing skill where needed... 
-      using (StreamWriter g = ERequestTeamFileWriter(t[ab1].fileName)) { 
-         bx = n = 0; 
-         foreach(StringBuilder rec1 in roster) { 
-         // First 3 lines are version ID, team record, league record...
-            n++;
-            if (n <= 3) {g.WriteLine(rec1.ToString()); continue;}
-            else bx++; 
-            if (bx == bx1) {
-               int i = rec1.ToString().IndexOf(',');
-               rec1.Remove(i+1, 9);
-               rec1.Insert(i+1, skillStr);
-            } 
-            g.WriteLine(rec1.ToString()); 
-         }  
-      } 
-
-   }
- 
- 
-   /// <summary> 
-   /// Update lineup and positions for a team, in the team file on disk... 
-   /// </summary>
-   /// ----------------------------------------------------------------
-   /// 
-   public void PersistLineup(int ab1) {
-
-      int bx, n;
-      int ix;
-      List<StringBuilder> roster = LoadRoster(t[ab1].fileName);
- 
-      // Write the roster back out to file, replacing skill where needed... 
-      using (StreamWriter g = ERequestTeamFileWriter(t[ab1].fileName)) {
- 
-         int slotOffset;
-         int posnOffset;
-         bx = n = 0; 
-         foreach (StringBuilder rec1 in roster) {
- 
-         // First 3 lines are version ID, team record, league record...
-            n++;
-            if (n <= 3) {g.WriteLine(rec1.ToString()); continue; }
-
-         // Layout: 
-         // 1: 1=batter, 2=pitcher
-         // 2:slot-3:posn (non-dh), 4:slot-5:posn (dh)
-            bx++;
-            ix = rec1.ToString().LastIndexOf(',');
-            slotOffset = UsingDh ? ix + 4 : ix + 2;
-            posnOffset = UsingDh ? ix + 5 : ix + 3;
- 
-            int sl = t[ab1].bat[bx].when;   // 0 if not in lineup, or if non-batting pitcher
-            int po = t[ab1].bat[bx].where; // 0 if not fielding, or if dh
- 
-            ix = rec1.ToString().LastIndexOf(',');
- 
-            if (UsingDh) {
-               if (po == 1 && sl == 0) rec1[slotOffset] = 'A'; //Non-batting pitcher.
-               else rec1[slotOffset] = sl.ToString()[0];
- 
-               if (sl > 0 && po == 10) rec1[posnOffset] = 'A'; //Non-fielding hitter (DH).
-               else rec1[posnOffset] = po.ToString()[0];
-            }
-            else {
-               rec1[slotOffset] = sl.ToString()[0];
-               rec1[posnOffset] = po.ToString()[0];
-            }
-            g.WriteLine(rec1.ToString());
-         }
- 
-      }
-   } 
- 
- 
-   /// <summary>
-   /// Reds a team file from disk, and loads it into a List of
-   /// StringBuilder objects.
-   /// </summary>
-   /// 
-   private List<StringBuilder> LoadRoster(string sFile) {
- 
-      var roster = new List<StringBuilder>();
-      using (TextReader f = ERequestTeamFileReader(sFile)) {
- 
-         while ((rec = f.ReadLine()) != null) {
-            roster.Add(new StringBuilder(rec));
-         }
-      }
-      return roster;
- 
-   }
- 
-
    /// <remarks>
    /// DELETE WHEN CTEAM IMPLIMENTED
    /// It's been moved to CTeam.
@@ -2247,8 +1999,7 @@ public class CGame {
    /// 
    public void PrintBox(string fName) {
 
-         //var f = new StreamWriter(fName);
-         using (StreamWriter f = ERequestBoxFileWriter(fName)) {
+         using (StreamWriter f = new StreamWriter(fName)) {
             string s =
                t[0].city + " at " + t[1].city + ", " + DateTime.Now.ToString("MM/dd/yyyy HH:mm");
             f.WriteLine(new string('=', s.Length));

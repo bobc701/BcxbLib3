@@ -1,4 +1,8 @@
-﻿01/25'21
+﻿#12102a
+Change to calling GFileAccess directly i/o going through event callbacks.
+
+
+01/25'21
 #2101.01 -- Changes for league stats at player level. (branch b2101.01)
 
 8/27'20

@@ -16,11 +16,11 @@ using System.Net;
 using System.Linq;
 
 
-namespace TestBcxbLib {
+namespace BCX.BCXB {
 
-   public class LocalFileAccess {
+   public class GFileAccess {
 
-      public static StreamReader GetTextFileOnDisk(string fName) {
+      public StreamReader GetTextFileOnDisk(string fName) {
          // --------------------------------------------------------------------------------
          // This returns StreamReader for file stored under Resources.
          // FileName should include folders separated by '.'.
@@ -53,7 +53,7 @@ namespace TestBcxbLib {
       }
 
 
-      public static StreamReader GetModelFile(short engNum) {
+      public StreamReader GetModelFile(short engNum) {
          // ------------------------------------------------------------------
          // This returns a file object for CFEng1,2 oe 3.
          // ------------------------------------------------------------------
@@ -70,7 +70,7 @@ namespace TestBcxbLib {
       }
 
 
-      public static StreamReader GetModelFile(string fName) {
+      public StreamReader GetModelFile(string fName) {
          // ------------------------------------------------------------------
          // This returns a file object for CFEng1,2 oe 3.
          // ------------------------------------------------------------------
