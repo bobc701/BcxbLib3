@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>f4a628c7-5f7f-4b62-ad11-85a58328a825</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>BcxbLib_SAP</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)CBCXCommon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CEngine.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CFieldingParamSet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CGame.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CLineScore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CLineupCard.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CParamSet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CTeam.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HelperClasses.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Comments\Comments.txt" />
+  </ItemGroup>
+</Project>

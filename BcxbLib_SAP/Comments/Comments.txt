@@ -1,0 +1,54 @@
+﻿01/25'21
+#2101.01 -- Changes for league stats at player level. (branch b2101.01)
+
+8/27'20
+Branch dev5
+This is a test change.
+
+5/22'19
+Changed members of CBatBoxSet to property get/set's i/o fields, for Xamarin binding.
+Added operator+ to CBatBoxSet and CPitBoxSet to simplify getting totals.
+Added property get 'IpDisplay' to CPitBOxSet for showing ip3 as X.1, X.2, etc.
+
+
+#1706.27
+Fixed the problem with fielding wheel not displaying labels. On BcxbLib side,
+this involved changing CParamBarFielding's 'description' to a property,
+Description, which assigns description and also parses it into separate labels.
+
+
+#1706.20
+Error handling added in CEngine.DoList and also in CGame.DoAction.
+All changes in BcxbLib side, as I just reused CGame's ENotifyUser to
+cause an alert to show on UI side.
+
+#1706.19 -- 
+Fixed bug in DoAction where [99] (or 1099) was getting prob for cpara.oth.
+            But that's no good for stealing, or stealing home, so I changed it to 
+            1.0 - cum, which will force r <= cum, which should work for both regular
+            plays and stealing.
+
+1/9'17
+I added SerializeResults to CGame, for idea of accessing in JavaScript.
+
+11/22'16
+I have gone through and implimented CTeam throughout and got clean compile,
+It has now been (minimally) tested in iOS and CSApp -- it runs!
+
+
+11/17'16:
+I made a new branch (b1) and impliemnted CTeam.
+
+#1605.02:
+Added new class, CTEam, and instantiated a 2-elt array in CGame.
+But have not fully integrated it into game logic.
+
+#1604.02 -- Changes to Updating box scores so it is driven by a list.
+
+#1605.01: 
+I consolidated logic to combine batter & pitcher parameters into new method,
+CombineParamsets. It is in CHittingParamset as a static. It is called from InitBatter,
+peplacing logic that was there previously.
+
+
+#1604.02 -- Changes to Updating box scores so it is driven by a List<>.
