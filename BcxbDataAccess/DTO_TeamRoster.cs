@@ -89,6 +89,8 @@ namespace BcxbDataAccess {
       public bool UsesDh { get; set; }
       public string LgID { get; set; }
 
+      public string DisplayName => $"{City} {NickName}";
+
       public override string ToString() {
          return Year == 0 ? "" : $"{Year} - {City} {NickName}";
       }
