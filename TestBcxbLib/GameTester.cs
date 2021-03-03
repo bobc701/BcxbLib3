@@ -66,8 +66,12 @@ namespace TestBcxbLib {
          mGame.cmean = new CHittingParamSet();
          mGame.PlayState = PLAY_STATE.START;
 
+      // Get the 2 new teams from the user... 
+         (string, int)[] newTeams = PickTeams();
+
          try {
-            DTO_TeamRoster ros = await DataAccess.GetTeamRosterOnLine("DET", 2019); //#b2102c
+            (string tm, int yr) = newTeams[1]; // Do home team first!
+            DTO_TeamRoster ros = await DataAccess.GetTeamRosterOnLine(tm, yr); //#b2102c
             if (ros == null) throw new Exception($"Error: Could not load data for Home Team");
             mGame.t[1].ReadTeam(ros, 1);
          }
@@ -76,7 +80,8 @@ namespace TestBcxbLib {
          }
 
          try {
-            DTO_TeamRoster ros = await DataAccess.GetTeamRosterOnLine("BOS", 2019);
+            (string tm, int yr) = newTeams[0]; // Visiting team second.
+            DTO_TeamRoster ros = await DataAccess.GetTeamRosterOnLine(tm, yr);
             if (ros == null) throw new Exception($"Error: Could not load data for Vis Team");
             mGame.t[0].ReadTeam(ros, 0);
          }
@@ -110,6 +115,11 @@ namespace TestBcxbLib {
       }
 
 
+      public (string, int)[] PickTeams() {
+
+         var teams = new (string, int)[2] { ("DET", 2019), ("BOS", 2019) };
+         return teams;
+      }
 
    }
 

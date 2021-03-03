@@ -20,6 +20,13 @@ namespace BCX.BCXB {
 
    public class GFileAccess {
 
+      public void SetFolders() {
+
+         // For this app, no action needed, folders are not used.
+
+      }
+
+
       public StreamReader GetTextFileOnDisk(string fName) {
          // --------------------------------------------------------------------------------
          // This returns StreamReader for file stored under Resources.

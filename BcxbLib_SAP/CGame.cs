@@ -247,7 +247,8 @@ public class CGame {
       // The whole model will share this instance of the random number 
       // generator. This form of the constructor uses a time-dependant
       // seed value, accoring to the docs.
-         rn = new Random();         
+         rn = new Random();
+         fileAccess.SetFolders();
 
          PlayState = PLAY_STATE.NONE;
          //InitParambar;
