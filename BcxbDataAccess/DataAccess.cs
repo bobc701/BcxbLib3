@@ -94,6 +94,39 @@ namespace BcxbDataAccess {
 
       }
 
+
+      public static async Task<List<CTeamRecord>> GetCustTeamListForUser(string userName) {
+         // --------------------------------------------------------------------------------------
+
+         //var t = new List<CTeamRecord> {
+         //   new CTeamRecord { TeamTag = "NYY2018", City = "New York", LineName = "NYY", NickName = "Yankees", UsesDh = true, LgID = "AL" },
+         //   new CTeamRecord { TeamTag = "NYM2018", City = "New York", LineName = "NYM", NickName = "Mets", UsesDh = false, LgID = "NL" },
+         //   new CTeamRecord { TeamTag = "BOS2015", City = "Boston", LineName = "Bos", NickName = "Red Sox", UsesDh = true, LgID = "AL" },
+         //   new CTeamRecord { TeamTag = "PHI2015", City = "Philadelphia", LineName = "Phi", NickName = "Phillies", UsesDh = false, LgID = "NL" },
+         //   new CTeamRecord { TeamTag = "WAS2019", City = "Washington", LineName = "Was", NickName = "Nationals", UsesDh = false, LgID = "NL" }
+         //};
+         //return t;
+
+         var url = new Uri(client.BaseAddress, $"{WinhostEndPoint}api/team-list-cust/{userName}");
+
+         client.DefaultRequestHeaders.Accept.Clear();
+         client.DefaultRequestHeaders.Accept.Add(
+            new MediaTypeWithQualityHeaderValue("application/json"));
+
+         List<CTeamRecord> teamList = null;
+         HttpResponseMessage response = await client.GetAsync(url.ToString());
+         if (response.IsSuccessStatusCode) {
+            teamList = await response.Content.ReadAsAsync<List<CTeamRecord>>();
+         }
+         else {
+            teamList = null;
+            throw new Exception($"Error loading list of custom teams for {userName}\r\nStatus code: {response.StatusCode}"); 
+         }
+         return teamList;
+
+      }
+
+
       public static async Task<List<CTeamRecord>> GetTeamListForYearFromCache(int year) {
          // --------------------------------------------------------------------------------------
          List<CTeamRecord> result;
@@ -135,6 +168,29 @@ namespace BcxbDataAccess {
          }
 
       }
+
+
+      public static async Task<DTO_TeamRoster> GetCustTeamRoster(int teamID) {
+     // --------------------------------------------------------------------------------------
+         var url = new Uri(client.BaseAddress, $"{WinhostEndPoint}api/team-cust/{teamID}");
+
+         client.DefaultRequestHeaders.Accept.Clear();
+         client.DefaultRequestHeaders.Accept.Add(
+             new MediaTypeWithQualityHeaderValue("application/json"));
+
+         DTO_TeamRoster roster = null;
+         HttpResponseMessage response = await client.GetAsync(url.ToString());
+         if (response.IsSuccessStatusCode) {
+            roster = await response.Content.ReadAsAsync<DTO_TeamRoster>();
+         }
+         else {
+            roster = null;
+            throw new Exception($"Error loading custom team {teamID}");
+         }
+         return roster;
+
+      }
+
 
       public static void ClearTeamCache() {
          // ----------------------------------------------------------
