@@ -11,7 +11,7 @@ namespace BCX.BCXB {
 
    public class CTeam {
 
-      public const int SZ_BAT = 26; //We use 1..25, 0 is unused.
+      public const int SZ_BAT = 26; //We use 1..25, 0 is unused. 
       public const int SZ_PIT = 12; //We use 1.11, 0 is unused.
       const int SZ_AB = 2;    
       const int SZ_POS = 11;   //1..9; //1903.1 Was 10
