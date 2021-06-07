@@ -18,6 +18,10 @@ namespace TestBcxbLib {
 
       static async Task Main(string[] args) {
 
+         CustTeamsTest ct = new();
+         await ct.GetCustTeamList();
+         await ct.GetCuatTeamRoster();
+
          GameTester gt = new();
          await gt.SetupNewGame();
          gt.PlayGame();

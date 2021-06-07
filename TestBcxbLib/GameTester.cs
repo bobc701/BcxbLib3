@@ -16,9 +16,52 @@ using System.IO;
 
 using BcxbDataAccess;
 using BCX.BCXB;
-
+using Newtonsoft.Json;
 
 namespace TestBcxbLib {
+
+   class CustTeamsTest {
+
+      public async Task GetCuatTeamRoster() {
+
+         int teamID = 5007;
+         Console.WriteLine($"Press enter to get custom team {teamID}...");
+         Console.ReadLine();
+
+
+         try {
+            DTO_TeamRoster ros = await DataAccess.GetCustTeamRoster(teamID); 
+            if (ros is null) Console.WriteLine($"Error: Could not load data for Home Team");
+            string sros = JsonConvert.SerializeObject(ros,Formatting.Indented);
+            Console.WriteLine(sros);
+         }
+         catch (Exception ex) {
+            Console.WriteLine($"Error loading data for custom team {teamID}\r\n{ex.Message}");
+         }
+
+      }
+
+
+      public async Task GetCustTeamList() {
+
+         string userName = "bobc";
+         Console.WriteLine($"Press enter to get list of custom teams for {userName}...");
+         Console.ReadLine();
+
+         try {
+            List<CTeamRecord> list = await DataAccess.GetCustTeamListForUser(userName);
+            if ((list?.Count ?? 0) == 0) throw new Exception($"Error: No teams found for {userName}");
+            else {
+               string slist = JsonConvert.SerializeObject(list, Formatting.Indented);
+               Console.WriteLine(slist);
+            }
+         }
+         catch (Exception ex) {
+            Console.WriteLine($"Error loading data for user {userName}\r\n{ex.Message}");
+         }
+
+      }
+   }
 
    class GameTester {
 

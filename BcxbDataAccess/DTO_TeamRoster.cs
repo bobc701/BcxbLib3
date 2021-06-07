@@ -81,8 +81,9 @@ namespace BcxbDataAccess {
 
    public struct CTeamRecord {
       // ---------------------------------------------------
-      public string TeamTag { get; set; }
-      public int Year { get; set; }
+      public string TeamTag { get; set; }  //For real teams
+      public int Year { get; set; }        //For real teams
+      public int UserTeamID { get; set; }  //For custom teams
       public string LineName { get; set; }
       public string City { get; set; }
       public string NickName { get; set; }

@@ -31,7 +31,7 @@ namespace BCX.BCXB {
          // --------------------------------------------------------------------------------
          // This returns StreamReader for file stored under Resources.
          // FileName should include folders separated by '.'.
-         // EG: Model.cfeng1 <-- Note: Case sensitive!
+         // EG: Model.cfeng1 <-- Note: Case sensitive!!!
          // --------------------------------------------------------------------------------
          Assembly assembly = typeof(TestBcxbLib.Program).GetTypeInfo().Assembly;
 

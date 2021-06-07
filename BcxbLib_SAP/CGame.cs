@@ -1596,7 +1596,7 @@ public class CGame {
             t[ab1].xbox[bx] = 0;
             t[ab1].bat[bx].bs.boxName = "";
          }
-         for (int bx=1; bx<=SZ_BAT-1 && t[ab].bat[bx]!=null; bx++) {
+         for (int bx=1; bx<=SZ_BAT-1 && t[ab1].bat[bx]!=null; bx++) {
             b = t[ab1].bat[bx];
             slt = b.when;
             pos = b.where;

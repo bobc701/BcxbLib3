@@ -36,6 +36,7 @@ namespace BCX.BCXB {
       public CHittingParamSet lgMean =
          new CHittingParamSet(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
 
+
       public CTeam (CGame g1) {
       // -------------------------------------
       // Constructor

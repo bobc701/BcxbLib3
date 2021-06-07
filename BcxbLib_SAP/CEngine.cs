@@ -52,7 +52,6 @@ public class CEngine {
       //fEngine = fEngine1;
       ReadEngine(fEngine1);
 	}
-		
 
    /// <summary>
    /// Scan CFActions, convert it to array, aAction
