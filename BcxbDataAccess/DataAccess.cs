@@ -16,13 +16,13 @@ namespace BcxbDataAccess {
       public static HttpClient client;
       public static string WinhostEndPoint;
       public static List<CTeamRecord> TeamCache = new List<CTeamRecord>();
-
+//delete this line.
 
       static DataAccess() {
 
          // Use httpS here as I have added SSL cert to Z.com on WinHost (7/15'20)...
 
-         // Use this for ptoduction...
+         // Use this for ptoduction... 
          //client = new HttpClient() { BaseAddress = new Uri("https://www.zeemerix.com") };
          //WinhostEndPoint = "liveteamrdr/";
 
