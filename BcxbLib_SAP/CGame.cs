@@ -8,17 +8,17 @@ using System.Linq;
 
 using BCX.SimEngine;
 using BCX.BCXCommon;
-
+using SimEngine;
 
 namespace BCX.BCXB {
-   
-/// <summary>
-/// This encapsulates the state of a specific game, including 
-/// outs, on-base situation, score, line-ups, box score stats
-/// etc.ƒ
-/// </summary>
-/// 
-public class CGame {
+
+   /// <summary>
+   /// This encapsulates the state of a specific game, including 
+   /// outs, on-base situation, score, line-ups, box score stats
+   /// etc.ƒ
+   /// </summary>
+   /// 
+   public class CGame {
 
       /// <summary>
       /// The whole model shares this random number generator object...
@@ -36,7 +36,7 @@ public class CGame {
       public List<TextToSay> lstResults = new List<TextToSay>();
       public List<StatToUpdate> lstBoxUpdates = new List<StatToUpdate>(); //#1604.02
 
-      public enum RunMode {Normal=1, Auto=2, Fast=3, FastEog=4, FastEOP=5} //(Fast:SAY_INTERVAL=0)
+      public enum RunMode { Normal = 1, Auto = 2, Fast = 3, FastEog = 4, FastEOP = 5 } //(Fast:SAY_INTERVAL=0)
 
       //These all out #12102a -- 
       //public event Func<short, StreamReader> ERequestModelFile;
@@ -50,9 +50,9 @@ public class CGame {
       public CDiceRoll diceRollBatting;    // The top level result, 1..10, was 1..7.
       public CDiceRoll diceRollFielding; // TopLevelResult = 1 (TLR.GoodPlay)..2 (TLR.BadPlay)
       public int genericResult; // The index, 1..100, in grid, GTab.
-      //public IGameController gc;
+                                //public IGameController gc;
 
-   // These are the screen updating events...
+      // These are the screen updating events...
       public event Action<int> EShowResults;
       public event Action EClearResults;
       public event Action EUpdateBoxes;
@@ -81,27 +81,30 @@ public class CGame {
       public event Action<int, int> EHighlightBBox; //#1506.01
       public event Action<int, int> EHighlightPBox; //#1506.01
       public event Action<string> ENotifyUser;
-       
+
       public SPECIAL_PLAY specialPlay = SPECIAL_PLAY.AtBat; //1:=Steal, 2:=Bunt, 3:=IP
 
       public const int SZ_BAT = 26; //We use 1..25, 0 is unused.
       public const int SZ_PIT = 12; //We use 1.11, 0 is unused.
-      const int SZ_AB = 2;    
+      const int SZ_AB = 2;
       const int SZ_POS = 10;   //1..9;
       const int SZ_SLOT = 10;  //1..9;
       const int SZ_LINESCORE = 31;    //1..30; //index in line score
 
       public CBatRealSet[] lgStats = new CBatRealSet[2];
-      
-   // Added in V1 to replace CASL screen objects
+
+      // Added in V1 to replace CASL screen objects
       public string results = ""; //This might be used for whole-game scroll. 
 
       public bool UsingDh = false;
       int ixList, ixRow, icCol;
-      int limLists, limActions;   
+      int limLists, limActions;
       int go;
       int sit, up, posn, gplay;
       bool scoringPlay = false;
+
+      public int Posn { get { return posn; } set { posn = value; } }
+      public int Gplay { get { return gplay; } set { gplay = value; } }
 
       public int PosLim => UsingDh ? 10 : 9;
 
@@ -109,8 +112,8 @@ public class CGame {
          "pitcher", "catcher", "first", "second", "third", "short",
          "left", "center", "right", "DH"};
       public static string[] PosNameLong = {"as fielder",
-         "as pitcher", "as catcher", "at first base", "at second base", 
-         "at third base", "at shortstop", "in left field", "in center field", 
+         "as pitcher", "as catcher", "at first base", "at second base",
+         "at third base", "at shortstop", "in left field", "in center field",
          "in right field", "as DH"};
       public static string[] posAbbr =
          {"", "p", "c", "1b", "2b", "3b", "ss", "lf", "cf", "rf", "dh"};
@@ -119,33 +122,33 @@ public class CGame {
       string[] aPosName =
          {"","p","c","1b","2b","3b","ss","lf","cf","rf","dh"};
       public static string[] baseName = { "ab", "1st", "2nd", "3rd" };
-         
+
       int po;
 
       public string ordSuffix(int inn) {
-         
+
          if (inn == 10) return "th";
          if (inn == 11) return "th";
          if (inn == 12) return "th";
          if (inn == 13) return "th";
          switch (inn % 10) {
-            case 0: return "th"; 
-            case 1: return "st"; 
+            case 0: return "th";
+            case 1: return "st";
             case 2: return "nd";
-            case 3: return "rd"; 
-            default: return "th"; 
+            case 3: return "rd";
+            default: return "th";
          }
 
       }
 
-      public CRunner[] 
+      public CRunner[]
          r = new CRunner[4],
          s = new CRunner[4];
-      
-   // "mean" is 2-dim array of CParamSet...
-   // There are 3 CParamset objects: The 2-dim array mean holds vis & home, and cmean holds the 
-   // average ofthe two.
-      public CHittingParamSet cmean  = 
+
+      // "mean" is 2-dim array of CParamSet...
+      // There are 3 CParamset objects: The 2-dim array mean holds vis & home, and cmean holds the 
+      // average ofthe two.
+      public CHittingParamSet cmean =
          new CHittingParamSet(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
       //public CHittingParamSet[] lgMean =
       //   {new CHittingParamSet(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0),
@@ -153,17 +156,17 @@ public class CGame {
       double[] fPitBase = new double[SZ_AB], fSacBunt = new double[SZ_AB];
       public const double fMean0 = 1.00; //Fudge factor for hits
 
-   // Combined parameters -- computed at atbat time.    
-   // These initial values are for testing only!
-      public CHittingParamSet cpara = 
-         new CHittingParamSet (0.250, 0.2, 0.05, 0.4, 0.1, 0.2, 0.55, 0.67, 0.0, 0.0, 0.0, 0.0); 
+      // Combined parameters -- computed at atbat time.    
+      // These initial values are for testing only!
+      public CHittingParamSet cpara =
+         new CHittingParamSet(0.250, 0.2, 0.05, 0.4, 0.1, 0.2, 0.55, 0.67, 0.0, 0.0, 0.0, 0.0);
 
-   // Foelding parameters -- computed at Choose time...
+      // Foelding parameters -- computed at Choose time...
       public CFieldingParamSet fpara = null;
 
-   // game control
-   // ------------
-      public int inn=1, ok=0, eok=0; 
+      // game control
+      // ------------
+      public int inn = 1, ok = 0, eok = 0;
       public int[,] rk = new int[SZ_AB, 3];
       //public int[,] lines = new int[SZ_AB, SZ_LINESCORE];
       public CLineScore lines; //= new CLineScore();
@@ -174,11 +177,15 @@ public class CGame {
       bool newgame = false;
       bool sameguy = false;
       bool homer = false;
-      public int ab, fl;    
-      
+      public int ab, fl;
+
+      public bool Homer { 
+         get { return homer;  }
+         set { homer = value; } 
+      }
 
       public string CurrentBatterName {
-      // ----------------------------------
+         // ----------------------------------
          get {
             return t[ab].bat[t[ab].linup[t[ab].slot]].bname;
          }
@@ -186,31 +193,33 @@ public class CGame {
 
 
       public string CurrentPitcherName {
-      // ----------------------------------
+         // ----------------------------------
          get {
             return t[fl].pit[t[fl].curp].pname;
          }
       }
 
-  
+
       string line1;
-      public PLAY_STATE PlayState = PLAY_STATE.NONE;     
-      bool NoPauseBeforePlay =false; //User sets & clears in menus
+      public PLAY_STATE PlayState = PLAY_STATE.NONE;
+      bool NoPauseBeforePlay = false; //User sets & clears in menus
       string sym = "pk123slcr";
 
-   // #1601.01: Added GetTlr, #37...
+      // #1601.01: Added GetTlr, #37...
       string[] atName ={ "",
-        "Listdef", "DoOne", "Select", "Do", "DItem",  
-        "Say", "Say1", "Adv", "BatDis", "Err", 
-        "Pos", "GPlay", "GPlayS", "Choose", "Same", 
-        "SacBunt",  "SSqueeze",  "Homer", "GRes", "SItem", 
-        "DoOneIx", "CalcTlr", "CalcTlrSteal", "CalcTlrStealHome", "25", 
-        "26", "27", "28", "29", "30", 
-        "Endlistdef", "EndDoOne", "EndSelect", "34", "EndDItem", 
+        "Listdef", "DoOne", "Select", "Do", "DItem",
+        "Say", "Say1", "Adv", "BatDis", "Err",
+        "Pos", "GPlay", "GPlayS", "Choose", "Same",
+        "SacBunt",  "SSqueeze",  "Homer", "GRes", "SItem",
+        "DoOneIx", "CalcTlr", "CalcTlrSteal", "CalcTlrStealHome", "25",
+        "26", "27", "28", "29", "30",
+        "Endlistdef", "EndDoOne", "EndSelect", "34", "EndDItem",
         "EndDoOneIx", "GetTlr"};
-      
+
       string[] aSay;
-      int[,] gres = new int[101,16];  // array[1..100, 0..15] of integer;
+      int[,] gres = new int[101, 16];  // array[1..100, 0..15] of integer;
+
+      public int[,] Gres{ get { return gres; } }
       
    // #1601.01: Added GetTlr, #25, len=2...
       int[] atLen = {0,
@@ -233,6 +242,7 @@ public class CGame {
 
       string[] halfInn = {"Top of ", "Bottom of "};
       CEngine mEng;
+      CSimEngine mSim;
 
 
       /// <summary>
@@ -316,15 +326,15 @@ public class CGame {
       /// This is the event handler for the CEngine's EDoAction event.
       /// </summary>
       /// 
-      private void DoAction (ref int at, int n, string sList, ref int p, string lvl) {
+      private void DoAction (BaseSimAction action) { // ref int at, int n, string sList, ref int p, string lvl) {
       // --------------------------------------------------------------------------
       // This used to be inside the DoList loop!
       // This is the event handler for the EDoAction event.
       // Error handling added. #1706.20
 
-         Debug.WriteLine (lvl + "DoAction(at={0}({1}), n={2}, p={3}", at, atName [at], n, p);
+         Debug.WriteLine ("DoAction(at={0}({1}), n={2}, p={3}", at, atName [at], n, p);
 
-         int a, a0, a1, a2, a3;
+         //int a, a0, a1, a2, a3;
          int choice;
          double r, cum;
          bool done = false;
@@ -340,212 +350,276 @@ public class CGame {
 
             //MessageBox.Show("EHDoAction " + at.ToString() + ", " + sList);
             //TAction at = (TAction)at0;
-            switch ((TAction)at) {
+            switch (action) {
 
-            case TAction.GetTlr:
-               a = CEngine.Decoded (sList [p + 1]);
-               diceRollBatting = cpara.GetTlr ((TLR)a, rn);
-               Debug.WriteLine (
-                  lvl + "  GetTlr: pointInBracket={0:#0.0000}, topLevelResult={1}",
-                  diceRollBatting.pointInBracket, diceRollBatting.topLevelResult);
+            case GetTlrAction act:
+               //a = CEngine.Decoded (sList [p + 1]);
+               //diceRollBatting = cpara.GetTlr ((TLR)a, rn);
+               Debug.WriteLine($"Doing GetTlr: {act.Tlr}");
+               diceRollBatting = cpara.GetTlr ((TLR)act.Tlr, rn);
                break;
 
-            case TAction.CalcTlr:
-               diceRollBatting = cpara.RollTheDice (rn);
-               mEng.DoOneIndex = (int)diceRollBatting.topLevelResult;
-               Debug.WriteLine (
-                  lvl + "  CalcTlr: pointInBracket={0:#0.0000}, topLevelResult={1}",
-                  diceRollBatting.pointInBracket, diceRollBatting.topLevelResult);
-               break;
+            //case CalcTlrAction act:
+            //   diceRollBatting = cpara.RollTheDice (rn);
+            //   mEng.DoOneIndex = (int)diceRollBatting.topLevelResult;
+            //   Debug.WriteLine (
+            //      lvl + "  CalcTlr: pointInBracket={0:#0.0000}, topLevelResult={1}",
+            //      diceRollBatting.pointInBracket, diceRollBatting.topLevelResult);
+            //   break;
 
 
-            case TAction.CalcTlrSteal:
-               diceRollBatting = cpara.RollTheDice_Steal (rn, home: false);
-               mEng.DoOneIndex = (int)diceRollBatting.topLevelResult;
-               Debug.WriteLine (
-                  lvl + "  CalcTlrSteal: pointInBracket={0:#0.0000}, topLevelResult={1}",
-                  diceRollBatting.pointInBracket, diceRollBatting.topLevelResult);
-               break;
+            //case TAction.CalcTlrSteal:
+            //   diceRollBatting = cpara.RollTheDice_Steal (rn, home: false);
+            //   mEng.DoOneIndex = (int)diceRollBatting.topLevelResult;
+            //   Debug.WriteLine (
+            //      lvl + "  CalcTlrSteal: pointInBracket={0:#0.0000}, topLevelResult={1}",
+            //      diceRollBatting.pointInBracket, diceRollBatting.topLevelResult);
+            //   break;
 
-            case TAction.CalcTlrStealHome:
-               diceRollBatting = cpara.RollTheDice_Steal (rn, home: true);
-               mEng.DoOneIndex = (int)diceRollBatting.topLevelResult;
-               Debug.WriteLine (
-                  lvl + "  CalcTlrStealHome: pointInBracket={0:#0.0000}, topLevelResult={1}",
-                  diceRollBatting.pointInBracket, diceRollBatting.topLevelResult);
-               break;
+            //case TAction.CalcTlrStealHome:
+            //   diceRollBatting = cpara.RollTheDice_Steal (rn, home: true);
+            //   mEng.DoOneIndex = (int)diceRollBatting.topLevelResult;
+            //   Debug.WriteLine (
+            //      lvl + "  CalcTlrStealHome: pointInBracket={0:#0.0000}, topLevelResult={1}",
+            //      diceRollBatting.pointInBracket, diceRollBatting.topLevelResult);
+            //   break;
 
-            case TAction.DoOneIx:
-               Debug.WriteLine (lvl + "  at=DoOneIx: n={0}, DoOneIndex={1:#0.0000}", n, mEng.DoOneIndex);
-               while (!done) {
-                  while ((TAction)at != TAction.DItem) {
-                     p += atLen [at];
-                     at = CEngine.Decoded (sList [p]);
-                  }
-                  a0 = CEngine.Decoded (sList [p + 1], sList [p + 2]);
-                  if (a0 == mEng.DoOneIndex) {
-                     done = true;
-                     Debug.WriteLine (lvl + "  Done: p = " + mEng.DoOneIndex);
-                  } else {
-                     p += atLen [(int)TAction.DItem];
-                     at = CEngine.Decoded (sList [p]);
-                     Debug.WriteLine (lvl + "  Not Done: p={0}, at={1}({2})", p, at, atName [at]);
-                  }
-               }
-               break;
+            //case TAction.DoOneIx:
+            //   Debug.WriteLine (lvl + "  at=DoOneIx: n={0}, DoOneIndex={1:#0.0000}", n, mEng.DoOneIndex);
+            //   while (!done) {
+            //      while ((TAction)at != TAction.DItem) {
+            //         p += atLen [at];
+            //         at = CEngine.Decoded (sList [p]);
+            //      }
+            //      a0 = CEngine.Decoded (sList [p + 1], sList [p + 2]);
+            //      if (a0 == mEng.DoOneIndex) {
+            //         done = true;
+            //         Debug.WriteLine (lvl + "  Done: p = " + mEng.DoOneIndex);
+            //      } else {
+            //         p += atLen [(int)TAction.DItem];
+            //         at = CEngine.Decoded (sList [p]);
+            //         Debug.WriteLine (lvl + "  Not Done: p={0}, at={1}({2})", p, at, atName [at]);
+            //      }
+            //   }
+            //   break;
 
-            case TAction.DoOne:
+            case DoOneAction act:
                // Scan for the qualifying DItem...
-               r = rn.NextDouble ();
-               Debug.WriteLine (lvl + "  at=DoOne: n={0}, r={1:#0.0000}", n, r);
+
+               //r = rn.NextDouble ();
+               //Debug.WriteLine ("  at=DoOne: n={0}, r={1:#0.0000}", n, r);
+
+               //cum = 0.0;
+               //done = false;
+               //while (!done) {
+               //   while ((TAction)at != TAction.DItem) {
+               //      p += atLen [at];
+               //      at = CEngine.Decoded (sList [p]);
+               //   }
+               //   a0 = CEngine.Decoded (sList [p + 1], sList [p + 2]);
+
+               //   // ---------------------------------------------------------------------------
+               //   // Stuff reinserted from old version, 1/29*15. 
+               //   // There was a lot of other stuff having to do with TLR, but that's not needed
+               //   // now since we will have <CalcTlr> action to get TLR.
+               //   // ---------------------------------------------------------------------------
+               //   // This section converts the arg, a0, to 'prob'...
+               //   //
+               //   if (a0 <= 1000)
+               //      prob = 0.001 * a0;
+               //   else {
+               //      // This is a numbered parameter.
+               //      // For these, probs are not hard coded in model, they must be 
+               //      // supplied by the client application...
+               //      // i= slot[ab]; j = curp[1-ab];
+               //      switch (a0) {
+               //      case 1001: prob = cpara.h; break;
+               //      case 1002: prob = cpara.b2; break; // double
+               //      case 1003: prob = cpara.b3; break; // triple
+               //      case 1004: prob = cpara.hr; break; // home run
+               //      case 1005: prob = cpara.bb; break; // bb
+               //      case 1006: prob = cpara.so; break; // strike out
+               //      case 1007: prob = cpara.sb; break; // steal (Used in list, "Steal")
+               //      case 1101: prob = cpara.sb - .05; break; // .05 is from model list, "Steal"
+               //      case 1008: prob = cpara.sb / 5; break; // steal home (Used in list, "StealHome")
+               //      case 1102: prob = cpara.sb / 5.0 - .08; break; // .08 is from model list, "StealHome"
+               //      case 1099: prob = 1.0 - cum; break; // was cpara.oth; break; // other N1706.19
+               //      case 1098: prob = 1.0 - (cpara.b2 + cpara.b3 + cpara.hr); break; // single
+               //      }
+               //   }
+               //   //  prob = 0.001 * a0;
+               //   // ----------------------------------------------------- End reinserted stuff
+
+               //   cum += prob;
+               //   if (r <= cum) {
+               //      done = true;
+               //      Debug.WriteLine (lvl + "  Done");
+               //   } else {
+               //      p += atLen [(int)TAction.DItem];
+               //      at = CEngine.Decoded (sList [p]);
+               //      Debug.WriteLine (lvl + "  Not Done: p={0}, at={1}({2})", p, at, atName [at]);
+               //   }
+
+               r = g.rn.NextDouble();
+               Debug.WriteLine($"Doing DoOne: r={r:#0.0000}");
 
                cum = 0.0;
-               done = false;
-               while (!done) {
-                  while ((TAction)at != TAction.DItem) {
-                     p += atLen [at];
-                     at = CEngine.Decoded (sList [p]);
-                  }
-                  a0 = CEngine.Decoded (sList [p + 1], sList [p + 2]);
-
-                  // ---------------------------------------------------------------------------
-                  // Stuff reinserted from old version, 1/29*15. 
-                  // There was a lot of other stuff having to do with TLR, but that's not needed
-                  // now since we will have <CalcTlr> action to get TLR.
-                  // ---------------------------------------------------------------------------
-                  // This section converts the arg, a0, to 'prob'...
-                  //
-                  if (a0 <= 1000)
-                     prob = 0.001 * a0;
-                  else {
-                     // This is a numbered parameter.
+               foreach (DItemAction ditem in act.AList)
+               {
+                  if (ditem.Prob >= 0)
+                     prob = ditem.Prob;
+                  else
+                  {
+                     // This is a negative parameter.
                      // For these, probs are not hard coded in model, they must be 
                      // supplied by the client application...
                      // i= slot[ab]; j = curp[1-ab];
-                     switch (a0) {
-                     case 1001: prob = cpara.h; break;
-                     case 1002: prob = cpara.b2; break; // double
-                     case 1003: prob = cpara.b3; break; // triple
-                     case 1004: prob = cpara.hr; break; // home run
-                     case 1005: prob = cpara.bb; break; // bb
-                     case 1006: prob = cpara.so; break; // strike out
-                     case 1007: prob = cpara.sb; break; // steal (Used in list, "Steal")
-                     case 1101: prob = cpara.sb - .05; break; // .05 is from model list, "Steal"
-                     case 1008: prob = cpara.sb / 5; break; // steal home (Used in list, "StealHome")
-                     case 1102: prob = cpara.sb / 5.0 - .08; break; // .08 is from model list, "StealHome"
-                     case 1099: prob = 1.0 - cum; break; // was cpara.oth; break; // other N1706.19
-                     case 1098: prob = 1.0 - (cpara.b2 + cpara.b3 + cpara.hr); break; // single
-                     }
-                  }
-                  //  prob = 0.001 * a0;
-                  // ----------------------------------------------------- End reinserted stuff
+                     prob = ditem.Prob switch
+                     {
+                        -1.0 => cpara.h,
+                        -2.0 => cpara.b2, // double
+                        -3.0 => cpara.b3,  // triple
+                        -4.0 => cpara.hr,  // home run
+                        -5.0 => cpara.bb,  // bb
+                        -6.0 => cpara.so,  // strike out
+                        -7.0 => cpara.sb,  // steal (Used in list, "Steal")
+                        -101.0 => cpara.sb - .05,  // .05 is from model list, "Steal" --Obs?
+                        -8.0 => cpara.sb / 5,  // steal home (Used in list, "StealHome")
+                        -102.0 => cpara.sb / 5.0 - .08,  // .08 is from model list, "StealHome" --Obs?
+                        -99.0 => 1.0 - cum,  // was cpara.oth; break; // other N1706.19
+                        -98.0 => 1.0 - (cpara.b2 + cpara.b3 + cpara.hr),  // single
+                        _ => ditem.Prob
+                     };
 
-                  cum += prob;
-                  if (r <= cum) {
-                     done = true;
-                     Debug.WriteLine (lvl + "  Done");
-                  } else {
-                     p += atLen [(int)TAction.DItem];
-                     at = CEngine.Decoded (sList [p]);
-                     Debug.WriteLine (lvl + "  Not Done: p={0}, at={1}({2})", p, at, atName [at]);
+                     cum += prob;
+                     if (r <= cum)
+                     {
+                        Debug.Indent();
+                        ditem.DoIt();
+                        Debug.Unindent();
+                        break;
+                     }
+
                   }
+
                }
+
                break;
 
-            case TAction.Do:
+            case DoAction act:
                a0 = CEngine.Decoded (sList [p + 1], sList [p + 2]);
                Debug.WriteLine (lvl + "  at=Do: Will call DoList({0})", a0);
                mEng.DoList (a0, lvl + "  ");
                break;
 
-            case TAction.DItem:
+            case DItemAction act:
                //          Scan for the ending EndDoOne or EndDoOneIx...
-               Debug.WriteLine (lvl + "  at=DItem");
-               while (!((TAction)at == TAction.EndDoOne || (TAction)at == TAction.EndDoOneIx)) {
-                  p = p + atLen [at];
-                  at = CEngine.Decoded (sList [p]);
-               }
+               //Debug.WriteLine (lvl + "  at=DItem");
+               //while (!((TAction)at == TAction.EndDoOne || (TAction)at == TAction.EndDoOneIx)) {
+               //   p = p + atLen [at];
+               //   at = CEngine.Decoded (sList [p]);
+               //}
+
+               // Handle this in the class's DoIt(), since no ref to CGame.
                break;
 
-            case TAction.Say:
-               a0 = CEngine.Decoded (sList [p + 1], sList [p + 2]);
-               Debug.WriteLine (lvl + "  at=Say: a0={0}, {1}", a0, aSay [a0]);
-               Say (aSay [a0]);
+            case SayAction act:
+               //a0 = CEngine.Decoded (sList [p + 1], sList [p + 2]);
+               Debug.WriteLine($"Doing Say: Text={act.Text}");
+               Say (act.Text);
                break;
 
-            case TAction.Say1:
+            case Say1Action act:
                if (ok < 2) {
                   a0 = CEngine.Decoded (sList [p + 1], sList [p + 2]);
-                  Debug.WriteLine (lvl + "  at=Say1: a0={0}, {1}", a0, aSay [a0]);
+                  Debug.WriteLine ("  at=Say1: a0={0}, {1}", a0, aSay [a0]);
                   Say (aSay [a0]);
                }
                break;
 
-            case TAction.Adv:
-               a = CEngine.Decoded (sList [p + 1], sList [p + 2]);
-               a0 = (int)Math.Floor ((double)(a & MASK_4) / 512);
-               a1 = (int)Math.Floor ((double)(a & MASK_3) / 64);
-               a2 = (int)Math.Floor ((double)(a & MASK_2) / 8);
-               a3 = a & MASK_1;
-               Debug.WriteLine (lvl + "  at=Adv: {0}--> Will call Advance({1}, {2}, {3}, {4})", a, a0, a1, a2, a3);
-               Advance (a0, a1, aArg2 [a2], aArg3 [a3]);
+            case AdvAction act:
+               //a = CEngine.Decoded (sList [p + 1], sList [p + 2]);
+               //a0 = (int)Math.Floor ((double)(a & MASK_4) / 512);
+               //a1 = (int)Math.Floor ((double)(a & MASK_3) / 64);
+               //a2 = (int)Math.Floor ((double)(a & MASK_2) / 8);
+               //a3 = a & MASK_1;
+               //Debug.WriteLine (lvl + "  at=Adv: {0}--> Will call Advance({1}, {2}, {3}, {4})", a, a0, a1, a2, a3);
+               //Advance (a0, a1, aArg2 [a2], aArg3 [a3]);
+
+               var a = act.Bases.Split();
+               int a0 = int.Parse(a[0]);
+               int a1 = int.Parse(a[1]);
+               char a2 = a[2][0];
+               char a3 = a[3][0];
+
+               Advance(a0, a1, a2, a3);
                break;
 
-            case TAction.BatDis:
+            case BatDisAction act:
                a = CEngine.Decoded (sList [p + 1]);
                BatDis (a);
-               Debug.WriteLine (lvl + "  at=BatDis({0})", a);
+               Debug.WriteLine (at=BatDis({0})", a);
                break;
 
-            case TAction.Err:
+            case ErrAction act:
                a = CEngine.Decoded (sList [p + 1]);
                err1 (a);
-               Debug.WriteLine (lvl + "  at=Err: {0}", a);
+               Debug.WriteLine ("at=Err: {0}", a);
                break;
 
-            case TAction.Pos:
-               //          The 'Pos...' list adddresses are held in GTAB/gres row 99...
-               posn = SelectList (gres [99, gplay]);
-               Debug.WriteLine (lvl + "  at=Pos--> posn={0}", posn);
+            case PosAction act:
+            // The 'Pos...' list adddresses are held in GTAB/gres row 99...
+               //posn = SelectList (gres [99, gplay]);
+               posn = SelectList(PosListName(gplay));
+               Debug.WriteLine ("Doing PosAction, gplay={gplay}, posn={posn}");
                break;
 
-            case TAction.GPlay:
-               a = CEngine.Decoded (sList [p + 1]);
-               gplay = a;
-               Debug.WriteLine (lvl + "  at=GPlay: {0}--> gplay={1}", a, gplay);
+            case GPlayAction act:
+               //a = CEngine.Decoded (sList [p + 1]);
+               gplay = act.Play;
+               Debug.WriteLine ("  at=GPlay: {0}--> gplay={1}", a, gplay);
                break;
 
-            case TAction.GPlayS:
-               a = CEngine.Decoded (sList [p + 1], sList [p + 2]);
-               gplay = SelectList (a);
-               Debug.WriteLine (lvl + "  at=GPlayS: {0}--> gplay={1}", a, gplay);
+            case GPlaysAction act:
+               //a = CEngine.Decoded (sList [p + 1], sList [p + 2]);
+               gplay = SelectList (act.Play);
+               Debug.WriteLine ("  at=GPlayS: {0}--> gplay={1}", a, gplay);
                break;
 
-            case TAction.Choose:
-               a0 = CEngine.Decoded (sList [p + 1]);
-               a1 = CEngine.Decoded (sList [p + 2]);
-               a2 = CEngine.Decoded (sList [p + 3]);
-               choice = choose (a0, a1, a2);
-               a = gres [choice, onsit ()];
-               Debug.WriteLine (lvl + "  at=Choose ({0}, {1}, {2})--> Will call DoList({3})", a0, a1, a2, a);
-               mEng.DoList (a, lvl + "  ");
+            case ChooseAction act:
+               //a0 = CEngine.Decoded (sList [p + 1]);
+               //a1 = CEngine.Decoded (sList [p + 2]);
+               //a2 = CEngine.Decoded (sList [p + 3]);
+               //choice = choose (a0, a1, a2);
+               //a = gres [choice, onsit];
+               //Debug.WriteLine (lvl + "  at=Choose ({0}, {1}, {2})--> Will call DoList({3})", a0, a1, a2, a);
+               //mEng.DoList (a, lvl + "  ");
+
+               Debug.WriteLine ($" Doing Choose {act.Choices}");
+               int[] arr = act.Choices.Split().Select(e => int.Parse(e)).ToArray();
+               choice = choose (arr[0], arr[1], arr[2]);
+               int Gres = gres [choice, onsit];
+               mSim.DoNamedList ("n" + Gres);
                break;
 
-            case TAction.Same: sameguy = true; break;
-
-            case TAction.SacBunt: Debug.WriteLine (lvl + "  at=SacBunt"); break;
-            case TAction.SSqueeze: Debug.WriteLine (lvl + "  at=SSqueeze"); break;
-            case TAction.Homer: homer = true; Debug.WriteLine (lvl + "  at=Homer"); break;
-
-            case TAction.GRes:
-               a0 = CEngine.Decoded (sList [p + 1], sList [p + 2]);
-               genericResult = a0;
-               a = gres [a0, onsit ()];
-               Debug.WriteLine (lvl + "  at=GRes: {0}, {1}--> Will call DoList({2})", a0, onsit (), a);
-               mEng.DoList (a, lvl + "  ");
+            case SameAction: 
+               sameguy = true; 
                break;
 
-            case TAction.SItem:
+            case SacBuntAction act: Debug.WriteLine ("  at=SacBunt"); break;
+            case SSqueezeAction act: Debug.WriteLine ("  at=SSqueeze"); break;
+            case HomerAction: homer = true; Debug.WriteLine ("  at=Homer"); break;
+
+            case GresAction act:
+               //a0 = CEngine.Decoded (sList [p + 1], sList [p + 2]); 
+               //genericResult = a0;
+               //mEng.DoList (num);
+               Debug.WriteLine ($"Doing GresAction: {act.Res}, onsit={onsit}");
+               string num = "n" + gres[act.Res, onsit].ToString();
+               mSim.DoNamedList(num);
+               break;
+
+            case SItemAction act:
             // Should not happen here
                throw new Exception ("Did not expect TAction.SItem in DoList");
             }
@@ -566,19 +640,38 @@ public class CGame {
       public string gname(int p) {
       // ---------------------------------}
          switch (p) {
-            default: return "Ball hit";
+            default: return "Ball hit"; 
             case 1: return "Pop up";
             case 2: return "Foul pop";
-            case 3: return "Grounder";
+            case 3: return "Grounder"; 
             case 4: return "Fly ball";
             case 5: return "Line drive";
             case 6: return "Line drive";
             case 7: return "Long fly ball";
          }
       }
+
+
+      public string PosListName(int play) {
+      
+      // These names must be NamedList names in the model.
+      // This converts a GPlay # to a named list name for
+      // (randomly) computing a position # (1..9).
+
+         return play switch {
+            1 => "PosPopUp",
+            2 => "PosFoulPop",
+            3 => "PosGrounder",
+            4 => "PosFlyBall",
+            5 => "PosLDtoIF",
+            6 => "PosLDtoOF",
+            7 => "PosLongFly"
+         }
+
+      }
       
       
-      private int choose(int nGood, int nBad, int p) {
+      internal int choose(int nGood, int nBad, int p) {
       // ---------------------------------------------------------------
       // n1 is the favorable result (for fielder) to  n2 unfavorable.
       // p is position (1..9)
@@ -623,28 +716,31 @@ public class CGame {
       }      
 
 
-      private int onsit() {
-      // ---------------------------------------------
-         int o= 1;
-         if (r[1].ix > 0) o+= 1;
-         if (r[2].ix > 0) o+= 2;
-         if (r[3].ix > 0) o+= 4;
-         if (o==5) o= 4; else if (o==4) o= 5;
-         if (ok==2 && o>1) o+= 7;
-         return o;
+      public int onsit { 
+      // -------------------------------------------------
+         get {
+            int o = 1;
+            if (r[1].ix > 0) o += 1;
+            if (r[2].ix > 0) o += 2;
+            if (r[3].ix > 0) o += 4;
+            if (o == 5) o = 4; else if (o == 4) o = 5;
+            if (ok == 2 && o > 1) o += 7;
+            return o;
+         }
       }
       
       
-      private int onsit2() {
-      // ---------------------------------------------
-      // This version of onsit ignores outs and just returns
-      // combination of 1, 2, and 4.
-
-         int o= 0;
-         if (r[1].ix > 0) o+= 1;
-         if (r[2].ix > 0) o+= 2;
-         if (r[3].ix > 0) o+= 4;
-         return o;
+      public int onsit2 {
+         // ---------------------------------------------
+         // This version of onsit ignores outs and just returns
+         // combination of 1, 2, and 4.
+         get {
+            int o = 0;
+            if (r[1].ix > 0) o += 1;
+            if (r[2].ix > 0) o += 2;
+            if (r[3].ix > 0) o += 4;
+            return o;
+         }
       }
 
 
@@ -720,7 +816,7 @@ public class CGame {
 
       }
 
-      private int pick(int n1, int n2, int r0) {
+      public int pick(int n1, int n2, int r0) {
       // ---------------------------------------------
          int r;
          r = (int)Math.Round(1000.0 * rn.NextDouble());  
@@ -728,7 +824,7 @@ public class CGame {
       }
 
 
-      private int piv(int posn) {
+      public int piv(int posn) {
       // ----------------------------------
          switch (posn) {
             case 6: return 4;
@@ -741,7 +837,7 @@ public class CGame {
       }   
          
          
-      private void Say(string line1) {
+      public void Say(string line1) {
       // ------------------------------
 
          string sym, exp1 = "", line;
@@ -931,7 +1027,7 @@ public class CGame {
       }
 
 
-      private void err1(int p) {
+      public void err1(int p) {
    // -------------------------
       //MessageBox.Show("err1 " + p.ToString());
       po = posn;
@@ -941,7 +1037,7 @@ public class CGame {
       }
 
 
-      private void BatDis(int n) {
+      public void BatDis(int n) {
       //--------------------------------------------------------
       // adv is resp for runner outs do begin  batdis for batter
       // outs, except if batter is safe then out extending,
@@ -1024,54 +1120,39 @@ public class CGame {
     
       }
         
-      /// <summary>  
-      /// The arg, n, should point to a List that has a single action of
-      /// type 'Select'. It scans the 'SItem' items in it, and returns the
-      /// 'res' paramter of the chosen item. This is called separately
-      /// from DoList by the client app.
-      /// </summary>
-      ///  
-      private int SelectList(int n) { 
-      // -------------------------------------------------------------- 
-         //MessageBox.Show("SelectList " + n.ToString()); 
-         //return 0;
+      public int SelectList(string listName) {
+      // -----------------------------------------------------------------
+      // Task: convert a Named List, listName, to a corresponding int. 
+      // 'listNme' is the name of a Select action in the model, eg: 'GPlay3B'.
+      // The returned in is (usually) a position for that play.
 
-         double cum = 0.0, a1;
-         int a2, p=0; //Was 1 in Delphi;
-         string sList = mEng.aActions[n];
-         TAction at = (TAction)CEngine.Decoded(sList[0]);
+         double cum = 0.0;
+         BaseSimAction act = mSim.Model[listName][0];
 
-      // The arg, n, to SelectList should have a singlr 'Select' Action...
-         if (at != TAction.Select) {
-            throw new Exception ("Expected atSelect in SelectList");
+         if (act is not SelectAction act1) {
+            throw new Exception ($"Expected SelectAction in SelectList({listName})");
          }
-
          double r = rn.NextDouble();
          int ctr = 0;
-         while (true) {
-            ctr++;
-            p += atLen[(int)at];
-            at = (TAction)CEngine.Decoded(sList[p]);
-            if (at != TAction.SItem) {
-               throw new Exception ("Expected atSItem in SelectList");
-               }
-            else {
-               a1 = 0.001*CEngine.Decoded(sList[p+1], sList[p+2]);
-               cum += a1;
-               if (r <= cum) {
-                  a2 = CEngine.Decoded(sList[p+3]); 
-                  return a2; //Normal return point
-               }
+         foreach (BaseSimAction item in act1.AList) {
+            if (item is not SItemAction item1) {
+               throw new Exception($"Expected SItemAction in SelectList({listName})");
             }
+            cum += item1.Prob;
+            if (r <= cum) {
+               return item1.Res; //Normal return point
+            }
+            ctr++;
             if (ctr > 1000) {
-               throw new Exception ("Error: Infinate loop in SelectList.");
+               throw new Exception ($"Error: Infinate loop in SelectList({listName})");
             }   
          }
+         return 0;
       
       }
       
          
-      private void Advance(int rnr, int base0, char ue, char bi) {
+      public void Advance(int rnr, int base0, char ue, char bi) {
       // ---------------------------------------------------------
          int n = r[rnr].ix;
          if (ok > 2) return;
@@ -1137,7 +1218,7 @@ public class CGame {
       string nutshell() {
       // --------------------------------------------------------------
          string s = "";
-         int o = onsit();
+         int o = onsit;
          o -= o <= 8 ? 1 : 8;
          if (o==0 && ok==0) 
             s = halfInn[ab] + inn.ToString() + ordSuffix(inn);
@@ -1311,7 +1392,7 @@ public class CGame {
       }
       
 
-      public void AdvSlot() {
+      internal void AdvSlot() {
       // --------------------------------------------------------------
       // Advance slot...
          if (PlayState != PLAY_STATE.START) {  
@@ -1393,7 +1474,7 @@ public class CGame {
       /// It needs to have CGame's specialPlay set.
       /// </remarks>
       /// 
-      public void AtBat() {
+      internal void AtBat() {
 
          int listIx, col = 1;
          if (specialPlay==SPECIAL_PLAY.Steal && r[1].ix==0 && r[2].ix==0 && r[3].ix==0) {
@@ -1407,27 +1488,43 @@ public class CGame {
             return;
          }
 
-      // Translate specialPlay into listIx. 
-      // listIx is the list index that will be DoList'ed.
+         // Translate specialPlay into listIx. 
+         // listIx is the list index that will be DoList'ed.
+         //switch (specialPlay) {
+         //   case SPECIAL_PLAY.AtBat: 
+         //      listIx = 1; break;
+         //   case SPECIAL_PLAY.Steal: 
+         //      if (r[3].ix == 0) listIx = gres[99,8]; else listIx = gres[99,9]; break;
+         //   case SPECIAL_PLAY.Bunt: 
+         //      if (r[3].ix == 0) listIx = gres[99,10]; else listIx = gres[99,11]; break;
+         //   case SPECIAL_PLAY.IP: 
+         //      listIx = gres[99,12]; break;
+         //   default: 
+         //      listIx = 1; break;
+         //}
+
+         string listName;
          switch (specialPlay) {
-            case SPECIAL_PLAY.AtBat: 
-               listIx = 1; break;
-            case SPECIAL_PLAY.Steal: 
-               if (r[3].ix == 0) listIx = gres[99,8]; else listIx = gres[99,9]; break;
-            case SPECIAL_PLAY.Bunt: 
-               if (r[3].ix == 0) listIx = gres[99,10]; else listIx = gres[99,11]; break;
-            case SPECIAL_PLAY.IP: 
-               listIx = gres[99,12]; break;
-            default: 
-               listIx = 1; break;
+            case SPECIAL_PLAY.AtBat:
+               listName = "AtBat"; break;
+            case SPECIAL_PLAY.Steal:
+               listName = (r[3].ix == 0) ? "Steal" : "StealHome"; break;
+            case SPECIAL_PLAY.Bunt:
+               listName = (r[3].ix == 0) ? "SacBunt": "SSqueeze"; break;
+            case SPECIAL_PLAY.IP:
+               listName = "Walk"; break;
+            default:
+               listName = "AtBat"; break;
          }
+
 
          //new BcxbLib.CAtBat().AtBat(specialPlay)
          Debug.WriteLine("--------------------------------------");
          Debug.WriteLine("DoList(ix=" + listIx.ToString() + ")");
          scoringPlay = false;
-         mEng.DoList(listIx, "");
-         if (listIx == 1) {
+         //mEng.DoList(listIx, "");
+         mSim.DoNamedList(listName);
+         if (listName == "AtBat" {
             EPlaceDicePointer?.Invoke(diceRollBatting, true);
          }
 

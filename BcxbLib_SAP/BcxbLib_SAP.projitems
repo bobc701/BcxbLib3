@@ -18,6 +18,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)CParamSet.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CTeam.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HelperClasses.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SimEngine\BaseAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SimEngine\CModelBldr.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SimEngine\CSimEngine.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SimEngine\FileHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SimEngine\GameActions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Comments\Comments.txt" />

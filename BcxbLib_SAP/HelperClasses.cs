@@ -64,6 +64,7 @@
       EndDItem = 35,
       EndDoOne = 32,
       EndSelect = 33,
+      Comment = 34, //new
       EndDoOneIx = 36,
    };
 
