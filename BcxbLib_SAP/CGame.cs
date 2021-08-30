@@ -179,15 +179,6 @@ namespace BCX.BCXB {
       bool homer = false;
       public int ab, fl;
 
-      public bool Homer { 
-         get { return homer; }          
-         set { homer = value; } 
-      }
-      public bool Sameguy {
-         get { return sameguy; }
-         set { sameguy = value; }
-      }
-
       public string CurrentBatterName {
          // ----------------------------------
          get {
@@ -306,9 +297,11 @@ namespace BCX.BCXB {
          string jsonString1 = FileHandler.GetTextFileOnDisk("model1.json");
          string jsonString2 = FileHandler.GetTextFileOnDisk("model2.json");
 
+         //string jsonString1 = FileHandler.GetTextFileOnDisk("tree5.json");
+         //string jsonString2 = FileHandler.GetTextFileOnDisk("al5.json");
 
-         CModelBldr.LoadModel(jsonString1, g, mSim);
-         CModelBldr.LoadModel(jsonString2, g, mSim );
+         CModelBldr.LoadModel(jsonString1, mSim);
+         CModelBldr.LoadModel(jsonString2, mSim );
 
       }
 
@@ -618,7 +611,7 @@ namespace BCX.BCXB {
                break;
 
             case SameAction: 
-               this.Sameguy = true; 
+               sameguy = true; 
                break;
 
             //Note: These are just list names, not actions!...
@@ -627,7 +620,7 @@ namespace BCX.BCXB {
             
             case HomerAction: 
                Debug.WriteLine ("Doing Homer"); 
-               this.Homer = true; 
+               homer = true; 
                break;
 
             case GresAction act:
@@ -1541,8 +1534,8 @@ namespace BCX.BCXB {
 
 
          //new BcxbLib.CAtBat().AtBat(specialPlay)
-         Debug.WriteLine("--------------------------------------");
-         Debug.WriteLine("DoList(ix=" + listIx.ToString() + ")");
+         Debug.WriteLine("-----------------------------------------------------------");
+         Debug.WriteLine("In AtBat()");
          scoringPlay = false;
          //mEng.DoList(listIx, "");
          mSim.DoNamedList(listName);

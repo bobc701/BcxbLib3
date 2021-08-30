@@ -11,7 +11,7 @@ namespace SimEngine
    public class CModelBldr 
    {
 
-      public static void LoadModel(string jsonString, CGame gm, CSimEngine sim)
+      public static void LoadModel(string jsonString, CSimEngine sim)
       {
          // This loads a model from a json string into an existing model, 'model'.
          // Caller must specify the model as an arg.
@@ -30,7 +30,7 @@ namespace SimEngine
                {
                   string tag = jNamedList[0].GetString();
                   JsonElement jActionList = jNamedList[1];
-                  List<BaseSimAction> list1 = BldActionList(jActionList, gm, sim);
+                  List<BaseSimAction> list1 = BldActionList(jActionList, sim);
                   sim.Model.Add(tag, list1);
                }
             }
@@ -45,7 +45,7 @@ namespace SimEngine
       }
 
 
-      public static List<BaseSimAction> BldActionList(JsonElement jsonList, CGame gm, CSimEngine sim)
+      public static List<BaseSimAction> BldActionList(JsonElement jsonList, CSimEngine sim)
       {
          List<BaseSimAction> list1 = new();
          BaseSimAction act = null;
@@ -58,13 +58,13 @@ namespace SimEngine
 
                case "DoOne":
                   //act = new DoOneAction(jAction, Gm1);
-                  alist = BldActionList(jAction[1], gm, sim);
-                  act = new DoOneAction(alist, gm);
+                  alist = BldActionList(jAction[1], sim);
+                  act = new DoOneAction(alist, sim);
                   break;
                case "DItem":
                   double prob = jAction[1].GetDouble();
-                  alist = BldActionList(jAction[2], gm, sim);
-                  act = new DItemAction(prob, alist, gm);
+                  alist = BldActionList(jAction[2], sim);
+                  act = new DItemAction(prob, alist, sim);
                   break;
                case "Do":
                   string listIDs = jAction[1].GetString();
@@ -72,20 +72,20 @@ namespace SimEngine
                   break;
                case "GetTlr":
                   int tlr = jAction[1].GetInt32();
-                  act = new GetTlrAction(tlr, gm);
+                  act = new GetTlrAction(tlr, sim);
                   break;
                case "Gres":
                   int gres = jAction[1].GetInt32();
-                  act = new GresAction(gres, gm, sim);
+                  act = new GresAction(gres, sim);
                   break;
                case "Select":
-                  alist = BldActionList(jAction[1], gm, sim);
-                  act = new SelectAction(alist, gm, sim);
+                  alist = BldActionList(jAction[1], sim);
+                  act = new SelectAction(alist, sim);
                   break;
                case "SItem":
                   prob = jAction[1].GetDouble();
                   int res = jAction[2].GetInt32();
-                  act = new SItemAction(prob, res, gm);
+                  act = new SItemAction(prob, res, sim);
                   break;
                case "Comment":
                   string text = jAction[1].GetString();
@@ -93,47 +93,49 @@ namespace SimEngine
                   break;
                case "BatDis":
                   int disp = jAction[1].GetInt32();
-                  act = new BatDisAction(disp, gm);
+                  act = new BatDisAction(disp, sim);
                   break;
                case "Say":
                   text = jAction[1].GetString();
-                  act = new SayAction(text, gm);
+                  act = new SayAction(text, sim);
                   break;
                case "Say1":
                   text = jAction[1].GetString();
-                  act = new SayAction(text, gm);
+                  act = new SayAction(text, sim);
                   break;
                case "Adv":
                   string bases = jAction[1].GetString();
                   act = new AdvAction(bases, sim);
                   break;
+               case "Choose":
+                  string choices = jAction[1].GetString();
+                  act = new ChooseAction(choices, sim);
+                  break;
                case "Err":
                   int pos = jAction[1].GetInt32();
-                  act = new ErrAction(pos, gm);
+                  act = new ErrAction(pos, sim);
                   break;
                case "Homer":
-                  act = new HomerAction(gm);
+                  act = new HomerAction(sim);
                   break;
                case "Same":
-                  act = new SameAction(gm);
+                  act = new SameAction(sim);
                   break;
                case "GPlay":
                   int n = jAction[1].GetInt32();
-                  act = new GPlayAction(n, gm);
+                  act = new GPlayAction(n, sim);
+                  break;
+               case "GPlays":
+                  string s = jAction[1].GetString();
+                  act = new GPlaysAction(s, sim);
                   break;
                case "Pos":
-                  act = new PosAction(gm, sim);
-                  break;
-               case "SacBunt":
-                  act = new SacBuntAction(gm);
-                  break;
-               case "Squeeze":
-                  act = new SqueezeAction(gm);
+                  act = new PosAction(sim);
                   break;
                default:
                   break;
             }
-            if (act != null) list1.Add(act);
+            if (act is not null) list1.Add(act);
          }
 
          return list1;

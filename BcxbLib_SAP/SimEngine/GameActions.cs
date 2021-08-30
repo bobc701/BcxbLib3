@@ -49,20 +49,19 @@ namespace SimEngine
    public class AdvAction : BaseSimAction
    {
       public string Bases { get; set; }
-      private readonly CSimEngine Sim;
 
 
       public AdvAction(string bases, CSimEngine sim)
       {
          this.AType = TAction.Adv;
          this.Bases = bases;
-         this.Sim = sim;
+         this.mSim = sim;
       }
 
       public override int DoIt()
       {
       // Handle this actionin CGme...
-         Sim.DoAction(this);
+         mSim.DoAction(this);
          return 0;
       }
 
@@ -78,7 +77,6 @@ namespace SimEngine
    public class BatDisAction : BaseSimAction
    {
       public int Disp { get; set; }
-      private CSimEngine mSim { get; }
 
       public BatDisAction(int disp, CSimEngine sim) 
       {
@@ -104,20 +102,19 @@ namespace SimEngine
    public class ChooseAction : BaseSimAction
    {
       public string Choices { get; set; }
-      private readonly CSimEngine Sim;
 
 
       public ChooseAction(string choices, CSimEngine sim)
       {
          this.AType = TAction.Choose;
          this.Choices = choices;
-         this.Sim = sim;
+         this.mSim = sim;
       }
 
       public override int DoIt()
       {
       // Handle this action in CGame...
-         Sim.DoAction(this);
+         mSim.DoAction(this);
          return 0;
       }
 
@@ -157,17 +154,15 @@ namespace SimEngine
    {
       public double Prob { get; set; }
       public List<BaseSimAction> AList { get; set; }
-      private readonly CGame g;
 
-      public DItemAction(double prob, List<BaseSimAction> alist, CGame game)
+      public DItemAction(double prob, List<BaseSimAction> alist, CSimEngine sim)
       {
          this.AType = TAction.DItem;
          this.Prob = prob;
-         this.g = game;
+         this.mSim = sim;
          this.AList = alist;
 
       }
-
 
       public override int DoIt()
       {
@@ -177,7 +172,6 @@ namespace SimEngine
             act.DoIt();
          return 0;
       }
-
 
       public override void PrintIt()
       {
@@ -195,11 +189,11 @@ namespace SimEngine
       public string ListIDs { get; set; }
       private CSimEngine Model { get; set; } 
 
-      public DoAction(string listIDs, CSimEngine model)
+      public DoAction(string listIDs, CSimEngine sim)
       {
          this.AType = TAction.Do;
          this.ListIDs = listIDs;
-         this.Model = model;
+         this.mSim = sim;
       }
 
       public override int DoIt()
@@ -209,7 +203,7 @@ namespace SimEngine
          string[] a = ListIDs.Split(',').Select(e => e.Trim()).ToArray();
          foreach (string a1 in a) {
             Debug.Indent();
-            this.Model.DoNamedList(a1);
+            this.mSim.DoNamedList(a1);
             Debug.Unindent();
          }
          return 0;
@@ -226,7 +220,6 @@ namespace SimEngine
    public class DoOneAction : BaseSimAction
    {
       public List<BaseSimAction> AList { get; set; }
-      private readonly CSimEngine mSim;
 
       public DoOneAction(List<BaseSimAction> alist, CSimEngine sim) 
       {
@@ -256,7 +249,6 @@ namespace SimEngine
    public class ErrAction : BaseSimAction
    {
       public int Pos { get; set; }
-      private CSimEngine mSim;
 
       public ErrAction(int pos, CSimEngine sim) {
          this.AType = TAction.Err;
@@ -280,22 +272,18 @@ namespace SimEngine
    public class GetTlrAction : BaseSimAction 
    {
       public int Tlr { get; set; }
-      private readonly CGame g;
 
-      public GetTlrAction(int tlr, CGame game) 
+      public GetTlrAction(int tlr, CSimEngine sim) 
       {
          this.AType = TAction.GetTlr;
          this.Tlr = tlr;
-         this.g = game;
+         this.mSim = sim;
       }
 
       public override int DoIt()
       {
-         g.diceRollBatting = g.cpara.GetTlr((TLR)Tlr, g.rn);
-         Debug.WriteLine(
-            $@"GetTlr: 
-               pointInBracket={g.diceRollBatting.pointInBracket:#0.0000}, 
-               topLevelResult={g.diceRollBatting.topLevelResult}");
+         // Handle this action in client
+         mSim.DoAction(this);
          return 0;
       }
 
@@ -310,7 +298,6 @@ namespace SimEngine
    public class GPlayAction : BaseSimAction
    {  
       public int PlayNum { get; set; }
-      private readonly CSimEngine mSim;
 
       public GPlayAction(int n, CSimEngine sim)
       {
@@ -321,12 +308,7 @@ namespace SimEngine
 
       public override int DoIt()
       {
-         //Debug.WriteLine($"Doing Gplay: {this.Play}");
-         //g.Gplay = Play;
-         ////g.BatDis(Disp); //TODO: In BcxbLib, make public
-         ///
-
-         // Handle this in CGame...
+      // Handle this in CGame...
          mSim.DoAction(this);
          return 0;
       }
@@ -344,7 +326,6 @@ namespace SimEngine
    {
    // This is string version of GPlay
       public string PlayName { get; set; }
-      private CSimEngine mSim { get; set; }
 
       public GPlaysAction(string s, CSimEngine sim)
       {
@@ -372,7 +353,6 @@ namespace SimEngine
    public class GresAction : BaseSimAction
    {
       public int Res { get; set; }
-      private readonly CSimEngine mSim;
 
       public GresAction(int res, CSimEngine sim)
       {
@@ -399,7 +379,6 @@ namespace SimEngine
 
    public class HomerAction : BaseSimAction
    {
-      private readonly CSimEngine mSim;
 
       public HomerAction(CSimEngine sim)
       {
@@ -424,9 +403,6 @@ namespace SimEngine
 
    public class PosAction : BaseSimAction
    {
-      private readonly CGame g;
-      private readonly CSimEngine mSim;
-
       public PosAction(CSimEngine sim) 
       {
          this.AType = TAction.Pos;
@@ -469,17 +445,15 @@ namespace SimEngine
 
    public class SameAction : BaseSimAction
    {
-      private CGame g;
-
-      public SameAction(CGame game)
+      public SameAction(CSimEngine sim)
       {
          this.AType = TAction.Same;
-         this.g = game;
       }
 
       public override int DoIt()
       {
-         Console.WriteLine("Doing DoOne");
+      // Handle this in client (eg, CGame)...
+         mSim.DoAction(this);
          return 0;
       }
 
@@ -496,7 +470,6 @@ namespace SimEngine
    {
       //public int SayIx { get; } //May want this in future
       public string Text { get; }
-      public CSimEngine mSim { get; }
 
       public SayAction(string text, CSimEngine sim)
       {
@@ -562,30 +535,21 @@ namespace SimEngine
    public class SelectAction : BaseSimAction
    {
       public List<BaseSimAction> AList { get; set; }
-      private CGame g;
-      private CSimEngine s;
 
-      public SelectAction(List<BaseSimAction> alist, CGame game, CSimEngine sim)
+      public SelectAction(List<BaseSimAction> alist, CSimEngine sim)
       {
          this.AType = TAction.Select;
          this.AList = alist;
-         this.g = game;
-         this.s = sim;
+         this.mSim = sim;
 
       }
 
       public override int DoIt()
       {
-         Console.WriteLine("Doing DoOne");
-         double r = g.rn.NextDouble();
-         double cum = 0.0;
-         foreach (BaseSimAction item in AList) {
-            if (item is not SItemAction)
-               throw new Exception("Expected SItemAction in SelectAction.DoIt");
-            if (r <= (cum += ((SItemAction)item).Prob)) 
-               return ((SItemAction)item).Res;
-         }
-         throw new Exception($"Result not found in SelectAction.DoIt");
+         // Select actions are not called via the model. 
+         // Rather they are accessed in code through the ListName,
+         // And the code returns an int.
+         return 0;
       }
 
       public override void PrintIt()
@@ -603,12 +567,11 @@ namespace SimEngine
       public int Res { get; set; }
       private CGame g;
 
-      public SItemAction(double prob, int res, CGame game)
+      public SItemAction(double prob, int res, CSimEngine sim)
       {
          this.AType = TAction.SItem;
          this.Prob = prob;
          this.Res = res;
-         this.g = game;
       }
 
       public override int DoIt()

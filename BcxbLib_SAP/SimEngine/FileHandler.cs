@@ -18,7 +18,7 @@ namespace SimEngine
          // FileName should include folders separated by '.'.
          // EG: Model.cfeng1 <-- Note: Case sensitive!
          // --------------------------------------------------------------------------------
-         Assembly assembly = typeof(ListDefDemo.Program).GetTypeInfo().Assembly;
+         //Assembly assembly = typeof(ListDefDemo.Program).GetTypeInfo().Assembly;
 
          string path = $"ListDef.Resources.{jsonFilename}";
 
