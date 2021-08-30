@@ -49,8 +49,8 @@ namespace BCX.BCXB {
       //public double pointInBracket; // Percent didtance into the top level bracket
       public CDiceRoll diceRollBatting;    // The top level result, 1..10, was 1..7.
       public CDiceRoll diceRollFielding; // TopLevelResult = 1 (TLR.GoodPlay)..2 (TLR.BadPlay)
-      public int genericResult; // The index, 1..100, in grid, GTab.
-                                //public IGameController gc;
+      //public int genericResult; // The index, 1..100, in grid, GTab.
+      //                          //public IGameController gc;
 
       // These are the screen updating events...
       public event Action<int> EShowResults;
@@ -180,8 +180,12 @@ namespace BCX.BCXB {
       public int ab, fl;
 
       public bool Homer { 
-         get { return homer;  }
+         get { return homer; }          
          set { homer = value; } 
+      }
+      public bool Sameguy {
+         get { return sameguy; }
+         set { sameguy = value; }
       }
 
       public string CurrentBatterName {
@@ -280,7 +284,7 @@ namespace BCX.BCXB {
       // Instantiate the engine object, mEng,  
          var fEngine = fileAccess.GetModelFile("cfeng1");
          mEng = new CEngine(fEngine);
-         mEng.EDoAction += new DDoAction(DoAction);
+        // mEng.EDoAction += new DDoAction(DoAction);
          mEng.EEngineError += delegate (int n, string list) {
             ENotifyUser?.Invoke("Exception in DoList in CEngine: " + n + ": " + list);
          };
@@ -288,6 +292,23 @@ namespace BCX.BCXB {
          mEng.atLen = atLen;
       // Read the model files (CFEng1 and CFEng3)...
          ReadModel();
+
+      }
+
+
+      public void SetupSimModel() 
+      {
+         // This replaces the old SetupEngineAndModel whic
+         // instantiated CEngine.
+
+         mSim = new CSimEngine();
+         mSim.RaiseHandler += DoSimAction;
+         string jsonString1 = FileHandler.GetTextFileOnDisk("model1.json");
+         string jsonString2 = FileHandler.GetTextFileOnDisk("model2.json");
+
+
+         CModelBldr.LoadModel(jsonString1, g, mSim);
+         CModelBldr.LoadModel(jsonString2, g, mSim );
 
       }
 
@@ -326,25 +347,15 @@ namespace BCX.BCXB {
       /// This is the event handler for the CEngine's EDoAction event.
       /// </summary>
       /// 
-      private void DoAction (BaseSimAction action) { // ref int at, int n, string sList, ref int p, string lvl) {
+      private void DoSimAction (BaseSimAction action) { // ref int at, int n, string sList, ref int p, string lvl) {
       // --------------------------------------------------------------------------
       // This used to be inside the DoList loop!
       // This is the event handler for the EDoAction event.
       // Error handling added. #1706.20
 
-         Debug.WriteLine ("DoAction(at={0}({1}), n={2}, p={3}", at, atName [at], n, p);
-
-         //int a, a0, a1, a2, a3;
          int choice;
          double r, cum;
-         bool done = false;
          double prob = 0.0;
-
-         // These masks fetch the right-most 3-bit numbers of a numeric value...
-         const int MASK_1 = 7;
-         const int MASK_2 = 56;
-         const int MASK_3 = 448;
-         const int MASK_4 = 3584;
 
          try {
 
@@ -460,7 +471,7 @@ namespace BCX.BCXB {
                //      Debug.WriteLine (lvl + "  Not Done: p={0}, at={1}({2})", p, at, atName [at]);
                //   }
 
-               r = g.rn.NextDouble();
+               r = rn.NextDouble();
                Debug.WriteLine($"Doing DoOne: r={r:#0.0000}");
 
                cum = 0.0;
@@ -507,10 +518,12 @@ namespace BCX.BCXB {
                break;
 
             case DoAction act:
-               a0 = CEngine.Decoded (sList [p + 1], sList [p + 2]);
-               Debug.WriteLine (lvl + "  at=Do: Will call DoList({0})", a0);
-               mEng.DoList (a0, lvl + "  ");
-               break;
+                  //a0 = CEngine.Decoded (sList [p + 1], sList [p + 2]);
+                  //Debug.WriteLine (lvl + "  at=Do: Will call DoList({0})", a0);
+                  //mEng.DoList (a0, lvl + "  ");
+
+                  // THandle this in the class's DoIt(), since no ref to CGame.
+                  break;
 
             case DItemAction act:
                //          Scan for the ending EndDoOne or EndDoOneIx...
@@ -531,9 +544,10 @@ namespace BCX.BCXB {
 
             case Say1Action act:
                if (ok < 2) {
-                  a0 = CEngine.Decoded (sList [p + 1], sList [p + 2]);
-                  Debug.WriteLine ("  at=Say1: a0={0}, {1}", a0, aSay [a0]);
-                  Say (aSay [a0]);
+                  //a0 = CEngine.Decoded (sList [p + 1], sList [p + 2]);
+                  //Debug.WriteLine ("  at=Say1: a0={0}, {1}", a0, aSay [a0]);
+                  Debug.WriteLine($"Doing Say1: Text={act.Text}");
+                  Say(act.Text);
                }
                break;
 
@@ -546,6 +560,7 @@ namespace BCX.BCXB {
                //Debug.WriteLine (lvl + "  at=Adv: {0}--> Will call Advance({1}, {2}, {3}, {4})", a, a0, a1, a2, a3);
                //Advance (a0, a1, aArg2 [a2], aArg3 [a3]);
 
+               Debug.WriteLine($"Doing Adv: {act.Bases}");
                var a = act.Bases.Split();
                int a0 = int.Parse(a[0]);
                int a1 = int.Parse(a[1]);
@@ -556,34 +571,34 @@ namespace BCX.BCXB {
                break;
 
             case BatDisAction act:
-               a = CEngine.Decoded (sList [p + 1]);
-               BatDis (a);
-               Debug.WriteLine (at=BatDis({0})", a);
+               //a = CEngine.Decoded (sList [p + 1]);
+               Debug.WriteLine ($"Doing BatDis: {act.Disp}");
+               BatDis(act.Disp);
                break;
 
             case ErrAction act:
-               a = CEngine.Decoded (sList [p + 1]);
-               err1 (a);
-               Debug.WriteLine ("at=Err: {0}", a);
+               //a = CEngine.Decoded (sList [p + 1]);
+               Debug.WriteLine ($"Doing Err: Pos={act.Pos}");
+               err1(act.Pos);
                break;
 
             case PosAction act:
             // The 'Pos...' list adddresses are held in GTAB/gres row 99...
                //posn = SelectList (gres [99, gplay]);
-               posn = SelectList(PosListName(gplay));
-               Debug.WriteLine ("Doing PosAction, gplay={gplay}, posn={posn}");
+               posn = LookupRandom(PosListName(gplay));
+               Debug.WriteLine ($"Doing Pos, gplay={gplay}, posn={posn}");
                break;
 
             case GPlayAction act:
                //a = CEngine.Decoded (sList [p + 1]);
-               gplay = act.Play;
-               Debug.WriteLine ("  at=GPlay: {0}--> gplay={1}", a, gplay);
+               Debug.WriteLine ($"Doing GPlay: Play={gplay}");
+               gplay = act.PlayNum;
                break;
 
             case GPlaysAction act:
                //a = CEngine.Decoded (sList [p + 1], sList [p + 2]);
-               gplay = SelectList (act.Play);
-               Debug.WriteLine ("  at=GPlayS: {0}--> gplay={1}", a, gplay);
+               Debug.WriteLine ($"Doing GPlays: {act.PlayName}");
+               gplay = LookupRandom (act.PlayName);
                break;
 
             case ChooseAction act:
@@ -595,20 +610,25 @@ namespace BCX.BCXB {
                //Debug.WriteLine (lvl + "  at=Choose ({0}, {1}, {2})--> Will call DoList({3})", a0, a1, a2, a);
                //mEng.DoList (a, lvl + "  ");
 
-               Debug.WriteLine ($" Doing Choose {act.Choices}");
+               Debug.WriteLine($" Doing Choose {act.Choices}");
                int[] arr = act.Choices.Split().Select(e => int.Parse(e)).ToArray();
-               choice = choose (arr[0], arr[1], arr[2]);
-               int Gres = gres [choice, onsit];
-               mSim.DoNamedList ("n" + Gres);
+               choice = choose(arr[0], arr[1], arr[2]);
+               int Gres = gres[choice, onsit];
+               mSim.DoNamedList("n" + Gres);
                break;
 
             case SameAction: 
-               sameguy = true; 
+               this.Sameguy = true; 
                break;
 
-            case SacBuntAction act: Debug.WriteLine ("  at=SacBunt"); break;
-            case SSqueezeAction act: Debug.WriteLine ("  at=SSqueeze"); break;
-            case HomerAction: homer = true; Debug.WriteLine ("  at=Homer"); break;
+            //Note: These are just list names, not actions!...
+            //case SacBuntAction act: Debug.WriteLine ("  at=SacBunt"); break;
+            //case SSqueezeAction act: Debug.WriteLine ("  at=SSqueeze"); break;
+            
+            case HomerAction: 
+               Debug.WriteLine ("Doing Homer"); 
+               this.Homer = true; 
+               break;
 
             case GresAction act:
                //a0 = CEngine.Decoded (sList [p + 1], sList [p + 2]); 
@@ -626,10 +646,8 @@ namespace BCX.BCXB {
 
          } catch (Exception ex) { //Error handling added. #1706.20
             string msg =
-              "Exception in DoAction: " + ex.Message + "\r\n" +
-              "n = " + n + "\r\n" +
-              "list = " + sList + "\r\n" +
-              "at = " + at;
+              $@"Exception in DoAction: {ex.Message}\r\n
+              Action: {action.AType}";
             Debug.WriteLine (msg);
             ENotifyUser?.Invoke(msg);
          }
@@ -653,12 +671,13 @@ namespace BCX.BCXB {
 
 
       public string PosListName(int play) {
-      
-      // These names must be NamedList names in the model.
-      // This converts a GPlay # to a named list name for
-      // (randomly) computing a position # (1..9).
 
-         return play switch {
+         // These names must be NamedList names in the model.
+         // This converts a GPlay # to a named list name for
+         // (randomly) computing a position # (1..9).
+
+         return play switch
+         {
             1 => "PosPopUp",
             2 => "PosFoulPop",
             3 => "PosGrounder",
@@ -666,7 +685,7 @@ namespace BCX.BCXB {
             5 => "PosLDtoIF",
             6 => "PosLDtoOF",
             7 => "PosLongFly"
-         }
+         };
 
       }
       
@@ -850,27 +869,30 @@ namespace BCX.BCXB {
          if (line[0] == '@') {bNewLine= 0; line = line.Remove(0,1);}
 
          CTeam t1 = t[fl];
-         n = line.IndexOf("*"); 
+         n = line.IndexOf("*");
          while (n >= 0) {
-            sym = line.Substring(n+1, 2);
+            sym = line.Substring(n + 1, 2);
             if ((posn < 1) || (posn > 9)) posn = 6;
-            if (sym == "r0") exp1 = r[0].name;
-            else if (sym == "r1") exp1 = r[1].name;
-            else if (sym == "r2") exp1 = r[2].name;
-            else if (sym == "r3") exp1 = r[3].name;
-            else if (sym == "fp") exp1 = t1.bat[t1.who[posn]].bname;
-            else if (sym == "pl") exp1 = gname(gplay);
-            else if (sym == "fl") exp1 = t1.bat[t1.who[1]].bname;
-            else if (sym == "f2") exp1 = t1.bat[t1.who[2]].bname;
-            else if (sym == "f3") exp1 = t1.bat[t1.who[3]].bname;
-            else if (sym == "f4") exp1 = t1.bat[t1.who[4]].bname;
-            else if (sym == "f5") exp1 = t1.bat[t1.who[5]].bname;
-            else if (sym == "f6") exp1 = t1.bat[t1.who[6]].bname;
-            else if (sym == "f7") exp1 = t1.bat[t1.who[7]].bname;
-            else if (sym == "f8") exp1 = t1.bat[t1.who[8]].bname;
-            else if (sym == "f9") exp1 = t1.bat[t1.who[9]].bname;
-            else if (sym == "pv") exp1 = t1.bat[t1.who[piv(posn)]].bname;
-            else if (sym == "po") exp1= PosName[posn];
+
+            exp1 = sym switch {
+               "r0" => r[0].name,
+               "r1" => r[1].name,
+               "r2" => r[2].name,
+               "r3" => r[3].name,
+               "fp" => t1.bat[t1.who[posn]].bname,
+               "pl" => gname(gplay),
+               "fl" => t1.bat[t1.who[1]].bname,
+               "f2" => t1.bat[t1.who[2]].bname,
+               "f3" => t1.bat[t1.who[3]].bname,
+               "f4" => t1.bat[t1.who[4]].bname,
+               "f5" => t1.bat[t1.who[5]].bname,
+               "f6" => t1.bat[t1.who[6]].bname,
+               "f7" => t1.bat[t1.who[7]].bname,
+               "f8" => t1.bat[t1.who[8]].bname,
+               "f9" => t1.bat[t1.who[9]].bname,
+               "pv" => t1.bat[t1.who[piv(posn)]].bname,
+               "po" => PosName[posn]
+            };
 
             if (n < 0) line = exp1 + line.Substring(2);
             else line = line.Substring(0,n) + exp1 + line.Substring(n+3);
@@ -1120,7 +1142,7 @@ namespace BCX.BCXB {
     
       }
         
-      public int SelectList(string listName) {
+      public int LookupRandom(string listName) {
       // -----------------------------------------------------------------
       // Task: convert a Named List, listName, to a corresponding int. 
       // 'listNme' is the name of a Select action in the model, eg: 'GPlay3B'.
@@ -1524,7 +1546,7 @@ namespace BCX.BCXB {
          scoringPlay = false;
          //mEng.DoList(listIx, "");
          mSim.DoNamedList(listName);
-         if (listName == "AtBat" {
+         if (listName == "AtBat") {
             EPlaceDicePointer?.Invoke(diceRollBatting, true);
          }
 

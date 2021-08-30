@@ -61,16 +61,8 @@ namespace SimEngine
 
       public override int DoIt()
       {
+      // Handle this actionin CGme...
          Sim.DoAction(this);
-
-         var a = this.Bases.Split();
-         int a0 = int.Parse(a[0]);
-         int a1 = int.Parse(a[1]);
-         char a2 = a[2][0];
-         char a3 = a[3][0];
-
-         Debug.WriteLine($"Adv: {a0},{a1},{a2},{a3}");
-         g.Advance(a0, a1, a2, a3);
          return 0;
       }
 
@@ -86,19 +78,19 @@ namespace SimEngine
    public class BatDisAction : BaseSimAction
    {
       public int Disp { get; set; }
-      private readonly CGame g;
+      private CSimEngine mSim { get; }
 
-      public BatDisAction(int disp, CGame game)
+      public BatDisAction(int disp, CSimEngine sim) 
       {
          AType = TAction.BatDis;
          Disp = disp;
-         g = game;
+         mSim = sim;
       }
 
       public override int DoIt()
       {
-         g.BatDis(this.Disp);
-         Debug.WriteLine($"Doing BatDis: {this.Disp}");
+      // Handle this action in CGame...
+         mSim.DoAction(this);
          return 0;
       }
 
@@ -108,7 +100,6 @@ namespace SimEngine
       }
 
    }
-
 
    public class ChooseAction : BaseSimAction
    {
@@ -125,8 +116,8 @@ namespace SimEngine
 
       public override int DoIt()
       {
+      // Handle this action in CGame...
          Sim.DoAction(this);
-
          return 0;
       }
 
@@ -214,7 +205,7 @@ namespace SimEngine
       public override int DoIt()
       {  
       // Handle this here, since no ref to CGame...
-         Console.WriteLine($"Doing Do: {ListIDs}");
+         Debug.WriteLine($"Doing Do: {ListIDs}");
          string[] a = ListIDs.Split(',').Select(e => e.Trim()).ToArray();
          foreach (string a1 in a) {
             Debug.Indent();
@@ -265,17 +256,17 @@ namespace SimEngine
    public class ErrAction : BaseSimAction
    {
       public int Pos { get; set; }
-      private readonly CGame g;
+      private CSimEngine mSim;
 
-      public ErrAction(int pos, CGame game) {
+      public ErrAction(int pos, CSimEngine sim) {
          this.AType = TAction.Err;
          this.Pos = pos;
-         this.g = game;
+         this.mSim = sim;
       }
 
       public override int DoIt() {
-         g.err1(Pos);
-         Debug.WriteLine($"aDoing ErrActionr: {Pos}");
+      // Handle this action in client (CGame)...
+         mSim.DoAction(this);
          return 0;
       }
 
@@ -318,27 +309,31 @@ namespace SimEngine
 
    public class GPlayAction : BaseSimAction
    {  
-      public int Play { get; set; }
-      private readonly CGame g;
+      public int PlayNum { get; set; }
+      private readonly CSimEngine mSim;
 
-      public GPlayAction(int n, CGame game)
+      public GPlayAction(int n, CSimEngine sim)
       {
          this.AType = TAction.GPlay;
-         this.Play = n;
-         this.g = game;
+         this.PlayNum = n;
+         this.mSim = sim;
       }
 
       public override int DoIt()
       {
-         Debug.WriteLine($"Doing Gplay: {this.Play}");
-         g.Gplay = Play;
-         //g.BatDis(Disp); //TODO: In BcxbLib, make public
+         //Debug.WriteLine($"Doing Gplay: {this.Play}");
+         //g.Gplay = Play;
+         ////g.BatDis(Disp); //TODO: In BcxbLib, make public
+         ///
+
+         // Handle this in CGame...
+         mSim.DoAction(this);
          return 0;
       }
 
       public override void PrintIt()
       {
-         Debug.WriteLine($"{AType.ToString()}: n:{this.Play}");
+         Debug.WriteLine($"{AType.ToString()}: n:{this.PlayNum}");
       }
 
 
@@ -348,61 +343,50 @@ namespace SimEngine
    public class GPlaysAction : BaseSimAction
    {
    // This is string version of GPlay
-      public string Play { get; set; }
-      private readonly CGame g;
+      public string PlayName { get; set; }
+      private CSimEngine mSim { get; set; }
 
-      public GPlaysAction(string s, CGame game)
+      public GPlaysAction(string s, CSimEngine sim)
       {
          this.AType = TAction.GPlay;
-         this.Play = s;
-         this.g = game;
+         this.PlayName = s;
+         this.mSim = sim;
       }
 
       public override int DoIt()
       {
-         Debug.WriteLine($"Doing Gplay: {this.Play}");
-         g.Gplay = Play;
-         //g.BatDis(Disp); //TODO: In BcxbLib, make public
+      // Handle this in CGame...
+         mSim.DoAction(this);
          return 0;
       }
 
       public override void PrintIt()
       {
-         Debug.WriteLine($"{AType.ToString()}: n:{this.Play}");
+         Debug.WriteLine($"{AType.ToString()}: n:{this.PlayName}");
       }
 
 
    }
 
 
-
    public class GresAction : BaseSimAction
    {
       public int Res { get; set; }
-      private readonly CGame g;
-      private readonly CSimEngine Sim;
+      private readonly CSimEngine mSim;
 
-      public GresAction(int res, CGame game, CSimEngine sim)
+      public GresAction(int res, CSimEngine sim)
       {
          this.AType = TAction.GRes;
          this.Res = res;
-         this.g = game;
-         this.Sim = sim;
+         this.mSim = sim;
 
       }
 
       public override int DoIt()
       {
-         try {
-            Debug.WriteLine($"Doing GetTlr: {Res}");
-            g.genericResult = Res;
-            int a = g.Gres[Res, g.onsit];
-            Sim.DoNamedList("n" + a.ToString());
-            return 0;
-         }
-         catch (Exception ex) {
-            throw new Exception("Error in GresAction.DoIt", ex);
-         }
+         // Handle this action in CGame...
+         mSim.DoAction(this);
+         return 0;
       }
 
       public override void PrintIt()
@@ -415,18 +399,18 @@ namespace SimEngine
 
    public class HomerAction : BaseSimAction
    {
-      private readonly CGame g;
+      private readonly CSimEngine mSim;
 
-      public HomerAction(CGame game)
+      public HomerAction(CSimEngine sim)
       {
          this.AType = TAction.Homer;
-         this.g = game;
+         this.mSim = sim;
       }
 
       public override int DoIt()
       {
-         Console.WriteLine("Doing Homer");
-         g.Homer = true; 
+      // Handle this action in client (CGame)...
+         mSim.DoAction(this);
          return 0;
       }
 
@@ -441,59 +425,37 @@ namespace SimEngine
    public class PosAction : BaseSimAction
    {
       private readonly CGame g;
-      private readonly CSimEngine s;
+      private readonly CSimEngine mSim;
 
-      public PosAction(CGame game, CSimEngine sim) 
+      public PosAction(CSimEngine sim) 
       {
          this.AType = TAction.Pos;
-         this.g = game;
-         this.s = sim;
+         this.mSim = sim;
       }
 
       public override int DoIt()
       {
-      // Task: Fill g.Posn based on g.Gplay...
-         Debug.WriteLine($"Doing DoOne: Gplay={g.Gplay}");
-         if (g.Gplay < 1 || g.Gplay > 7)
-            throw new Exception($"Invalid Gplay, {g.Gplay}, in PosAction.DoIt");
-         string listName = g.Gplay
-            switch {
-               1 => "PosPopup",
-               2 => "PosFoulPop",
-               3 => "PosGrounder",
-               4 => "PosFlyBall",
-               5 => "PosLDtoIF",
-               6 => "PosLDtoOF",
-               7 => "PosLongFly"
-            };
-         BaseSimAction act = s.Model[listName][0]; //We wanr the 1st action in the list
-         if (act is not SelectAction)
-            throw new Exception("Expected SelectAction in PosAction.DoIt");
-         g.Posn = ((SelectAction)act).DoIt(); 
-         return 0;
-      }
+         // Task: Fill g.Posn based on g.Gplay...
+         //Debug.WriteLine($"Doing DoOne: Gplay={g.Gplay}");
+         //if (g.Gplay < 1 || g.Gplay > 7)
+         //   throw new Exception($"Invalid Gplay, {g.Gplay}, in PosAction.DoIt");
+         //string listName = g.Gplay
+         //   switch {
+         //      1 => "PosPopup",
+         //      2 => "PosFoulPop",
+         //      3 => "PosGrounder",
+         //      4 => "PosFlyBall",
+         //      5 => "PosLDtoIF",
+         //      6 => "PosLDtoOF",
+         //      7 => "PosLongFly"
+         //   };
+         //BaseSimAction act = s.Model[listName][0]; //We wanr the 1st action in the list
+         //if (act is not SelectAction)
+         //   throw new Exception("Expected SelectAction in PosAction.DoIt");
+         //g.Posn = ((SelectAction)act).DoIt(); 
 
-      public override void PrintIt()
-      {
-         Debug.WriteLine($"{AType.ToString()}");
-      }
-
-   }
-
-
-   public class SacBuntAction : BaseSimAction
-   {
-      private readonly CGame g;
-
-      public SacBuntAction(CGame game)
-      {
-         this.AType = TAction.SacBunt;
-         this.g = game;
-      }
-
-      public override int DoIt()
-      {
-         Console.WriteLine("Doing DoOne");
+      // Handle this in CGame...
+         mSim.DoAction(this);
          return 0;
       }
 
@@ -533,8 +495,8 @@ namespace SimEngine
    public class SayAction : BaseSimAction
    {
       //public int SayIx { get; } //May want this in future
-      public readonly string Text;
-      public CSimEngine mSim;
+      public string Text { get; }
+      public CSimEngine mSim { get; }
 
       public SayAction(string text, CSimEngine sim)
       {
@@ -568,23 +530,22 @@ namespace SimEngine
    // Say1 is same as Say, but is only 'said' if < 2 outs.
 
       //public int SayIx { get; } //May want this in future
-      private readonly string Text;
-      private CGame g;
+      public string Text { get; }
+      public CSimEngine mSim { get; }
 
-      public Say1Action(string text, CGame game)
+      public Say1Action(string text, CSimEngine sim)
       {
          this.AType = TAction.Say1;
          //this.SayIx = 0;
          //this.SayIx = SimulationModel.GetSayIndex(jAction.GetProperty("text").ToString());
          this.Text = text;
-         this.g = game;
+         this.mSim = sim;
       }
 
       public override int DoIt()
       {
-         //Console.WriteLine($"Doing Say: {SimulationModel.SayList[SayIx]}");
-         Console.WriteLine($"Doing Say1: {Text}");
-         g.Say(Text);
+      // Handle this in CGame since it ref's 'ok' of CGame.
+         mSim.DoAction(this);
          return 0;
       }
 
@@ -592,7 +553,7 @@ namespace SimEngine
       public override void PrintIt()
       {
          //Debug.WriteLine($"{ATag}, text: {SimulationModel.SayList[SayIx]}, SayIx: {SayIx}");
-         Debug.WriteLine($"{AType.ToString()}:, Text:{Text}");
+         Debug.WriteLine($"{AType.ToString()}: Text:{Text}");
       }
 
    }
@@ -624,7 +585,7 @@ namespace SimEngine
             if (r <= (cum += ((SItemAction)item).Prob)) 
                return ((SItemAction)item).Res;
          }
-         throw new Exception($"Result not found in SelectList.DoIt");
+         throw new Exception($"Result not found in SelectAction.DoIt");
       }
 
       public override void PrintIt()
@@ -664,31 +625,6 @@ namespace SimEngine
       }
 
    }
-
-
-   public class SSqueezeAction : BaseSimAction
-   {
-      private CGame g;
-
-      public SSqueezeAction(CGame game)
-      {
-         this.AType = TAction.SSqueeze;
-         this.g = game;
-      }
-
-      public override int DoIt()
-      {
-         Console.WriteLine("Doing DoOne");
-         return 0;
-      }
-
-      public override void PrintIt()
-      {
-         Debug.WriteLine($"{AType.ToString()}");
-      }
-
-   }
-
 
 
 }

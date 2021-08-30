@@ -107,34 +107,34 @@ public class CEngine {
       return 64*((int)c1-48) + ((int)c2-48);
    }
 
-
-   public void DoList (int n, string lvl) {
-   // --------------------------------------------------------     
-   // Error handling added #1706.20...
-      const int atEndListDef = 31; //This is universal, others can vary between apps.
-      int p = 0;  //was 1 in Delphi
-      string sList = "";
+   // Appears to have no references...
+   //public void DoList (int n, string lvl) {
+   //// --------------------------------------------------------     
+   //// Error handling added #1706.20...
+   //   const int atEndListDef = 31; //This is universal, others can vary between apps.
+   //   int p = 0;  //was 1 in Delphi
+   //   string sList = "";
       
-      try {
-         if (listLim < 24) lists [++listLim] = n;
+   //   try {
+   //      if (listLim < 24) lists [++listLim] = n;
 
-         sList = aActions [n] + (char)(48 + atEndListDef);
-         Debug.WriteLine (lvl + "DoList({0}, sList={1})", n, sList);
-         int at = Decoded (sList [0]);
-         while (at != atEndListDef) {
-            EDoAction (ref at, n, sList, ref p, lvl + "  ");
-            p += atLen [at];
-            at = Decoded (sList [p]);
-         }
+   //      sList = aActions [n] + (char)(48 + atEndListDef);
+   //      Debug.WriteLine (lvl + "DoList({0}, sList={1})", n, sList);
+   //      int at = Decoded (sList [0]);
+   //      while (at != atEndListDef) {
+   //         EDoAction (ref at, n, sList, ref p, lvl + "  ");
+   //         p += atLen [at];
+   //         at = Decoded (sList [p]);
+   //      }
 
-      } 
-      catch (Exception ex) {
-         Debug.WriteLine ("Exception in DoList(" + n + ":" + sList);
-         Debug.WriteLine (ex.Message);
-         EEngineError (n, sList);
-      }
+   //   } 
+   //   catch (Exception ex) {
+   //      Debug.WriteLine ("Exception in DoList(" + n + ":" + sList);
+   //      Debug.WriteLine (ex.Message);
+   //      EEngineError (n, sList);
+   //   }
       
-   }
+   //}
      
 }  
 

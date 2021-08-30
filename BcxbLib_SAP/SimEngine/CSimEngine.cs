@@ -89,7 +89,7 @@ namespace SimEngine {
       }
 
 
-      public int SelectList(string listName, CGame g) {
+      public int LookupRandom(string listName, CGame g) {
 
          // The arg, listName, should point to a List that has a single action of
          // type 'Select'. It scans the 'SItem' sub-items, and returns the
