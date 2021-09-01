@@ -237,7 +237,7 @@ namespace BCX.BCXB {
 
       string[] halfInn = {"Top of ", "Bottom of "};
       CEngine mEng;
-      CSimEngine mSim;
+      public CSimEngine mSim { get; set; }
 
 
       /// <summary>
@@ -292,6 +292,9 @@ namespace BCX.BCXB {
          // This replaces the old SetupEngineAndModel whic
          // instantiated CEngine.
 
+         // This is not currently used... these steps should be done by
+         // the client process and the CSimEngine object 'injected' as mSim.
+
          mSim = new CSimEngine();
          mSim.RaiseHandler += DoSimAction;
          string jsonString1 = FileHandler.GetTextFileOnDisk("model1.json");
@@ -301,7 +304,7 @@ namespace BCX.BCXB {
          //string jsonString2 = FileHandler.GetTextFileOnDisk("al5.json");
 
          CModelBldr.LoadModel(jsonString1, mSim);
-         CModelBldr.LoadModel(jsonString2, mSim );
+         CModelBldr.LoadModel(jsonString2, mSim);
 
       }
 
@@ -340,7 +343,7 @@ namespace BCX.BCXB {
       /// This is the event handler for the CEngine's EDoAction event.
       /// </summary>
       /// 
-      private void DoSimAction (BaseSimAction action) { // ref int at, int n, string sList, ref int p, string lvl) {
+      public void DoSimAction (BaseSimAction action) { // ref int at, int n, string sList, ref int p, string lvl) {
       // --------------------------------------------------------------------------
       // This used to be inside the DoList loop!
       // This is the event handler for the EDoAction event.

@@ -17,6 +17,7 @@ using System.IO;
 using BcxbDataAccess;
 using BCX.BCXB;
 using Newtonsoft.Json;
+using SimEngine;
 
 namespace TestBcxbLib {
 
@@ -69,7 +70,8 @@ namespace TestBcxbLib {
    // Note: Actually, this would seem to violate dep inj principles,
    // as 'new' s/not be used here. These obj's s/b instantiated o/s
    // the class and passed in through constr or props.
-      public CGame mGame = new();
+
+      public CGame mGame { get; set; }
       //public DataAccess dataAccess = new();
 
 
@@ -78,9 +80,31 @@ namespace TestBcxbLib {
          Console.WriteLine($"Press enter to start loading team data...");
          Console.ReadLine();
 
+         mGame = new CGame();
+
+      // Step 1. Load the engine
+      // -----------------------
+         CSimEngine sim = new();
+         sim.RaiseHandler += mGame.DoSimAction;
+         string jsonString1 = FileHandler.GetTextFileOnDisk("TestBcxbLib.Resources.Model.model1.json");
+         string jsonString2 = FileHandler.GetTextFileOnDisk("TestBcxbLib.Resources.Model.model2.json");
+
+         //string jsonString1 = FileHandler.GetTextFileOnDisk("TestBcxbLib.Resources.Model.tree5.json");
+         //string jsonString2 = FileHandler.GetTextFileOnDisk("TestBcxbLib.Resources.Model.al5.json");
+
+         CModelBldr.LoadModel(jsonString1, sim);
+         CModelBldr.LoadModel(jsonString2, sim);
+
+         mGame.mSim = sim; // Here we 'inject' the dependancy into the CGame obj.
+
+      // Hmm.. This looks to be obsolete!
+      // Needed by mGame, but not used?
          GFileAccess fileAccess = new();
          mGame.fileAccess = fileAccess; // Here we "inject" the dependancy, GFileAccess.
 
+
+      // Step 2. Assign eventhandlers (we just do one)
+      // -------------------------------------
          mGame.EShowResults += delegate (int scenario) {
 
             TextToSay[] list1 = mGame.lstResults.ToArray();
@@ -102,7 +126,10 @@ namespace TestBcxbLib {
          };
 
 
-         mGame.SetupEngineAndModel();
+         //mGame.SetupEngineAndModel(); 
+
+      // Step 3. Load thge team data
+      // ---------------------------
 
          mGame.t = new CTeam[2];
          mGame.t[0] = new CTeam(mGame);
