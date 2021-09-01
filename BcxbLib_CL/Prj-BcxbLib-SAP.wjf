@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<winzipjob version="7" minwinrun="0" minwinedit="0">
+<wizard usevars="no"/>
+<items>
+<filter exclude="no">*.*</filter>
+<filter exclude="yes">*.dll</filter>
+<filter exclude="yes">*.dll.mdb</filter>
+<filter exclude="yes">*.exe</filter>
+<filter exclude="yes">*.msi</filter>
+<filter exclude="yes">*.obj</filter>
+<filter exclude="yes">*.zip</filter>
+<filter exclude="yes">*lahman*.mdb</filter>
+<filter exclude="yes">*.pdb</filter>
+<item exclude="no" recurse="yes">C:\prj\BCX\BCXBWinPrj\BcxbLib_SAP\BcxbLib_SAP_b1_cteam\</item>
+</items>
+<output>
+<name append="dateyyyy">Prj-BcxbLib-SAP-.zip</name>
+<folder append="none">C:\prj\@WinzipJobs\Archives</folder>
+<log type="full" overwrite="yes">&lt;zipfolder&gt;</log>
+</output>
+<options>
+<flags>0001</flags>
+<compression type="max"/>
+<span mode="auto"/>
+<split unit="byte">0</split>
+<encryption mode="none" method="none"/>
+<recycle>no</recycle>
+<progress>yes</progress>
+<show-errors-if-logging>no</show-errors-if-logging>
+<folders mode="full"/>
+<cd speed="default" finalize="yes"/>
+</options>
+<sched>
+<task type="daily" name="WinZip Job-Prj-BCX" time="03:00">
+<freq>1</freq>
+</task>
+</sched>
+<email>
+<mailitem options="0">
+<sendto/>
+<subject type="ok"/>
+<subject type="error"/>
+</mailitem>
+</email>
+<cloud>
+<entry options="0">
+<provider>0</provider>
+<location/>
+</entry>
+</cloud>
+<notifications>
+<im>
+<message><![CDATA[...has files to share with you.]]></message>
+</im>
+<sm>
+<message><![CDATA[...has files to share with you.]]></message>
+</sm>
+</notifications>
+</winzipjob>

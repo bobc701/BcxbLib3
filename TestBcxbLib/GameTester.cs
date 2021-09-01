@@ -78,6 +78,8 @@ namespace TestBcxbLib {
          Console.WriteLine($"Press enter to start loading team data...");
          Console.ReadLine();
 
+         GFileAccess fileAccess = new();
+         mGame.fileAccess = fileAccess; // Here we "inject" the dependancy, GFileAccess.
 
          mGame.EShowResults += delegate (int scenario) {
 

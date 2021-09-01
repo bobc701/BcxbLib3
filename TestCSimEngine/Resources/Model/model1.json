@@ -1,0 +1,93 @@
+{
+  "ModelName": "TREE5",
+  "Version": "01.00",
+  "Model": [
+
+    [
+      "AtBat",
+      [
+        [
+          "DoOne",
+          [
+            [
+              "DItem",
+              -1,
+              [ [ "Do", "Hit" ] ]
+            ],
+            [
+              "DItem",
+              -5,
+              [
+                [ "Do", "Walk" ],
+                [ "GetTlr", 5 ]
+              ]
+            ],
+            [
+              "DItem",
+              -6,
+              [
+                [ "Do", "StrikeOut" ],
+                [ "GetTlr", 10 ]
+              ]
+            ],
+            [
+              "DItem",
+              0.011,
+              [ [ "Do", "WpPbBalk" ] ]
+            ],
+            [
+              "DItem",
+              -99,
+              [ [ "Do", "Other" ] ]
+            ]
+          ]
+        ]
+      ]
+    ],
+
+    [
+      "Hit",
+      [
+        [
+          "DoOne",
+          [
+            [
+              "DItem",
+              -4,
+              [
+                [ "Do", "n374, HomeRun" ],
+                [ "GetTlr", 1 ]
+              ]
+            ],
+            [
+              "DItem",
+              -3,
+              [
+                [ "Do", "n373, Triple" ],
+                [ "GetTlr", 2 ]
+              ]
+            ],
+            [
+              "DItem",
+              -2,
+              [
+                [ "Do", "n372, Double" ],
+                [ "GetTlr", 3 ]
+              ]
+            ],
+            [
+              "DItem",
+              -98,
+              [
+                [ "Do", "n371, Single" ],
+                [ "GetTlr", 4 ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+
+  ]
+
+}

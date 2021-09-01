@@ -18,7 +18,7 @@ using System.Linq;
 
 namespace BCX.BCXB {
 
-   public class GFileAccess : IFileAccess {
+   public class GFileAccess {
 
       public void SetFolders() {
 
@@ -33,7 +33,7 @@ namespace BCX.BCXB {
          // FileName should include folders separated by '.'.
          // EG: Model.cfeng1 <-- Note: Case sensitive!!!
          // --------------------------------------------------------------------------------
-         Assembly assembly = typeof(TestBcxbLib.Program).GetTypeInfo().Assembly;
+         Assembly assembly = typeof(TestCSimEngine.Program).GetTypeInfo().Assembly;
 
          string path = @"TestBcxbLib.Resources." + fName;
 
