@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
 
-using BCX.SimEngine;
+//using BCX.SimEngine;
 using BCX.BCXCommon;
 using SimEngine;
 
@@ -236,7 +236,7 @@ namespace BCX.BCXB {
       char[] aArg3 = {'r','d','x'};
 
       string[] halfInn = {"Top of ", "Bottom of "};
-      CEngine mEng;
+      //CEngine mEng;
       public CSimEngine mSim { get; set; }
 
 
@@ -253,7 +253,7 @@ namespace BCX.BCXB {
       // generator. This form of the constructor uses a time-dependant
       // seed value, accoring to the docs.
          rn = new Random();
-         fileAccess.SetFolders();
+         //fileAccess.SetFolders(); out 8'21
 
          PlayState = PLAY_STATE.NONE;
          //InitParambar;
@@ -267,24 +267,24 @@ namespace BCX.BCXB {
 	   }
 
 
-      public void SetupEngineAndModel() {
-      // -----------------------------------------------------------------------
-      // Can't do this in the constructor because the event handlers need to
-      // be instantiated first.
+      //public void SetupEngineAndModel() {
+      //// -----------------------------------------------------------------------
+      //// Can't do this in the constructor because the event handlers need to
+      //// be instantiated first.
 
-      // Instantiate the engine object, mEng,  
-         var fEngine = fileAccess.GetModelFile("cfeng1");
-         mEng = new CEngine(fEngine);
-        // mEng.EDoAction += new DDoAction(DoAction);
-         mEng.EEngineError += delegate (int n, string list) {
-            ENotifyUser?.Invoke("Exception in DoList in CEngine: " + n + ": " + list);
-         };
+      //// Instantiate the engine object, mEng,  
+      //   var fEngine = fileAccess.GetModelFile("cfeng1");
+      //   mEng = new CEngine(fEngine);
+      //  // mEng.EDoAction += new DDoAction(DoAction);
+      //   mEng.EEngineError += delegate (int n, string list) {
+      //      ENotifyUser?.Invoke("Exception in DoList in CEngine: " + n + ": " + list);
+      //   };
          
-         mEng.atLen = atLen;
-      // Read the model files (CFEng1 and CFEng3)...
-         ReadModel();
+      //   mEng.atLen = atLen;
+      //// Read the model files (CFEng1 and CFEng3)...
+      //   ReadModel();
 
-      }
+      //}
 
 
       public void SetupSimModel() 
@@ -1335,7 +1335,7 @@ namespace BCX.BCXB {
                //cmdGo.display := ". . .";
                //cmdGo.hidden:= true;
                //PlayState = PLAY_STATE.NONE;
-               mEng.ClearLists();
+               //mEng.ClearLists();
 
                AdvSlot();
                InitBatter();
@@ -2007,10 +2007,10 @@ namespace BCX.BCXB {
    }
 
 
-   public string ShowLists() {
-   // --------------------------------------------------------------
-      return(mEng.ShowLists());
-   }
+   //public string ShowLists() {
+   //// --------------------------------------------------------------
+   //   return(mEng.ShowLists());
+   //}
 
 
    /// <summary>

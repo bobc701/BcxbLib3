@@ -18,6 +18,7 @@ using BcxbDataAccess;
 using BCX.BCXB;
 using Newtonsoft.Json;
 using SimEngine;
+using System.Reflection;
 
 namespace TestBcxbLib {
 
@@ -77,25 +78,34 @@ namespace TestBcxbLib {
 
       public async Task SetupNewGame() {
 
+
          Console.WriteLine($"Press enter to start loading team data...");
          Console.ReadLine();
 
          mGame = new CGame();
 
+
       // Step 1. Load the engine
       // -----------------------
          CSimEngine sim = new();
          sim.RaiseHandler += mGame.DoSimAction;
-         string jsonString1 = FileHandler.GetTextFileOnDisk("TestBcxbLib.Resources.Model.model1.json");
-         string jsonString2 = FileHandler.GetTextFileOnDisk("TestBcxbLib.Resources.Model.model2.json");
 
-         //string jsonString1 = FileHandler.GetTextFileOnDisk("TestBcxbLib.Resources.Model.tree5.json");
-         //string jsonString2 = FileHandler.GetTextFileOnDisk("TestBcxbLib.Resources.Model.al5.json");
+         string jsonString;
+         jsonString = ResourceReader.ReadEmbeddedRecouce("TestBcxbLib.Resources.Model.model1.json");
+         CModelBldr.LoadModel(jsonString, sim);
 
-         CModelBldr.LoadModel(jsonString1, sim);
-         CModelBldr.LoadModel(jsonString2, sim);
+         //jsonString = ResourceReader.ReadEmbeddedRecouce("TestBcxbLib.Resources.Model.model1.json");
+         //CModelBldr.LoadModel(jsonString1, sim);
+
+         //jsonString = ResourceReader.ReadEmbeddedRecouce("TestBcxbLib.Resources.Model.model1.json");
+         //CModelBldr.LoadModel(jsonString1, sim);
+
+         //jsonString = ResourceReader.ReadEmbeddedRecouce("TestBcxbLib.Resources.Model.model1.json");
+         //CModelBldr.LoadModel(jsonString1, sim);
+
 
          mGame.mSim = sim; // Here we 'inject' the dependancy into the CGame obj.
+
 
       // Hmm.. This looks to be obsolete!
       // Needed by mGame, but not used?
@@ -126,9 +136,7 @@ namespace TestBcxbLib {
          };
 
 
-         //mGame.SetupEngineAndModel(); 
-
-      // Step 3. Load thge team data
+      // Step 3. Load the team data
       // ---------------------------
 
          mGame.t = new CTeam[2];

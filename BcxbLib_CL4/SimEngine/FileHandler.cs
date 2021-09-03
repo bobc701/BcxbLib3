@@ -18,7 +18,6 @@ namespace SimEngine
          // FileName should include folders separated by '.'.
          // EG: Model.cfeng1 <-- Note: Case sensitive!
          // --------------------------------------------------------------------------------
-         //Assembly assembly = typeof(ListDefDemo.Program).GetTypeInfo().Assembly;
 
          //string path = $"ListDef.Resources.{jsonFilename}";
          string path = jsonFilename;
@@ -32,14 +31,18 @@ namespace SimEngine
           * - Extension ('bcxt')
           */
 
-         //var files = Assembly.GetExecutingAssembly().GetManifestResourceNames();
-         //files = assembly.GetManifestResourceNames();
+         string[] files = Assembly.GetExecutingAssembly().GetManifestResourceNames();
+         string s = Assembly.GetExecutingAssembly().GetName().Name;
+
+         //Assembly assembly = typeof(TestBcxbLib.Program).GetTypeInfo().Assembly;
+         //Stream s1 = assembly.GetManifestResourceStream("path");
 
          //Note: 
          //Both of the following seem to work here. (I thought in BcxbXf only 'assembly' worked??)
          //---------------------------------------------------------------------
          //Stream strm = assembly.GetManifestResourceStream(path);
          Stream strm = Assembly.GetExecutingAssembly().GetManifestResourceStream(path);
+
 
          StreamReader rdr = new(strm);
          string json = rdr.ReadToEnd();

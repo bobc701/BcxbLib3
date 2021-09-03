@@ -112,6 +112,7 @@
     <Compile Include="GFileAccess.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -119,6 +120,8 @@
     <EmbeddedResource Include="Resources\Model\cfeng1.bcx" />
     <EmbeddedResource Include="Resources\Model\cfeng2.bcx" />
     <EmbeddedResource Include="Resources\Model\cfeng3.bcx" />
+    <EmbeddedResource Include="Resources\Model\model1.json" />
+    <EmbeddedResource Include="Resources\Model\model2.json" />
     <None Include="TestBcxbLib_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

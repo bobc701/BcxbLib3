@@ -11,6 +11,7 @@ using BcxbDataAccess;
 using TestBcxbLib;
 
 using BCX.BCXB;
+using System.Reflection;
 
 namespace TestBcxbLib {
 
@@ -18,9 +19,12 @@ namespace TestBcxbLib {
 
       static async Task Main(string[] args) {
 
-         CustTeamsTest ct = new();
-         await ct.GetCustTeamList();
-         await ct.GetCuatTeamRoster();
+         //CustTeamsTest ct = new();
+         //await ct.GetCustTeamList();
+         //await ct.GetCuatTeamRoster();
+
+         string[] files = Assembly.GetExecutingAssembly().GetManifestResourceNames();
+
 
          GameTester gt = new();
          await gt.SetupNewGame();
