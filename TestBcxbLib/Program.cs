@@ -23,8 +23,6 @@ namespace TestBcxbLib {
          //await ct.GetCustTeamList();
          //await ct.GetCuatTeamRoster();
 
-         string[] files = Assembly.GetExecutingAssembly().GetManifestResourceNames();
-
 
          GameTester gt = new();
          await gt.SetupNewGame();

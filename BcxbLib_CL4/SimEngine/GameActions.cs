@@ -417,7 +417,7 @@ namespace SimEngine
          //   throw new Exception($"Invalid Gplay, {g.Gplay}, in PosAction.DoIt");
          //string listName = g.Gplay
          //   switch {
-         //      1 => "PosPopup",
+         //      1 => "PosPopUp",
          //      2 => "PosFoulPop",
          //      3 => "PosGrounder",
          //      4 => "PosFlyBall",
@@ -588,6 +588,57 @@ namespace SimEngine
       }
 
    }
+
+
+   public class SacBuntAction : BaseSimAction
+   {
+      public List<BaseSimAction> AList { get; set; }
+
+      public SacBuntAction(List<BaseSimAction> alist, CSimEngine sim) {
+         this.AType = TAction.SacBunt;
+         this.AList = alist;
+         this.mSim = sim;
+
+      }
+
+      public override int DoIt() {
+       // Handle this action in client (CGame)...
+         mSim.DoAction(this);
+         return 0;
+      }
+
+      public override void PrintIt() {
+         Debug.WriteLine($"{AType.ToString()}");
+      }
+
+   }
+
+
+   public class SSqueezeAction : BaseSimAction
+   {
+      public List<BaseSimAction> AList { get; set; }
+
+      public SSqueezeAction(List<BaseSimAction> alist, CSimEngine sim) {
+         this.AType = TAction.SSqueeze;
+         this.AList = alist;
+         this.mSim = sim;
+
+      }
+
+      public override int DoIt() {
+         // Handle this action in client (CGame)...
+         mSim.DoAction(this);
+         return 0;
+      }
+
+      public override void PrintIt() {
+         Debug.WriteLine($"{AType.ToString()}");
+      }
+
+   }
+
+
+
 
 
 }

@@ -122,6 +122,8 @@
     <EmbeddedResource Include="Resources\Model\cfeng3.bcx" />
     <EmbeddedResource Include="Resources\Model\model1.json" />
     <EmbeddedResource Include="Resources\Model\model2.json" />
+    <EmbeddedResource Include="Resources\Model\AL5-Lisp.json" />
+    <EmbeddedResource Include="Resources\Model\TREE5-Lisp.json" />
     <None Include="TestBcxbLib_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -138,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Model\CFlistNames.txt" />
+    <EmbeddedResource Include="Resources\Model\GTAB5.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BcxbDataAccess\BcxbDataAccess.csproj">

@@ -91,30 +91,56 @@ namespace TestBcxbLib {
          sim.RaiseHandler += mGame.DoSimAction;
 
          string jsonString;
-         jsonString = ResourceReader.ReadEmbeddedRecouce("TestBcxbLib.Resources.Model.model1.json");
+         //jsonString = ResourceReader.ReadEmbeddedRecouce("TestBcxbLib.Resources.Model.model1.json");
+         //CModelBldr.LoadModel(jsonString, sim);
+
+         //jsonString = ResourceReader.ReadEmbeddedRecouce("TestBcxbLib.Resources.Model.model1.json");
+         //CModelBldr.LoadModel(jsonString1, sim);
+
+         jsonString = ResourceReader.ReadEmbeddedRecouce("TestBcxbLib.Resources.Model.TREE5-Lisp.json");
          CModelBldr.LoadModel(jsonString, sim);
 
-         //jsonString = ResourceReader.ReadEmbeddedRecouce("TestBcxbLib.Resources.Model.model1.json");
-         //CModelBldr.LoadModel(jsonString1, sim);
-
-         //jsonString = ResourceReader.ReadEmbeddedRecouce("TestBcxbLib.Resources.Model.model1.json");
-         //CModelBldr.LoadModel(jsonString1, sim);
-
-         //jsonString = ResourceReader.ReadEmbeddedRecouce("TestBcxbLib.Resources.Model.model1.json");
-         //CModelBldr.LoadModel(jsonString1, sim);
+         jsonString = ResourceReader.ReadEmbeddedRecouce("TestBcxbLib.Resources.Model.AL5-Lisp.json");
+         CModelBldr.LoadModel(jsonString, sim);
 
 
          mGame.mSim = sim; // Here we 'inject' the dependancy into the CGame obj.
 
 
-      // Hmm.. This looks to be obsolete!
-      // Needed by mGame, but not used?
+      // Step 1a. Read GTab.txt into CGame's gres matrix
+      // -----------------------------------------------
          GFileAccess fileAccess = new();
          mGame.fileAccess = fileAccess; // Here we "inject" the dependancy, GFileAccess.
+         //mGame.ReadModel();
+
+         string rec;
+         int ix;
+         int[] arr;
+         char[] delims = new char[] { ' ' };
+
+         mGame.Gres = new int[101, 16];
+         using (StreamReader f = ResourceReader.GetEmbeddedRdr("TestBcxbLib.Resources.Model.GTAB5.txt")) {
+            while ((rec = f.ReadLine()) != null) {
+               arr = rec.Split(delims, StringSplitOptions.RemoveEmptyEntries).Select(n => int.Parse(n)).ToArray();
+
+            // arr should have index plus 15 numbers... 
+               if (arr.Length != 16) {
+                  throw new Exception($"Invalid format in gtab.txt: {rec}");
+               }
+               ix = arr[0];
+               for (int i = 1; i <= 15; i++) {
+                  mGame.Gres[ix, i-1] = arr[i];
+               }
+            }
+         }
 
 
-      // Step 2. Assign eventhandlers (we just do one)
-      // -------------------------------------
+
+
+
+
+         // Step 2. Assign eventhandlers (we just do one)
+         // -------------------------------------
          mGame.EShowResults += delegate (int scenario) {
 
             TextToSay[] list1 = mGame.lstResults.ToArray();

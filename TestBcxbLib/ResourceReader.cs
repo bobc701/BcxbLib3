@@ -29,6 +29,14 @@ namespace TestBcxbLib
       }
 
 
+      public static StreamReader GetEmbeddedRdr(string path) {
+
+         Stream strm = Assembly.GetExecutingAssembly().GetManifestResourceStream(path);
+         return new StreamReader(strm);
+
+      }
+
+
       public static void MiscStuff() {
 
       // You can call these to see a list embedded resoutces, with their paths...

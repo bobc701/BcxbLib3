@@ -132,8 +132,16 @@ namespace SimEngine
                case "Pos":
                   act = new PosAction(sim);
                   break;
-               default:
+               case "SacBunt":
+                  alist = BldActionList(jAction[1], sim);
+                  act = new SacBuntAction(alist, sim);
                   break;
+               case "SSqueeze":
+                  alist = BldActionList(jAction[1], sim);
+                  act = new SSqueezeAction(alist, sim);
+                  break;
+               default:
+                  throw new Exception($"ActionType not found in BldActionList: {actionType}");
             }
             if (act is not null) list1.Add(act);
          }

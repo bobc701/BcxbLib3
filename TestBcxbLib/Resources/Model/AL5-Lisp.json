@@ -1,0 +1,6401 @@
+{
+  "ModelName": "AL5",
+  "Version": "01.00",
+  "Model": [
+
+      [
+        "n1",
+        [
+          [ "Say", "Base hit." ],
+          [ "Adv", "0 1 e d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n2",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+
+      [
+        "n3",
+        [
+          [ "Say", "Single." ],
+          [ "Say", "*r2 stops at third." ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n4",
+        [
+          [ "Say", "Single." ],
+          [ "Say", "*r3 scores" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n5",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n6",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 stops at second." ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n7",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 stops at third." ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n8",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n9",
+        [
+          [ "Say", "Single." ],
+          [ "Adv", "0 1 e d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n10",
+        [
+          [ "Say", "Single." ],
+          [ "Say", "*r1 to third" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "1 3 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n11",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r2 scores" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "2 4 d r" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n12",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 to third" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "1 3 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n13",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 to third" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 3 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n14",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 stops at first." ],
+          [ "Say", "Single." ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n15",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 to third" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "1 3 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n16",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 stops at second." ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n17",
+        [
+          [ "Say", "Single." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 stops at second." ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n18",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r1 trying for third..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r0 to second" ],
+          [ "Say", "@ on the play." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "1 3 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n19",
+        [
+          [ "Say", "Single." ],
+          [ "Say", "*r2 trying to score." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r0 to second" ],
+          [ "Say", "@ on the play." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "2 4 d r" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n20",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r2 trying to score." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r1 to third" ],
+          [ "Say", "*r0 to second" ],
+          [ "Say", "@ on the play." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "1 3 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n21",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 trying for third..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r0 to second" ],
+          [ "Say", "@ on the play." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 3 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n22",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 trying for home..." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r0 to second" ],
+          [ "Say", "@ on the play." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n23",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 trying for home..." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r1 to third" ],
+          [ "Say", "*r0 to second" ],
+          [ "Say", "@ on the play." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "1 3 d d" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n24",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r1 trying for third..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r0 to second" ],
+          [ "Say", "@ on the play." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "1 0 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n25",
+        [
+          [ "Say", "Single." ],
+          [ "Say", "*r2 trying to score." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r0 to second" ],
+          [ "Say", "@ on the play." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "2 0 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n26",
+        [
+          [ "Say", "Single." ],
+          [ "Say", "*r2 trying to score." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r1 to third" ],
+          [ "Say", "*r0 to second" ],
+          [ "Say", "@ on the play." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "1 3 d d" ],
+          [ "Adv", "2 0 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n27",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 trying for third..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r0 to second" ],
+          [ "Say", "@ on the play." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 0 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n28",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 trying for home..." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r0 to second" ],
+          [ "Say", "@ on the play." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 0 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n29",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 trying for home..." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r1 to third" ],
+          [ "Say", "*r0 to second" ],
+          [ "Say", "@ on the play." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 0 d d" ],
+          [ "Adv", "1 3 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n30",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r1 trying for third..." ],
+          [ "Say", "Out." ],
+          [ "Adv", "1 0 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n31",
+        [
+          [ "Say", "Single." ],
+          [ "Say", "*r2 trying to score." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Out." ],
+          [ "Adv", "2 0 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n32",
+        [
+          [ "Say", "Single." ],
+          [ "Say", "*r2 trying to score." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Out." ],
+          [ "Adv", "2 0 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n33",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 trying for third..." ],
+          [ "Say", "Out." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 0 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n34",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 trying for home..." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Out." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 0 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n35",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 trying for home..." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Out." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 0 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n36",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r1 trying for third..." ],
+          [ "Say", "Error." ],
+          [ "Say", "@ *f5" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Adv", "0 3 e d" ],
+          [ "Adv", "1 4 d x" ],
+          [ "BatDis", 1 ],
+          [ "Err", 5 ]
+        ]
+      ],
+
+      [
+        "n37",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r2 trying to score." ],
+          [ "Say", "Error." ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Adv", "0 3 e d" ],
+          [ "Adv", "2 4 d x" ],
+          [ "BatDis", 1 ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n38",
+        [
+          [ "Say", "Single." ],
+          [ "Say", "*r2 trying for home..." ],
+          [ "Say", "Bad throw" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 to third" ],
+          [ "Say", "*r0 to second" ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "1 3 d d" ],
+          [ "Adv", "2 4 d x" ],
+          [ "BatDis", 1 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n39",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 trying for third..." ],
+          [ "Say", "" ],
+          [ "Say", "@ *f5" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r1 safe at third." ],
+          [ "Say", "*r0 to second" ],
+          [ "Say", "@ on the play." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "1 3 d d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 1 ],
+          [ "Err", 5 ]
+        ]
+      ],
+
+      [
+        "n40",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 trying for home..." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "" ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Adv", "0 3 e d" ],
+          [ "Adv", "2 4 d x" ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 1 ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n41",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 trying for home..." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Wild throw" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 to third" ],
+          [ "Say", "@ on the play." ],
+          [ "Say", "*r0 to second" ],
+          [ "Adv", "1 3 d d" ],
+          [ "Adv", "2 4 d x" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "0 2 e d" ],
+          [ "BatDis", 1 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n42",
+        [
+          [ "Say", "Single." ],
+          [ "Say", "*r2 trying for home..." ],
+          [ "Say", "Error." ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Adv", "0 3 e d" ],
+          [ "Adv", "1 4 d x" ],
+          [ "Adv", "2 4 d x" ],
+          [ "BatDis", 1 ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n43",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 trying for third..." ],
+          [ "Say", "Wild throw" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "@ on the play." ],
+          [ "Adv", "0 3 e d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 4 d x" ],
+          [ "BatDis", 1 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n44",
+        [
+          [ "Say", "Single." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 trying for second..." ],
+          [ "Say", "Out." ],
+          [ "Adv", "0 0 d d" ],
+          [ "Adv", "2 4 d r" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n45",
+        [
+          [ "Say", "Single." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r0 trying for second..." ],
+          [ "Say", "Out." ],
+          [ "Adv", "0 0 d d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n46",
+        [
+          [ "Say", "Single." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 to third" ],
+          [ "Say", "*r0 trying for second..." ],
+          [ "Say", "Out." ],
+          [ "Adv", "0 0 d d" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "1 3 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n47",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 to third" ],
+          [ "Say", "*r0 trying for second..." ],
+          [ "Say", "Out." ],
+          [ "Adv", "0 0 d d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 3 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n48",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 trying for second..." ],
+          [ "Say", "Out." ],
+          [ "Adv", "0 0 d d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n49",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 to third" ],
+          [ "Say", "*r0 trying for second..." ],
+          [ "Say", "Out." ],
+          [ "Adv", "0 0 d d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "1 3 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n50",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r0 trying for second..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Double." ],
+          [ "Adv", "0 2 e d" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n51",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r1 to third" ],
+          [ "Say", "*r0 trying for second..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Double." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "1 3 d d" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n52",
+        [
+          [ "Say", "Single." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 trying for second..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Double." ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "0 2 e d" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n53",
+        [
+          [ "Say", "Single." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r0 trying for second..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Double." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n54",
+        [
+          [ "Say", "Single." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 to third" ],
+          [ "Say", "*r0 trying for second..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Double." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "1 3 d d" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n55",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 to third" ],
+          [ "Say", "*r0 trying for second..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Double." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 3 d d" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n56",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 trying for second..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Double." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n57",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 to third" ],
+          [ "Say", "*r0 trying for second..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Double." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 3 d d" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n58",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r0 to second" ],
+          [ "Say", "Double." ],
+          [ "Adv", "0 2 e d" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n59",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r1 to third" ],
+          [ "Say", "*r0 to second" ],
+          [ "Say", "Double." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "1 3 d d" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n60",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 to second" ],
+          [ "Say", "Double." ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "0 2 e d" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n61",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r0 to second" ],
+          [ "Say", "Double." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n62",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 to third" ],
+          [ "Say", "*r0 to second" ],
+          [ "Say", "Double." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "1 3 d d" ],
+          [ "Adv", "2 4 d r" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n63",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 to third" ],
+          [ "Say", "*r0 to second" ],
+          [ "Say", "Double." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "1 3 d d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n64",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 to second" ],
+          [ "Say", "Double." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n65",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 stops at third." ],
+          [ "Say", "*r0 to second" ],
+          [ "Say", "Double." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "1 3 d d" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n67",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to second" ],
+          [ "Say", "Double." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "1 4 d r" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n68",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to second" ],
+          [ "Say", "Double." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "1 4 d r" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n69",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to second" ],
+          [ "Say", "Double." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n70",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to second" ],
+          [ "Say", "Double." ],
+          [ "Adv", "0 2 e d" ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n71",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "Double." ],
+          [ "Adv", "0 2 e d" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n72",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r1 trying for home..." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Double." ],
+          [ "Say", "@ plus base on the play." ],
+          [ "Adv", "0 3 e d" ],
+          [ "Adv", "1 4 d r" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n73",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 trying for home..." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Double." ],
+          [ "Say", "@ plus base on the play." ],
+          [ "Adv", "0 3 e d" ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n74",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 trying for home..." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Double." ],
+          [ "Say", "@ plus base on the play." ],
+          [ "Adv", "0 3 e d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 4 d r" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n75",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 trying for home..." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Double." ],
+          [ "Say", "@ plus base on the play." ],
+          [ "Adv", "0 3 e d" ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n76",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r1 trying for home..." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Double." ],
+          [ "Say", "@ plus base on the play." ],
+          [ "Adv", "0 3 e d" ],
+          [ "Adv", "1 0 d d" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n77",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 trying for home..." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Double." ],
+          [ "Say", "@ plus base on the play." ],
+          [ "Adv", "0 3 e d" ],
+          [ "Adv", "1 0 d d" ],
+          [ "Adv", "2 4 d r" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n78",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 trying for home..." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Double." ],
+          [ "Say", "@ plus base on the play." ],
+          [ "Adv", "0 3 e d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 0 d d" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n79",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 trying for home..." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Double." ],
+          [ "Say", "@ plus base on the play." ],
+          [ "Adv", "0 3 e d" ],
+          [ "Adv", "1 0 d d" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n80",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r1 trying for home..." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Out." ],
+          [ "Say", "Double." ],
+          [ "Adv", "1 0 d d" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n81",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 trying for home..." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Out." ],
+          [ "Say", "Double." ],
+          [ "Adv", "1 0 d d" ],
+          [ "Adv", "2 4 d r" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n82",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 trying for home..." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Out." ],
+          [ "Say", "Double." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 0 d d" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n83",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 trying for home..." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Out." ],
+          [ "Say", "Double." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "1 0 d d" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n84",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r1 trying for home..." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Error." ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 scores" ],
+          [ "Say", "Double." ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "0 4 u x" ],
+          [ "Adv", "1 4 d x" ],
+          [ "BatDis", 2 ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n85",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 trying for home..." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Wild throw" ],
+          [ "Say", "@ *fp" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 scores" ],
+          [ "Say", "Double." ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "0 4 u x" ],
+          [ "Adv", "1 4 d x" ],
+          [ "BatDis", 2 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n86",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 trying for home..." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Error." ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Double." ],
+          [ "Say", "@ plus base on the play." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 4 d x" ],
+          [ "Adv", "0 3 e d" ],
+          [ "BatDis", 2 ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n87",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 trying for home..." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Bad throw" ],
+          [ "Say", "@ *fp" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Double." ],
+          [ "Say", "@ plus base on the play." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "1 4 d x" ],
+          [ "Adv", "0 3 e d" ],
+          [ "BatDis", 2 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n88",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 trying for home..." ],
+          [ "Say", "Play at the plate..." ],
+          [ "Say", "Wild throw" ],
+          [ "Say", "@ *fp" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 scores" ],
+          [ "Say", "Double." ],
+          [ "Say", "@ plus two bases." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "1 4 d x" ],
+          [ "Adv", "0 4 u x" ],
+          [ "BatDis", 2 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n89",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r0 trying for third..." ],
+          [ "Say", "Out." ],
+          [ "Say", "Double." ],
+          [ "Adv", "0 0 d d" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n90",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 trying for third..." ],
+          [ "Say", "Out." ],
+          [ "Say", "Double." ],
+          [ "Adv", "0 0 d d" ],
+          [ "Adv", "1 4 d r" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n91",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 trying for third..." ],
+          [ "Say", "Out." ],
+          [ "Say", "Double." ],
+          [ "Adv", "0 0 d d" ],
+          [ "Adv", "2 4 d r" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n92",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r0 trying for third..." ],
+          [ "Say", "Out." ],
+          [ "Say", "Double." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "0 0 d d" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n93",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 trying for third..." ],
+          [ "Say", "Out." ],
+          [ "Say", "Double." ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n94",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 trying for third..." ],
+          [ "Say", "Out." ],
+          [ "Say", "Double." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 4 d r" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n95",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 trying for third..." ],
+          [ "Say", "Out." ],
+          [ "Say", "Double." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n96",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 trying for third..." ],
+          [ "Say", "Out." ],
+          [ "Say", "Double." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "1 4 d r" ],
+          [ "BatDis", 2 ]
+        ]
+      ],
+
+      [
+        "n97",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r0 trying for third..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Triple." ],
+          [ "Adv", "0 3 e d" ],
+          [ "BatDis", 3 ]
+        ]
+      ],
+
+      [
+        "n98",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 trying for third..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Triple." ],
+          [ "Adv", "0 3 e d" ],
+          [ "Adv", "1 4 d r" ],
+          [ "BatDis", 3 ]
+        ]
+      ],
+
+      [
+        "n99",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 trying for third..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Triple." ],
+          [ "Adv", "0 3 e d" ],
+          [ "Adv", "2 4 d r" ],
+          [ "BatDis", 3 ]
+        ]
+      ],
+
+      [
+        "n100",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r0 trying for third..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Triple." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "0 3 e d" ],
+          [ "BatDis", 3 ]
+        ]
+      ],
+
+      [
+        "n101",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 trying for third..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Triple." ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "0 3 e d" ],
+          [ "BatDis", 3 ]
+        ]
+      ],
+
+      [
+        "n102",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 trying for third..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Triple." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "0 3 e d" ],
+          [ "BatDis", 3 ]
+        ]
+      ],
+
+      [
+        "n103",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 trying for third..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Triple." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "0 3 e d" ],
+          [ "BatDis", 3 ]
+        ]
+      ],
+
+      [
+        "n104",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 trying for third..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Triple." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "0 3 e d" ],
+          [ "BatDis", 3 ]
+        ]
+      ],
+
+      [
+        "n105",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "Error, *fp." ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Double." ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "0 3 e d" ],
+          [ "BatDis", 2 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n106",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "Error, *fp." ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Double." ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "1 4 d x" ],
+          [ "Adv", "0 3 e d" ],
+          [ "BatDis", 2 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n107",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "Error, *fp." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Double." ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "0 3 e d" ],
+          [ "BatDis", 2 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n108",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "Error, *fp." ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Double." ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "0 3 e d" ],
+          [ "BatDis", 2 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n109",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "Error, *fp." ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Double." ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "1 4 d x" ],
+          [ "Adv", "0 3 e d" ],
+          [ "BatDis", 2 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n110",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "Error, *fp." ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Double." ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 4 d x" ],
+          [ "Adv", "0 3 e d" ],
+          [ "BatDis", 2 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n111",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "Error, *fp." ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Double." ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "0 3 e d" ],
+          [ "BatDis", 2 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n112",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "Error, *fp." ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Double." ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "1 4 d x" ],
+          [ "Adv", "0 3 e d" ],
+          [ "BatDis", 2 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n113",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Triple." ],
+          [ "Adv", "0 3 e d" ],
+          [ "BatDis", 3 ]
+        ]
+      ],
+
+      [
+        "n114",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Triple." ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "0 3 e d" ],
+          [ "BatDis", 3 ]
+        ]
+      ],
+
+      [
+        "n115",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Triple." ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "0 3 e d" ],
+          [ "BatDis", 3 ]
+        ]
+      ],
+
+      [
+        "n116",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Triple." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "0 3 e d" ],
+          [ "BatDis", 3 ]
+        ]
+      ],
+
+      [
+        "n117",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Triple." ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "0 3 e d" ],
+          [ "BatDis", 3 ]
+        ]
+      ],
+
+      [
+        "n118",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Triple." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "0 3 e d" ],
+          [ "BatDis", 3 ]
+        ]
+      ],
+
+      [
+        "n119",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Triple." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "0 3 e d" ],
+          [ "BatDis", 3 ]
+        ]
+      ],
+
+      [
+        "n120",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Triple." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "0 3 e d" ],
+          [ "BatDis", 3 ]
+        ]
+      ],
+
+      [
+        "n121",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "*r0 trying for home..." ],
+          [ "Say", "Out." ],
+          [ "Say", "Triple." ],
+          [ "Adv", "0 0 d d" ],
+          [ "BatDis", 3 ]
+        ]
+      ],
+
+      [
+        "n122",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "*r0 trying for home..." ],
+          [ "Say", "Out." ],
+          [ "Say", "Triple." ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "0 0 d d" ],
+          [ "BatDis", 3 ]
+        ]
+      ],
+
+      [
+        "n123",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "*r0 trying for home..." ],
+          [ "Say", "Out." ],
+          [ "Say", "Triple." ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "0 0 d d" ],
+          [ "BatDis", 3 ]
+        ]
+      ],
+
+      [
+        "n124",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "*r0 trying for home..." ],
+          [ "Say", "Out." ],
+          [ "Say", "Triple." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "0 0 d d" ],
+          [ "BatDis", 3 ]
+        ]
+      ],
+
+      [
+        "n125",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "*r0 trying for home..." ],
+          [ "Say", "Out." ],
+          [ "Say", "Triple." ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "0 0 d d" ],
+          [ "BatDis", 3 ]
+        ]
+      ],
+
+      [
+        "n126",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "*r0 trying for home..." ],
+          [ "Say", "Out." ],
+          [ "Say", "Triple." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "0 0 d d" ],
+          [ "BatDis", 3 ]
+        ]
+      ],
+
+      [
+        "n127",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "*r0 trying for home..." ],
+          [ "Say", "Out." ],
+          [ "Say", "Triple." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "0 0 d d" ],
+          [ "BatDis", 3 ]
+        ]
+      ],
+
+      [
+        "n128",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "*r0 trying for home..." ],
+          [ "Say", "Out." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "0 0 d d" ],
+          [ "BatDis", 3 ]
+        ]
+      ],
+
+      [
+        "n129",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "*r0 trying for home..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Home run." ],
+          [ "Adv", "0 4 e r" ],
+          [ "BatDis", 4 ]
+        ]
+      ],
+
+      [
+        "n130",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "*r0 trying for home..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Home run." ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "0 4 e r" ],
+          [ "BatDis", 4 ]
+        ]
+      ],
+
+      [
+        "n131",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "*r0 trying for home..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Home run." ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "0 4 e r" ],
+          [ "BatDis", 4 ]
+        ]
+      ],
+
+      [
+        "n132",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "*r0 trying for home..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Home run." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "0 4 e r" ],
+          [ "BatDis", 4 ]
+        ]
+      ],
+
+      [
+        "n133",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "*r0 trying for home..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Home run." ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "0 4 e r" ],
+          [ "BatDis", 4 ]
+        ]
+      ],
+
+      [
+        "n134",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "*r0 trying for home..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Home run." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "0 4 e r" ],
+          [ "BatDis", 4 ]
+        ]
+      ],
+
+      [
+        "n135",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "*r0 trying for home..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Home run." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "0 4 e r" ],
+          [ "BatDis", 4 ]
+        ]
+      ],
+
+      [
+        "n136",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "*r0 trying for home..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Home run." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "0 4 e r" ],
+          [ "BatDis", 4 ]
+        ]
+      ],
+
+      [
+        "n137",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "*r0 trying for home..." ],
+          [ "Say", "Error." ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "*r0 scores" ],
+          [ "Say", "Triple." ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "0 4 u x" ],
+          [ "BatDis", 3 ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n138",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "*r0 trying for home..." ],
+          [ "Say", "Wild throw" ],
+          [ "Say", "@ *fp" ],
+          [ "Say", "*r0 scores" ],
+          [ "Say", "Triple." ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "0 4 u x" ],
+          [ "BatDis", 3 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n139",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "*r0 trying for home..." ],
+          [ "Say", "Error." ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "*r0 scores" ],
+          [ "Say", "Triple." ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "0 4 u x" ],
+          [ "BatDis", 3 ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n140",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "*r0 trying for home..." ],
+          [ "Say", "Wild throw" ],
+          [ "Say", "@ *fp" ],
+          [ "Say", "*r0 scores" ],
+          [ "Say", "Triple." ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "0 4 u x" ],
+          [ "BatDis", 3 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n141",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "*r0 trying for home..." ],
+          [ "Say", "Wild throw" ],
+          [ "Say", "@ *fp" ],
+          [ "Say", "*r0 scores" ],
+          [ "Say", "Triple." ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "0 4 u x" ],
+          [ "BatDis", 3 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n142",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "*r0 trying for home..." ],
+          [ "Say", "" ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "@ misses the tag." ],
+          [ "Say", "*r0 scores" ],
+          [ "Say", "Triple." ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "0 4 u x" ],
+          [ "BatDis", 3 ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n143",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "*r0 trying for home..." ],
+          [ "Say", "" ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "@ misses the tag." ],
+          [ "Say", "*r0 scores" ],
+          [ "Say", "Triple." ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "0 4 u x" ],
+          [ "BatDis", 3 ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n144",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "*r0 trying for home..." ],
+          [ "Say", "" ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "@ misses the tag." ],
+          [ "Say", "*r0 scores" ],
+          [ "Say", "Triple." ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "0 4 u x" ],
+          [ "BatDis", 3 ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n145",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Missplayed by *fp..." ],
+          [ "Say", "*r0 scores" ],
+          [ "Say", "Triple." ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "0 4 u x" ],
+          [ "BatDis", 3 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n146",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Missplayed by *fp..." ],
+          [ "Say", "*r0 scores" ],
+          [ "Say", "Triple." ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "0 4 u x" ],
+          [ "BatDis", 3 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n147",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Missplayed by *fp..." ],
+          [ "Say", "*r0 scores" ],
+          [ "Say", "Triple." ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "0 4 u x" ],
+          [ "BatDis", 3 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n148",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Missplayed by *fp..." ],
+          [ "Say", "*r0 scores" ],
+          [ "Say", "Triple." ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "0 4 u x" ],
+          [ "BatDis", 3 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n149",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Missplayed by *fp..." ],
+          [ "Say", "*r0 scores" ],
+          [ "Say", "Triple." ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "0 4 u x" ],
+          [ "BatDis", 3 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n150",
+        [
+          [ "Say", "Extra base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Missplayed by *fp..." ],
+          [ "Say", "*r0 scores" ],
+          [ "Say", "Triple." ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "0 4 u x" ],
+          [ "BatDis", 3 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n151",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Missplayed by *fp..." ],
+          [ "Say", "*r0 scores" ],
+          [ "Say", "Triple." ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "0 4 u x" ],
+          [ "BatDis", 3 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n152",
+        [
+          [ "Say", "Extra bases." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to third" ],
+          [ "Say", "Missplayed by *fp..." ],
+          [ "Say", "*r0 scores" ],
+          [ "Say", "Triple." ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "0 4 u x" ],
+          [ "BatDis", 3 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n153",
+        [
+          [ "Say", "Deep..." ],
+          [ "Say", "Home run." ],
+          [ "Adv", "0 4 e r" ],
+          [ "BatDis", 4 ]
+        ]
+      ],
+
+      [
+        "n154",
+        [
+          [ "Say", "Deep..." ],
+          [ "Say", "Home run." ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 scores" ],
+          [ "Adv", "0 4 e r" ],
+          [ "Adv", "1 4 d r" ],
+          [ "BatDis", 4 ]
+        ]
+      ],
+
+      [
+        "n155",
+        [
+          [ "Say", "Deep..." ],
+          [ "Say", "Home run." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 scores" ],
+          [ "Adv", "0 4 e r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "BatDis", 4 ]
+        ]
+      ],
+
+      [
+        "n156",
+        [
+          [ "Say", "Deep..." ],
+          [ "Say", "Home run." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r0 scores" ],
+          [ "Adv", "0 4 e r" ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 4 ]
+        ]
+      ],
+
+      [
+        "n157",
+        [
+          [ "Say", "Deep..." ],
+          [ "Say", "Home run." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 scores" ],
+          [ "Adv", "0 4 e r" ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "BatDis", 4 ]
+        ]
+      ],
+
+      [
+        "n158",
+        [
+          [ "Say", "Deep..." ],
+          [ "Say", "Home run." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 scores" ],
+          [ "Adv", "0 4 e r" ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 4 ]
+        ]
+      ],
+
+      [
+        "n159",
+        [
+          [ "Say", "Deep..." ],
+          [ "Say", "Home run." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 scores" ],
+          [ "Adv", "0 4 e r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 4 ]
+        ]
+      ],
+
+      [
+        "n160",
+        [
+          [ "Say", "Deep..." ],
+          [ "Say", "Home run." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 scores" ],
+          [ "Adv", "0 4 e r" ],
+          [ "Adv", "1 4 d r" ],
+          [ "Adv", "2 4 d r" ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 4 ]
+        ]
+      ],
+
+      [
+        "n161",
+        [
+          [ "Say", "Base on balls." ],
+          [ "Adv", "0 1 e d" ],
+          [ "BatDis", 5 ]
+        ]
+      ],
+
+      [
+        "n162",
+        [
+          [ "Say", "Base on balls." ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 5 ]
+        ]
+      ],
+
+      [
+        "n163",
+        [
+          [ "Say", "Base on balls." ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 5 ]
+        ]
+      ],
+
+      [
+        "n164",
+        [
+          [ "Say", "Base on balls." ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 5 ]
+        ]
+      ],
+
+      [
+        "n165",
+        [
+          [ "Say", "Base on balls." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 5 ]
+        ]
+      ],
+
+      [
+        "n166",
+        [
+          [ "Say", "Hit by pitch." ],
+          [ "Adv", "0 1 e d" ],
+          [ "BatDis", 9 ]
+        ]
+      ],
+
+      [
+        "n167",
+        [
+          [ "Say", "Hit by pitch." ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 9 ]
+        ]
+      ],
+
+      [
+        "n168",
+        [
+          [ "Say", "Hit by pitch." ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 9 ]
+        ]
+      ],
+
+      [
+        "n169",
+        [
+          [ "Say", "Hit by pitch." ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 9 ]
+        ]
+      ],
+
+      [
+        "n170",
+        [
+          [ "Say", "Hit by pitch." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 9 ]
+        ]
+      ],
+
+      [
+        "n171",
+        [
+          [ "Say", "Strikes out." ],
+          [ "BatDis", 6 ]
+        ]
+      ],
+
+      [
+        "n172",
+        [
+          [ "Say", "Strikes out." ],
+          [ "Say", "Gets by" ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "BatDis", 10 ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n173",
+        [
+          [ "Say", "Strikes out." ],
+          [ "Say", "Gets by" ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Say", "*r2 goes to third" ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 10 ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n174",
+        [
+          [ "Say", "Strikes out." ],
+          [ "Say", "Gets by" ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Say", "*r3 scores" ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "3 4 d x" ],
+          [ "BatDis", 10 ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n175",
+        [
+          [ "Say", "Strikes out." ],
+          [ "Say", "" ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 goes to third" ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 10 ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n176",
+        [
+          [ "Say", "Strikes out." ],
+          [ "Say", "Gets by" ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 10 ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n177",
+        [
+          [ "Say", "Strikes out." ],
+          [ "Say", "Gets by" ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 10 ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n178",
+        [
+          [ "Say", "Strikes out." ],
+          [ "Say", "Gets by" ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "3 4 d x" ],
+          [ "BatDis", 10 ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n179",
+        [
+          [ "Say", "Strikes out." ],
+          [ "Say", "" ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 10 ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n180",
+        [
+          [ "Say", "Out at first." ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n181",
+        [
+          [ "Say", "Throw to first..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r1 to second" ],
+          [ "BatDis", 7 ],
+          [ "Adv", "1 2 d d" ]
+        ]
+      ],
+
+      [
+        "n182",
+        [
+          [ "Say", "Out at first." ],
+          [ "Say", "*r2 to third" ],
+          [ "BatDis", 7 ],
+          [ "Adv", "2 3 d d" ]
+        ]
+      ],
+
+      [
+        "n183",
+        [
+          [ "Say", "Throw to first..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r3 scores" ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n184",
+        [
+          [ "Say", "Out at first." ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n185",
+        [
+          [ "Say", "Throw to first..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n186",
+        [
+          [ "Say", "Throw to first..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 to third" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n187",
+        [
+          [ "Say", "Out at first." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n188",
+        [
+          [ "Say", "Throw to first..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Base hit." ],
+          [ "Adv", "0 1 e d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n189",
+        [
+          [ "Say", "Throw to first..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Base hit." ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n190",
+        [
+          [ "Say", "Throw to first..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Base hit." ],
+          [ "Say", "*r2 to third" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n191",
+        [
+          [ "Say", "Throw to first..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n192",
+        [
+          [ "Say", "Throw to first..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Base hit." ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n193",
+        [
+          [ "Say", "Throw to first..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n194",
+        [
+          [ "Say", "Throw to first..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 to third" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n195",
+        [
+          [ "Say", "Throw to first..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n196",
+        [
+          [ "Say", "Throw to first..." ],
+          [ "Say", "Bad throw" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Say", "Error, *fp." ],
+          [ "Adv", "0 1 u d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n197",
+        [
+          [ "Say", "Throw to first..." ],
+          [ "Say", "" ],
+          [ "Say", "@ *f3" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r1 to third" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "1 3 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 3 ]
+        ]
+      ],
+
+      [
+        "n198",
+        [
+          [ "Say", "Throw to first..." ],
+          [ "Say", "Wild throw" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Say", "Error, *fp." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "2 4 d x" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n199",
+        [
+          [ "Say", "Throw to first..." ],
+          [ "Say", "" ],
+          [ "Say", "@ *f3" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Say", "Error." ],
+          [ "Say", "@ *f3" ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 13 ],
+          [ "Err", 3 ]
+        ]
+      ],
+
+      [
+        "n200",
+        [
+          [ "Say", "Throw to first..." ],
+          [ "Say", "Bad throw" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Say", "Error, *fp." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "2 4 d x" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n201",
+        [
+          [ "Say", "Throw to first..." ],
+          [ "Say", "Bad throw" ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Say", "Error, *fp." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n202",
+        [
+          [ "Say", "Throw to first..." ],
+          [ "Say", "" ],
+          [ "Say", "@ *f3" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 3 ]
+        ]
+      ],
+
+      [
+        "n203",
+        [
+          [ "Say", "Throw to first..." ],
+          [ "Say", "Wild throw" ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "All hands safe." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n204",
+        [
+          [ "Say", "Throw to first..." ],
+          [ "Say", "" ],
+          [ "Say", "@ *f3" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 goes to second" ],
+          [ "Adv", "0 2 u d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d x" ],
+          [ "BatDis", 13 ],
+          [ "Err", 3 ]
+        ]
+      ],
+
+      [
+        "n205",
+        [
+          [ "Say", "Throw to first..." ],
+          [ "Say", "Wild throw" ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d x" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n206",
+        [
+          [ "Say", "Out at first." ],
+          [ "Say", "*r2 goes to third" ],
+          [ "BatDis", 7 ],
+          [ "Adv", "2 3 d d" ]
+        ]
+      ],
+
+      [
+        "n207",
+        [
+          [ "Say", "Out at first." ],
+          [ "Say", "*r3 scores" ],
+          [ "BatDis", 7 ],
+          [ "Adv", "3 4 d r" ]
+        ]
+      ],
+
+      [
+        "n208",
+        [
+          [ "Say", "To second for one..." ],
+          [ "Say", "To first..." ],
+          [ "Say", "Double play." ],
+          [ "Say1", "*r2 takes third." ],
+          [ "Adv", "1 0 d d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n209",
+        [
+          [ "Say", "Out at first." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 to third" ],
+          [ "BatDis", 7 ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 3 d d" ]
+        ]
+      ],
+
+      [
+        "n210",
+        [
+          [ "Say", "To second for one..." ],
+          [ "Say", "To first..." ],
+          [ "Say", "Double play." ],
+          [ "Say1", "*r3 scores." ],
+          [ "Say1", "*r2 to third." ],
+          [ "Adv", "1 0 d d" ],
+          [ "BatDis", 7 ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "2 3 d d" ]
+        ]
+      ],
+
+      [
+        "n211",
+        [
+          [ "Say", "To second for one..." ],
+          [ "Say", "To first..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r2 to third" ],
+          [ "Adv", "1 0 d d" ],
+          [ "BatDis", 14 ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "0 1 e d" ]
+        ]
+      ],
+
+      [
+        "n212",
+        [
+          [ "Say", "To second for one..." ],
+          [ "Say", "To first..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 to third" ],
+          [ "Adv", "1 0 d d" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "0 1 e d" ],
+          [ "BatDis", 14 ]
+        ]
+      ],
+
+      [
+        "n213",
+        [
+          [ "Say", "To second for one..." ],
+          [ "Say", "To first..." ],
+          [ "Say", "Bad throw" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 to second" ],
+          [ "Adv", "1 0 d d" ],
+          [ "Adv", "0 2 u d" ],
+          [ "BatDis", 13 ],
+          [ "Adv", "2 4 d x" ],
+          [ "Err", 10 ]
+        ]
+      ],
+
+      [
+        "n214",
+        [
+          [ "Say", "To second for one..." ],
+          [ "Say", "To first..." ],
+          [ "Say", "Wild throw" ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "1 0 d d" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "2 4 d x" ],
+          [ "Adv", "0 1 u d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 10 ]
+        ]
+      ],
+
+      [
+        "n215",
+        [
+          [ "Say", "*pv drops the ball at 2d" ],
+          [ "Say", "*r1 safe at second." ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "0 1 u d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 10 ]
+        ]
+      ],
+
+      [
+        "n217",
+        [
+          [ "Say", "*pv drops the ball at 2d" ],
+          [ "Say", "*r1 safe at second." ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "0 1 u d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 10 ]
+        ]
+      ],
+
+      [
+        "n218",
+        [
+          [ "Say", "*pv drops the ball at 2d" ],
+          [ "Say", "*r1 safe at second." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "0 1 u d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 10 ]
+        ]
+      ],
+
+      [
+        "n219",
+        [
+          [ "Say", "*pv drops the ball at 2d" ],
+          [ "Say", "All hands safe." ],
+          [ "Say", "*r3 scores" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "0 1 u d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 10 ]
+        ]
+      ],
+
+
+      [
+        "n220",
+        [
+          [ "Say", "Out." ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n221",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "No advance." ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n222",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r3 scores" ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 11 ]
+        ]
+      ],
+
+      [
+        "n223",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 holds at first." ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 11 ]
+        ]
+      ],
+
+      [
+        "n224",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 holds at second." ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 11 ]
+        ]
+      ],
+
+      [
+        "n225",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "Others hold." ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 11 ]
+        ]
+      ],
+
+      [
+        "n226",
+        [
+          [ "Say", "Deep..." ],
+          [ "Say", "Out." ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n227",
+        [
+          [ "Say", "Deep..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r2 advances to third." ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n228",
+        [
+          [ "Say", "Deep..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r3 scores" ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 11 ]
+        ]
+      ],
+
+      [
+        "n229",
+        [
+          [ "Say", "Deep..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r2 advances to third." ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n230",
+        [
+          [ "Say", "Deep..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 takes third" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 11 ]
+        ]
+      ],
+
+      [
+        "n232",
+        [
+          [ "Say", "Deep..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r1 advances to second." ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n233",
+        [
+          [ "Say", "Deep..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n234",
+        [
+          [ "Say", "Deep..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 takes second" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 11 ]
+        ]
+      ],
+
+      [
+        "n235",
+        [
+          [ "Say", "Deep..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "Others advance." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 11 ]
+        ]
+      ],
+
+      [
+        "n236",
+        [
+          [ "Say", "Gets by *fp..." ],
+          [ "Say", "*r0 goes to second" ],
+          [ "Say", "Two base error." ],
+          [ "Adv", "0 2 u d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n237",
+        [
+          [ "Say", "Gets by *fp..." ],
+          [ "Say", "*r1 goes to third" ],
+          [ "Say", "*r0 to second" ],
+          [ "Adv", "1 3 d d" ],
+          [ "Adv", "0 2 u d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n238",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 to second" ],
+          [ "Adv", "2 4 d x" ],
+          [ "Adv", "0 2 u d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n239",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r0 to second" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "0 2 u d" ],
+          [ "BatDis", 11 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n240",
+        [
+          [ "Say", "Gets by *fp..." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to second" ],
+          [ "Adv", "2 4 d x" ],
+          [ "Adv", "1 4 d x" ],
+          [ "Adv", "0 2 u d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n241",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 to second" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d x" ],
+          [ "Adv", "0 2 u d" ],
+          [ "BatDis", 11 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n242",
+        [
+          [ "Say", "Gets by *fp..." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 stops at second." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d x" ],
+          [ "Adv", "1 4 d x" ],
+          [ "Adv", "0 2 u d" ],
+          [ "BatDis", 11 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n243",
+        [
+          [ "Say", "Missplayed by *fp..." ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n244",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r1 to third" ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Adv", "1 3 d d" ],
+          [ "Adv", "0 1 u d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n245",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 stops at first." ],
+          [ "Adv", "2 4 d x" ],
+          [ "Adv", "0 1 u d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n246",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "0 1 u d" ],
+          [ "BatDis", 11 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n247",
+        [
+          [ "Say", "Missplayed by *fp..." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 to third" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "2 4 d x" ],
+          [ "Adv", "1 3 d d" ],
+          [ "Adv", "0 1 u d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n248",
+        [
+          [ "Say", "Missplayed by *fp..." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 to third" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 3 d d" ],
+          [ "Adv", "0 1 u d" ],
+          [ "BatDis", 11 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n249",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 to second" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d x" ],
+          [ "Adv", "0 1 u d" ],
+          [ "BatDis", 11 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n250",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 stops at third." ],
+          [ "Say", "*r0 stops at first." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d x" ],
+          [ "Adv", "1 3 d d" ],
+          [ "Adv", "0 1 u d" ],
+          [ "BatDis", 11 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n251",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r1 trying for second..." ],
+          [ "Say", "Safe." ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n252",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r2 trying for third..." ],
+          [ "Say", "Safe." ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n253",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r3 trying for home..." ],
+          [ "Say", "Safe." ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 11 ]
+        ]
+      ],
+
+      [
+        "n254",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r2 trying for third..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r1 takes second" ],
+          [ "Say", "@ on the play." ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n255",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r3 trying for home..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r1 takes second" ],
+          [ "Say", "@ on the play." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 11 ]
+        ]
+      ],
+
+      [
+        "n256",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r3 trying for home..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r2 takes third" ],
+          [ "Say", "@ on the play." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 11 ]
+        ]
+      ],
+
+      [
+        "n257",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 trying for third..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r1 takes second" ],
+          [ "Say", "@ on the play." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 11 ]
+        ]
+      ],
+
+      [
+        "n258",
+        [
+          [ "Say", "Gets by *fp..." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 scores" ],
+          [ "Say", "*r0 to second" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 4 d x" ],
+          [ "Adv", "0 2 u d" ],
+          [ "BatDis", 11 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n259",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r1 trying for second..." ],
+          [ "Say", "Out." ],
+          [ "Say", "Double play." ],
+          [ "Adv", "1 0 d d" ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n260",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r2 trying for third..." ],
+          [ "Say", "Out." ],
+          [ "Say", "Double play." ],
+          [ "Adv", "2 0 d d" ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n261",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r3 trying for home..." ],
+          [ "Say", "Out." ],
+          [ "Say", "Double play." ],
+          [ "Adv", "3 0 d d" ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n262",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r2 trying for third..." ],
+          [ "Say", "Out." ],
+          [ "Say", "Double play." ],
+          [ "Say1", "*r1 to second." ],
+          [ "Adv", "2 0 d d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n263",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r3 trying for home..." ],
+          [ "Say", "Out." ],
+          [ "Say", "Double play." ],
+          [ "Say1", "*r1 to second." ],
+          [ "Adv", "3 0 d d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n264",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 trying for third..." ],
+          [ "Say", "Out." ],
+          [ "Say", "Double play." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 0 d d" ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n265",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r3 trying for home..." ],
+          [ "Say", "Out." ],
+          [ "Say", "Double play." ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "3 0 d d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n266",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r1 trying for second..." ],
+          [ "Say", "" ],
+          [ "Say", "@ *f4" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r1 to third" ],
+          [ "BatDis", 7 ],
+          [ "Adv", "1 3 d d" ],
+          [ "Err", 4 ]
+        ]
+      ],
+
+      [
+        "n267",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r2 trying for third..." ],
+          [ "Say", "Wild throw" ],
+          [ "Say", "@ *fp" ],
+          [ "Say", "*r2 scores" ],
+          [ "BatDis", 7 ],
+          [ "Adv", "2 4 d x" ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n268",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r3 trying for home..." ],
+          [ "Say", "" ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "@ misses the tag." ],
+          [ "Say", "*r3 scores" ],
+          [ "BatDis", 7 ],
+          [ "Adv", "3 4 d x" ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n269",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r2 trying for third..." ],
+          [ "Say", "" ],
+          [ "Say", "@ *f5" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 to second" ],
+          [ "BatDis", 7 ],
+          [ "Adv", "2 4 d x" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Err", 5 ]
+        ]
+      ],
+
+      [
+        "n270",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r3 trying for home..." ],
+          [ "Say", "Bad throw" ],
+          [ "Say", "@ *fp" ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 to third" ],
+          [ "BatDis", 7 ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "1 3 d d" ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n271",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 trying for third..." ],
+          [ "Say", "Bad throw" ],
+          [ "Say", "@ *fp" ],
+          [ "Say", "*r2 scores" ],
+          [ "BatDis", 7 ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 4 d x" ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n272",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r3 trying to score." ],
+          [ "Say", "Bad throw" ],
+          [ "Say", "@ *fp" ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r1 to second" ],
+          [ "BatDis", 7 ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n273",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r1 doubled off first." ],
+          [ "BatDis", 7 ],
+          [ "Adv", "1 0 d d" ]
+        ]
+      ],
+
+      [
+        "n274",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r2 doubled off second." ],
+          [ "BatDis", 7 ],
+          [ "Adv", "2 0 d d" ]
+        ]
+      ],
+
+      [
+        "n275",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r3 doubled off third." ],
+          [ "BatDis", 7 ],
+          [ "Adv", "3 0 d d" ]
+        ]
+      ],
+
+      [
+        "n276",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r2 doubled off second." ],
+          [ "BatDis", 7 ],
+          [ "Adv", "2 0 d d" ]
+        ]
+      ],
+
+      [
+        "n277",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r3 doubled off third." ],
+          [ "BatDis", 7 ],
+          [ "Adv", "3 0 d d" ]
+        ]
+      ],
+
+      [
+        "n278",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r2 doubled off second." ],
+          [ "BatDis", 7 ],
+          [ "Adv", "2 0 d d" ]
+        ]
+      ],
+
+      [
+        "n279",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r2 doubled off second." ],
+          [ "BatDis", 7 ],
+          [ "Adv", "2 0 d d" ]
+        ]
+      ],
+
+      [
+        "n280",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r2 doubled off second." ],
+          [ "Say1", "*r1 tripled off first." ],
+          [ "Say", "Triple play." ],
+          [ "BatDis", 7 ],
+          [ "Adv", "2 0 d d" ],
+          [ "Adv", "1 0 d d" ]
+        ]
+      ],
+
+      [
+        "n281",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r3 doubled off third." ],
+          [ "Say1", "*r1 tripled off first." ],
+          [ "Say", "Triple play." ],
+          [ "BatDis", 7 ],
+          [ "Adv", "3 0 d d" ],
+          [ "Adv", "1 0 d d" ]
+        ]
+      ],
+
+      [
+        "n282",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r3 doubled off third." ],
+          [ "Say1", "*r2 tripled off second." ],
+          [ "Say", "Triple play." ],
+          [ "BatDis", 7 ],
+          [ "Adv", "3 0 d d" ],
+          [ "Adv", "2 0 d d" ]
+        ]
+      ],
+
+      [
+        "n283",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "*r3 doubled off third." ],
+          [ "Say1", "*r2 tripled off second." ],
+          [ "Say", "Triple play." ],
+          [ "BatDis", 7 ],
+          [ "Adv", "3 0 d d" ],
+          [ "Adv", "2 0 d d" ]
+        ]
+      ],
+
+      [
+        "n284",
+        [
+          [ "Say", "Out." ],
+          [ "Say", "No advance." ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n285",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n286",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n287",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Say", "*r2 holds at second." ],
+          [ "Adv", "0 1 u d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n288",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Say", "*r3 holds at third." ],
+          [ "Adv", "0 1 u d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n289",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "Might fall in..." ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n290",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "*r3 holds at third." ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n291",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "Runners hold." ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n292",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n293",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n294",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "3 4 d x" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n295",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n296",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 goes to third" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n297",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ boots it." ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n298",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ can't get it." ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Say", "Error." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n299",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ boots it." ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n300",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ bobbles it." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "3 4 d x" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n301",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ bobbles it." ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n302",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ boots it." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n303",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ boots it." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 takes third" ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n304",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ boots it." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 goes to third" ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n305",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ can't get it." ],
+          [ "Say", "*r1 goes to third" ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Say", "Error." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "1 3 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n306",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ boots it." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "2 4 d x" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n307",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ bobbles it." ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "2 4 d x" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n308",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ bobbles it." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 to third" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "1 3 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n309",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ boots it." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "2 4 d x" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n310",
+        [
+          [ "Say", "*fp" ],
+          [ "Say", "@ boots it." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "2 4 d x" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 0 ]
+        ]
+      ],
+
+      [
+        "n311",
+        [
+          [ "Say", "Throw to first..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r1 to second" ],
+          [ "BatDis", 7 ],
+          [ "Adv", "1 2 d d" ]
+        ]
+      ],
+
+      [
+        "n312",
+        [
+          [ "Say", "*r2 trying for third..." ],
+          [ "Say", "Throw to third..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "2 0 d d" ],
+          [ "BatDis", 14 ]
+        ]
+      ],
+
+      [
+        "n313",
+        [
+          [ "Say", "*r3 trying for home..." ],
+          [ "Say", "Throw home..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "3 0 d d" ],
+          [ "BatDis", 14 ]
+        ]
+      ],
+
+      [
+        "n314",
+        [
+          [ "Say", "Throw to first..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r1 to second" ],
+          [ "BatDis", 7 ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ]
+        ]
+      ],
+
+      [
+        "n315",
+        [
+          [ "Say", "*r3 trying for home..." ],
+          [ "Say", "Throw home..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "3 0 d d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "0 1 e d" ],
+          [ "BatDis", 14 ]
+        ]
+      ],
+
+      [
+        "n316",
+        [
+          [ "Say", "*r3 trying for home..." ],
+          [ "Say", "Throw home..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "3 0 d d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "0 1 e d" ],
+          [ "BatDis", 14 ]
+        ]
+      ],
+
+      [
+        "n317",
+        [
+          [ "Say", "Throw to first..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 goes to third" ],
+          [ "Say", "*r1 to second" ],
+          [ "BatDis", 7 ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ]
+        ]
+      ],
+
+      [
+        "n318",
+        [
+          [ "Say", "*r2 trying for third..." ],
+          [ "Say", "Throw to third..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "0 1 e d" ],
+          [ "BatDis", 14 ]
+        ]
+      ],
+
+      [
+        "n319",
+        [
+          [ "Say", "*r3 trying for home..." ],
+          [ "Say", "Throw home..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "0 1 e d" ],
+          [ "BatDis", 14 ]
+        ]
+      ],
+
+      [
+        "n320",
+        [
+          [ "Say", "*r3 trying for home..." ],
+          [ "Say", "Throw home..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "0 1 e d" ],
+          [ "BatDis", 14 ]
+        ]
+      ],
+
+      [
+        "n321",
+        [
+          [ "Say", "*r3 trying for home..." ],
+          [ "Say", "Throw home..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r2 goes to third" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "0 1 e d" ],
+          [ "BatDis", 14 ]
+        ]
+      ],
+
+      [
+        "n322",
+        [
+          [ "Say", "*r2 trying for third..." ],
+          [ "Say", "Throw to third..." ],
+          [ "Say", "@ *f5" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "*r2 safe at third." ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "0 1 e d" ],
+          [ "BatDis", 14 ],
+          [ "Err", 5 ]
+        ]
+      ],
+
+      [
+        "n323",
+        [
+          [ "Say", "*r3 trying for home..." ],
+          [ "Say", "Throw home..." ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "@ misses the tag." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "0 1 e d" ],
+          [ "BatDis", 14 ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n324",
+        [
+          [ "Say", "*r3 trying for home..." ],
+          [ "Say", "Throw home..." ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r1 goes to second" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "0 1 e d" ],
+          [ "BatDis", 14 ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n325",
+        [
+          [ "Say", "*r3 trying for home..." ],
+          [ "Say", "Throw home..." ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "@ misses the tag." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r2 takes third" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "0 1 e d" ],
+          [ "BatDis", 14 ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n326",
+        [
+          [ "Say", "To second for one..." ],
+          [ "Say", "To first..." ],
+          [ "Say", "Double play." ],
+          [ "Adv", "1 0 d d" ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n327",
+        [
+          [ "Say", "Out at first." ],
+          [ "Say", "*r2 holds at second." ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n328",
+        [
+          [ "Say", "Out at first." ],
+          [ "Say", "*r3 holds at third." ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n329",
+        [
+          [ "Say", "To third for one..." ],
+          [ "Say", "To first..." ],
+          [ "Say", "Double play." ],
+          [ "Say", "*r1 takes second" ],
+          [ "Adv", "2 0 d d" ],
+          [ "BatDis", 7 ],
+          [ "Adv", "1 2 d d" ]
+        ]
+      ],
+
+      [
+        "n330",
+        [
+          [ "Say", "To second for one..." ],
+          [ "Say", "To first..." ],
+          [ "Say", "Double play." ],
+          [ "Say1", "*r3 scores." ],
+          [ "Adv", "1 0 d d" ],
+          [ "Adv", "3 4 d x" ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n331",
+        [
+          [ "Say", "Out at first." ],
+          [ "Say", "Runners hold." ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n332",
+        [
+          [ "Say", "*r3 forced at home." ],
+          [ "Say", "To first..." ],
+          [ "Say", "Double play." ],
+          [ "Say1", "*r2 to third." ],
+          [ "Say1", "*r1 to second." ],
+          [ "Adv", "3 0 d d" ],
+          [ "BatDis", 7 ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ]
+        ]
+      ],
+
+      [
+        "n333",
+        [
+          [ "Say", "*r1 forced at second." ],
+          [ "Adv", "1 0 d d" ],
+          [ "BatDis", 14 ]
+        ]
+      ],
+
+      [
+        "n334",
+        [
+          [ "Say", "To second for one..." ],
+          [ "Say", "To first..." ],
+          [ "Say", "Safe." ],
+          [ "Adv", "1 0 d d" ],
+          [ "Adv", "0 1 e d" ],
+          [ "BatDis", 14 ]
+        ]
+      ],
+
+      [
+        "n335",
+        [
+          [ "Say", "To third for one..." ],
+          [ "Say", "To first..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "2 0 d d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "0 1 e d" ],
+          [ "BatDis", 14 ]
+        ]
+      ],
+
+      [
+        "n336",
+        [
+          [ "Say", "To second for one..." ],
+          [ "Say", "To first..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r3 scores" ],
+          [ "Adv", "1 0 d d" ],
+          [ "Adv", "0 1 e d" ],
+          [ "BatDis", 14 ],
+          [ "Adv", "3 4 d r" ]
+        ]
+      ],
+
+      [
+        "n337",
+        [
+          [ "Say", "*r3 forced at home." ],
+          [ "Say", "To first..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "3 0 d d" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 14 ]
+        ]
+      ],
+
+      [
+        "n338",
+        [
+          [ "Say", "To second for one..." ],
+          [ "Say", "To first..." ],
+          [ "Say", "Wild throw" ],
+          [ "Say", "*r0 to second" ],
+          [ "Adv", "1 0 d d" ],
+          [ "Adv", "0 2 u d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 10 ]
+        ]
+      ],
+
+      [
+        "n339",
+        [
+          [ "Say", "To third for one..." ],
+          [ "Say", "To first..." ],
+          [ "Say", "Wild throw" ],
+          [ "Say", "*r1 to third" ],
+          [ "Say", "*r0 to second" ],
+          [ "Adv", "2 0 d d" ],
+          [ "Adv", "0 2 u d" ],
+          [ "Adv", "1 3 d d" ],
+          [ "Say", "*r3 holds at third." ],
+          [ "Err", 5 ]
+        ]
+      ],
+
+      [
+        "n340",
+        [
+          [ "Say", "To second for one..." ],
+          [ "Say", "To first..." ],
+          [ "Say", "Wild throw" ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r0 to second" ],
+          [ "Adv", "1 0 d d" ],
+          [ "Adv", "0 2 u d" ],
+          [ "Adv", "3 4 d x" ],
+          [ "BatDis", 13 ],
+          [ "Err", 10 ]
+        ]
+      ],
+
+      [
+        "n341",
+        [
+          [ "Say", "*r3 forced at home." ],
+          [ "Say", "To first..." ],
+          [ "Say", "Wild throw" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 to third" ],
+          [ "Say", "*r0 to second" ],
+          [ "Adv", "3 0 d d" ],
+          [ "Adv", "0 2 u d" ],
+          [ "Adv", "2 4 d x" ],
+          [ "Adv", "1 3 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n349",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r0 trying for third..." ],
+          [ "Say", "Out." ],
+          [ "Adv", "0 0 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n350",
+        [
+          [ "Say", "Base hit." ],
+          [ "Say", "*r1 to third" ],
+          [ "Say", "*r0 trying for second..." ],
+          [ "Say", "Out." ],
+          [ "Adv", "0 0 d d" ],
+          [ "Adv", "1 3 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n351",
+        [
+          [ "Choose", "7 6 0" ]
+        ]
+      ],
+
+      [
+        "n352",
+        [
+          [ "Choose", "1 2 0" ]
+        ]
+      ],
+
+      [
+        "n353",
+        [
+          [ "Choose", "12 15 0" ]
+        ]
+      ],
+
+      [
+        "n354",
+        [
+          [ "Say", "Could score *r1..." ],
+          [ "Choose", "12 15 0" ]
+        ]
+      ],
+
+      [
+        "n355",
+        [
+          [ "Choose", "31 37 0" ]
+        ]
+      ],
+
+      [
+        "n356",
+        [
+          [ "Choose", "31 37 0" ]
+        ]
+      ],
+
+
+
+      [
+        "n357",
+        [
+          [ "Say", "Might advance *r2..." ],
+          [ "Choose", "31 37 0" ]
+        ]
+      ],
+
+      [
+        "n358",
+        [
+          [ "Say", "Might score *r3..." ],
+          [ "Choose", "31 37 0" ]
+        ]
+      ],
+
+      [
+        "n363",
+        [
+          [ "Say", "Tough chance for *fp" ],
+          [ "Choose", "33 13 0" ]
+        ]
+      ],
+
+      [
+        "n364",
+        [
+          [ "Say", "Might be trouble..." ],
+          [ "Choose", "31 35 0" ]
+        ]
+      ],
+
+      [
+        "n365",
+        [
+          [ "Say", "Might fall in..." ],
+          [ "Choose", "40 4 0" ]
+        ]
+      ],
+
+      [
+        "n366",
+        [
+          [ "Choose", "47 48 0" ]
+        ]
+      ],
+
+      [
+        "n367",
+        [
+          [ "Say", "Could be two..." ],
+          [ "Choose", "47 48 0" ]
+        ]
+      ],
+
+      [
+        "n368",
+        [
+          [ "Say", "Tough chance for *fp" ],
+          [ "Choose", "54 55 0" ]
+        ]
+      ],
+
+      [
+        "n369",
+        [
+          [ "Choose", "54 43 0" ]
+        ]
+      ],
+
+      [
+        "n370",
+        [
+          [ "Choose", "54 43 3" ]
+        ]
+      ],
+
+      [
+        "n371",
+        [
+          [ "GPlays", "Gplay1B" ],
+          [ "Pos" ],
+          [ "Say", "*pl to *po..." ]
+        ]
+      ],
+
+      [
+        "n372",
+        [
+          [ "GPlays", "Gplay2B" ],
+          [ "Pos" ],
+          [ "Say", "*pl to *po..." ]
+        ]
+      ],
+
+      [
+        "n373",
+        [
+          [ "GPlays", "Gplay3B" ],
+          [ "Pos" ],
+          [ "Say", "*pl to *po..." ]
+        ]
+      ],
+
+      [
+        "n374",
+        [
+          [ "GPlays", "GplayHR" ],
+          [ "Pos" ],
+          [ "Say", "*pl to *po..." ]
+        ]
+      ],
+
+      [
+        "n375",
+        [
+          [ "GPlay", 4 ],
+          [ "Pos" ],
+          [ "Say", "*pl to *po..." ]
+        ]
+      ],
+
+      [
+        "n376",
+        [
+          [ "GPlay", 5 ],
+          [ "Pos" ],
+          [ "Say", "*pl to *po..." ]
+        ]
+      ],
+
+      [
+        "n377",
+        [
+          [ "GPlay", 6 ],
+          [ "Pos" ],
+          [ "Say", "*pl to *po..." ]
+        ]
+      ],
+
+      [
+        "n378",
+        [
+          [ "GPlay", 1 ],
+          [ "Pos" ],
+          [ "Say", "*pl to *po..." ]
+        ]
+      ],
+
+      [
+        "n379",
+        [
+          [ "GPlay", 2 ],
+          [ "Pos" ],
+          [ "Say", "*pl to *po..." ]
+        ]
+      ],
+
+      [
+        "n380",
+        [
+          [ "GPlay", 3 ],
+          [ "Pos" ],
+          [ "Say", "*pl to *po..." ]
+        ]
+      ],
+
+      [
+        "n381",
+        [
+          [ "GPlay", 7 ],
+          [ "Pos" ],
+          [ "Say", "*pl to *po..." ]
+        ]
+      ],
+
+      [
+        "n382",
+        [
+          [ "Homer" ]
+        ]
+      ],
+
+      [
+        "n390",
+        [
+          [ "Do", "AtBat" ],
+          [ "Comment", "Steal with no one on base, or no open base" ]
+        ]
+      ],
+
+      [
+        "n391",
+        [
+          [ "Say", "*r1" ],
+          [ "Say", "@ going..." ],
+          [ "Say", "Throw to second..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Stolen base" ],
+          [ "Adv", "1 2 d d" ]
+        ]
+      ],
+
+      [
+        "n392",
+        [
+          [ "Say", "*r2" ],
+          [ "Say", "@ going..." ],
+          [ "Say", "Throw to third..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Stolen base" ],
+          [ "Adv", "2 3 d d" ]
+        ]
+      ],
+
+      [
+        "n393",
+        [
+          [ "Say", "Runners going..." ],
+          [ "Say", "Throw to third..." ],
+          [ "Say", "*r2 safe at third." ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "Double steal" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "2 3 d d" ]
+        ]
+      ],
+
+      [
+        "n394",
+        [
+          [ "Say", "*r1" ],
+          [ "Say", "@ going..." ],
+          [ "Say", "Throw to second..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Stolen base" ],
+          [ "Adv", "1 2 d d" ]
+        ]
+      ],
+
+      [
+        "n395",
+        [
+          [ "Say", "*r1" ],
+          [ "Say", "@ going..." ],
+          [ "Say", "Throw to second..." ],
+          [ "Say", "Out." ],
+          [ "Adv", "1 0 d d" ]
+        ]
+      ],
+
+      [
+        "n396",
+        [
+          [ "Say", "*r2" ],
+          [ "Say", "@ going..." ],
+          [ "Say", "Throw to third..." ],
+          [ "Say", "Out." ],
+          [ "Adv", "2 0 d d" ]
+        ]
+      ],
+
+      [
+        "n397",
+        [
+          [ "Say", "Runners going..." ],
+          [ "Say", "Throw to third..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "Stolen base" ],
+          [ "Adv", "2 0 d d" ],
+          [ "Adv", "1 2 d d" ]
+        ]
+      ],
+
+      [
+        "n398",
+        [
+          [ "Say", "Runners going..." ],
+          [ "Say", "Throw to third..." ],
+          [ "Say", "Out." ],
+          [ "Adv", "2 0 d d" ]
+        ]
+      ],
+
+      [
+        "n399",
+        [
+          [ "Say", "*r1" ],
+          [ "Say", "@ going..." ],
+          [ "Say", "Throw to second..." ],
+          [ "Say", "Error." ],
+          [ "Say", "@ *f4" ],
+          [ "Say", "*r1 safe at second." ],
+          [ "Say", "Stolen base" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Err", 4 ]
+        ]
+      ],
+
+      [
+        "n400",
+        [
+          [ "Say", "*r2" ],
+          [ "Say", "@ going..." ],
+          [ "Say", "Throw to third..." ],
+          [ "Say", "Error." ],
+          [ "Say", "@ *f5" ],
+          [ "Say", "*r2 safe at third." ],
+          [ "Say", "Stolen base" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Err", 5 ]
+        ]
+      ],
+
+      [
+        "n401",
+        [
+          [ "Say", "Runners going..." ],
+          [ "Say", "Throw to third..." ],
+          [ "Say", "Error." ],
+          [ "Say", "@ *f5" ],
+          [ "Say", "*r2 safe at third." ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "Double steal" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Err", 5 ]
+        ]
+      ],
+
+      [
+        "n402",
+        [
+          [ "Say", "*r1" ],
+          [ "Say", "@ going..." ],
+          [ "Say", "Throw to second..." ],
+          [ "Say", "Error." ],
+          [ "Say", "@ *f6" ],
+          [ "Say", "*r1 safe at second." ],
+          [ "Say", "Stolen base" ],
+          [ "Say", "*r3 holds at third." ],
+          [ "Adv", "1 2 d d" ],
+          [ "Err", 6 ]
+        ]
+      ],
+
+      [
+        "n403",
+        [
+          [ "Say", "*r1" ],
+          [ "Say", "@ going..." ],
+          [ "Say", "Throw to second..." ],
+          [ "Say", "Bad throw" ],
+          [ "Say", "*r1 goes to third" ],
+          [ "Say", "Stolen base" ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "1 3 d d" ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n404",
+        [
+          [ "Say", "*r2" ],
+          [ "Say", "@ going..." ],
+          [ "Say", "Throw to third..." ],
+          [ "Say", "Bad throw" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "Stolen base" ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "2 4 d x" ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n405",
+        [
+          [ "Say", "Runners going..." ],
+          [ "Say", "Throw to third..." ],
+          [ "Say", "Bad throw" ],
+          [ "Say", "*r2 scores" ],
+          [ "Say", "*r1 goes to third" ],
+          [ "Say", "Double steal" ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "1 3 d d" ],
+          [ "Adv", "2 4 d x" ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n406",
+        [
+          [ "Say", "*r1" ],
+          [ "Say", "@ going..." ],
+          [ "Say", "Throw to second..." ],
+          [ "Say", "Bad throw" ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 goes to third" ],
+          [ "Say", "Stolen base" ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "1 3 d d" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n407",
+        [
+          [ "Say", "*r3" ],
+          [ "Say", "@ stealing home..." ],
+          [ "Say", "Safe." ],
+          [ "Adv", "3 4 d x" ]
+        ]
+      ],
+
+      [
+        "n408",
+        [
+          [ "Say", "*r3" ],
+          [ "Say", "@ stealing home..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "Double steal" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "1 2 d d" ]
+        ]
+      ],
+
+      [
+        "n409",
+        [
+          [ "Say", "*r3" ],
+          [ "Say", "@ stealing home..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "Double steal" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "2 3 d d" ]
+        ]
+      ],
+
+      [
+        "n410",
+        [
+          [ "Say", "*r3" ],
+          [ "Say", "@ stealing home..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Others advance." ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ]
+        ]
+      ],
+
+      [
+        "n411",
+        [
+          [ "Say", "*r3" ],
+          [ "Say", "@ stealing home..." ],
+          [ "Say", "Out." ],
+          [ "Adv", "3 0 d d" ]
+        ]
+      ],
+
+      [
+        "n412",
+        [
+          [ "Say", "*r3" ],
+          [ "Say", "@ stealing home..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "3 0 d d" ],
+          [ "Adv", "1 2 d d" ]
+        ]
+      ],
+
+      [
+        "n413",
+        [
+          [ "Say", "*r3" ],
+          [ "Say", "@ stealing home..." ],
+          [ "Say", "Out." ],
+          [ "Say", "*r2 to third" ],
+          [ "Adv", "3 0 d d" ],
+          [ "Adv", "2 3 d d" ]
+        ]
+      ],
+
+      [
+        "n414",
+        [
+          [ "Say", "*r3" ],
+          [ "Say", "@ stealing home..." ],
+          [ "Say", "Out." ],
+          [ "Say", "Others advance." ],
+          [ "Adv", "3 0 d d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ]
+        ]
+      ],
+
+      [
+        "n415",
+        [
+          [ "Say", "*r3" ],
+          [ "Say", "@ stealing home..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Throw to second..." ],
+          [ "Say", "*r1" ],
+          [ "Say", "@ is out" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "1 0 d d" ]
+        ]
+      ],
+
+      [
+        "n416",
+        [
+          [ "Say", "*r3" ],
+          [ "Say", "@ stealing home..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Throw to third..." ],
+          [ "Say", "*r2" ],
+          [ "Say", "@ is out" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "2 0 d d" ]
+        ]
+      ],
+
+      [
+        "n417",
+        [
+          [ "Say", "*r3" ],
+          [ "Say", "@ stealing home..." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Throw to third..." ],
+          [ "Say", "*r2" ],
+          [ "Say", "@ is out" ],
+          [ "Say", "*r1 takes second" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "2 0 d d" ]
+        ]
+      ],
+
+      [
+        "n418",
+        [
+          [ "Say", "*r3" ],
+          [ "Say", "@ stealing home..." ],
+          [ "Say", "Out." ],
+          [ "Say", "" ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "Safe." ],
+          [ "Adv", "3 4 d x" ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n419",
+        [
+          [ "Say", "*r3" ],
+          [ "Say", "@ stealing home..." ],
+          [ "Say", "Out." ],
+          [ "Say", "" ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r1 takes second" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n420",
+        [
+          [ "Say", "*r3" ],
+          [ "Say", "@ stealing home..." ],
+          [ "Say", "Out." ],
+          [ "Say", "" ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "Safe." ],
+          [ "Say", "*r2 takes third" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n421",
+        [
+          [ "Say", "*r3" ],
+          [ "Say", "@ stealing home..." ],
+          [ "Say", "Out." ],
+          [ "Say", "" ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "@ drops the ball." ],
+          [ "Say", "Safe." ],
+          [ "Say", "Others advance." ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n422",
+        [
+          [ "Say", "Pitch gets by *f2" ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "Wild pitch" ],
+          [ "Adv", "1 2 d d" ]
+        ]
+      ],
+
+      [
+        "n423",
+        [
+          [ "Say", "Pitch gets by *f2" ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "Wild pitch" ],
+          [ "Adv", "2 3 d d" ]
+        ]
+      ],
+
+      [
+        "n424",
+        [
+          [ "Say", "Pitch gets by *f2" ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "Wild pitch" ],
+          [ "Adv", "3 4 d x" ]
+        ]
+      ],
+
+      [
+        "n425",
+        [
+          [ "Say", "Pitch gets by *f2" ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "Wild pitch" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "2 3 d d" ]
+        ]
+      ],
+
+      [
+        "n426",
+        [
+          [ "Say", "Pitch gets by *f2" ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "Wild pitch" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "1 2 d d" ]
+        ]
+      ],
+
+      [
+        "n427",
+        [
+          [ "Say", "Pitch gets by *f2" ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "Wild pitch" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "2 3 d d" ]
+        ]
+      ],
+
+      [
+        "n428",
+        [
+          [ "Say", "Pitch gets by *f2" ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "Others advance." ],
+          [ "Say", "Wild pitch" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ]
+        ]
+      ],
+
+      [
+        "n429",
+        [
+          [ "Say", "Pitch gets by *f2" ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "Passed ball" ],
+          [ "Adv", "1 2 d d" ]
+        ]
+      ],
+
+      [
+        "n430",
+        [
+          [ "Say", "Pitch gets by *f2" ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "Passed ball" ],
+          [ "Adv", "2 3 d d" ]
+        ]
+      ],
+
+      [
+        "n431",
+        [
+          [ "Say", "Pitch gets by *f2" ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "Passed ball" ],
+          [ "Adv", "3 4 d x" ]
+        ]
+      ],
+
+      [
+        "n432",
+        [
+          [ "Say", "Pitch gets by *f2" ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "Passed ball" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "2 3 d d" ]
+        ]
+      ],
+
+      [
+        "n433",
+        [
+          [ "Say", "Pitch gets by *f2" ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "Passed ball" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "1 2 d d" ]
+        ]
+      ],
+
+      [
+        "n434",
+        [
+          [ "Say", "Pitch gets by *f2" ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "Passed ball" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "2 3 d d" ]
+        ]
+      ],
+
+      [
+        "n435",
+        [
+          [ "Say", "Pitch gets by *f2" ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "Others advance." ],
+          [ "Say", "Passed ball" ],
+          [ "Adv", "3 4 d x" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ]
+        ]
+      ],
+
+      [
+        "n436",
+        [
+          [ "Say", "Balk" ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "1 2 d d" ]
+        ]
+      ],
+
+      [
+        "n437",
+        [
+          [ "Say", "Balk" ],
+          [ "Say", "*r3 scores" ],
+          [ "Adv", "3 4 d r" ]
+        ]
+      ],
+
+      [
+        "n438",
+        [
+          [ "Say", "Balk" ],
+          [ "Say", "Runners advance." ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "2 3 d d" ]
+        ]
+      ],
+
+      [
+        "n439",
+        [
+          [ "Say", "Balk" ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 2 d d" ]
+        ]
+      ],
+
+      [
+        "n440",
+        [
+          [ "Say", "Balk" ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r2 to third" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 3 d d" ]
+        ]
+      ],
+
+      [
+        "n441",
+        [
+          [ "Say", "Balk" ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "Others advance." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 3 d d" ],
+          [ "Adv", "1 2 d d" ]
+        ]
+      ],
+
+      [
+        "n442",
+        [
+          [ "Say", "Bunt" ],
+          [ "Say", "Out at first." ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n443",
+        [
+          [ "Say", "Bunt" ],
+          [ "Say", "*r1" ],
+          [ "Say", "@ out at second" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "1 0 d d" ],
+          [ "Adv", "0 1 e d" ],
+          [ "BatDis", 14 ]
+        ]
+      ],
+
+      [
+        "n444",
+        [
+          [ "Say", "Bunt" ],
+          [ "Say", "*r2" ],
+          [ "Say", "@ out at third" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "2 0 d d" ],
+          [ "Adv", "0 1 e d" ],
+          [ "BatDis", 14 ]
+        ]
+      ],
+
+
+      [
+        "n445",
+        [
+          [ "Say", "Bunt" ],
+          [ "Say", "*r2" ],
+          [ "Say", "@ out at third" ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "2 0 d d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "0 1 e d" ],
+          [ "BatDis", 14 ]
+        ]
+      ],
+
+      [
+        "n446",
+        [
+          [ "Say", "Bunt" ],
+          [ "Say", "Error." ],
+          [ "Say", "@ *f3" ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Adv", "0 1 u d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 3 ]
+        ]
+      ],
+
+      [
+        "n447",
+        [
+          [ "Say", "Bunt" ],
+          [ "Say", "Error." ],
+          [ "Say", "@ *f4" ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 4 ]
+        ]
+      ],
+
+      [
+        "n448",
+        [
+          [ "Say", "Bunt" ],
+          [ "Say", "Error." ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Say", "*r2 to third" ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n449",
+        [
+          [ "Say", "Bunt" ],
+          [ "Say", "Error." ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "All hands safe." ],
+          [ "Say", "Bases loaded" ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n450",
+        [
+          [ "Say", "Bunt" ],
+          [ "Say", "Base hit." ],
+          [ "Adv", "0 1 e d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n451",
+        [
+          [ "Say", "Bunt" ],
+          [ "Say", "Base hit." ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n452",
+        [
+          [ "Say", "Bunt" ],
+          [ "Say", "Base hit." ],
+          [ "Say", "*r0 safe at first." ],
+          [ "Say", "*r2 to third" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n453",
+        [
+          [ "Say", "Bunt" ],
+          [ "Say", "Base hit." ],
+          [ "Say", "All hands safe." ],
+          [ "Say", "Bases loaded" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n454",
+        [
+          [ "Say", "Bunt" ],
+          [ "Say", "Out at first." ],
+          [ "Say", "*r1 safe at second." ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 12 ]
+        ]
+      ],
+
+      [
+        "n455",
+        [
+          [ "Say", "Bunt" ],
+          [ "Say", "Out at first." ],
+          [ "Say", "*r2 to third" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 12 ]
+        ]
+      ],
+
+      [
+        "n456",
+        [
+          [ "Say", "Bunt" ],
+          [ "Say", "Out at first." ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 12 ]
+        ]
+      ],
+
+      [
+        "n457",
+        [
+          [ "Say", "Squeeze play" ],
+          [ "Say", "*r3" ],
+          [ "Say", "@ safe at home" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "0 1 e d" ],
+          [ "BatDis", 14 ]
+        ]
+      ],
+
+      [
+        "n458",
+        [
+          [ "Say", "Squeeze play" ],
+          [ "Say", "*r3" ],
+          [ "Say", "@ safe at home" ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 14 ]
+        ]
+      ],
+
+      [
+        "n459",
+        [
+          [ "Say", "Squeeze play" ],
+          [ "Say", "*r3" ],
+          [ "Say", "@ safe at home" ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 14 ]
+        ]
+      ],
+
+      [
+        "n460",
+        [
+          [ "Say", "Squeeze play" ],
+          [ "Say", "*r3" ],
+          [ "Say", "@ safe at home" ],
+          [ "Say", "Others advance." ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 14 ]
+        ]
+      ],
+
+      [
+        "n461",
+        [
+          [ "Say", "Squeeze play" ],
+          [ "Say", "*r3" ],
+          [ "Say", "@ out at home" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "3 0 d d" ],
+          [ "Adv", "0 1 e d" ],
+          [ "BatDis", 14 ]
+        ]
+      ],
+
+      [
+        "n462",
+        [
+          [ "Say", "Squeeze play" ],
+          [ "Say", "*r3" ],
+          [ "Say", "@ out at home" ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "3 0 d d" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 14 ]
+        ]
+      ],
+
+      [
+        "n463",
+        [
+          [ "Say", "Squeeze play" ],
+          [ "Say", "*r3" ],
+          [ "Say", "@ out at home" ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "3 0 d d" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 14 ]
+        ]
+      ],
+
+      [
+        "n464",
+        [
+          [ "Say", "Squeeze play" ],
+          [ "Say", "*r3" ],
+          [ "Say", "@ out at home" ],
+          [ "Say", "Others advance." ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "3 0 d d" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 14 ]
+        ]
+      ],
+
+      [
+        "n465",
+        [
+          [ "Say", "Squeeze play" ],
+          [ "Say", "*r3" ],
+          [ "Say", "@ out at home" ],
+          [ "Adv", "3 0 d d" ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n466",
+        [
+          [ "Say", "Squeeze play" ],
+          [ "Say", "Error." ],
+          [ "Say", "@ *f1" ],
+          [ "Say", "*r3" ],
+          [ "Say", "@ safe at home" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Say", "Sacrifice" ],
+          [ "Say", "@ plus error." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "0 1 u d" ],
+          [ "BatDis", 12 ],
+          [ "Err", 1 ]
+        ]
+      ],
+
+      [
+        "n467",
+        [
+          [ "Say", "Squeeze play" ],
+          [ "Say", "Error." ],
+          [ "Say", "@ *f3" ],
+          [ "Say", "*r3" ],
+          [ "Say", "@ safe at home" ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 3 ]
+        ]
+      ],
+
+      [
+        "n468",
+        [
+          [ "Say", "Squeeze play" ],
+          [ "Say", "Error." ],
+          [ "Say", "@ *f5" ],
+          [ "Say", "*r3" ],
+          [ "Say", "@ safe at home" ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 5 ]
+        ]
+      ],
+
+      [
+        "n469",
+        [
+          [ "Say", "Squeeze play" ],
+          [ "Say", "Error." ],
+          [ "Say", "@ *f2" ],
+          [ "Say", "*r3" ],
+          [ "Say", "@ safe at home" ],
+          [ "Say", "Others advance." ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "0 1 u d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 13 ],
+          [ "Err", 2 ]
+        ]
+      ],
+
+      [
+        "n470",
+        [
+          [ "Say", "Squeeze play" ],
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3" ],
+          [ "Say", "@ safe at home" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "0 1 e d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n471",
+        [
+          [ "Say", "Squeeze play" ],
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3" ],
+          [ "Say", "@ safe at home" ],
+          [ "Say", "*r1 to second" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+
+      [
+        "n472",
+        [
+          [ "Say", "Squeeze play" ],
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3" ],
+          [ "Say", "@ safe at home" ],
+          [ "Say", "*r2 to third" ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n473",
+        [
+          [ "Say", "Squeeze play" ],
+          [ "Say", "Base hit." ],
+          [ "Say", "*r3" ],
+          [ "Say", "@ safe at home" ],
+          [ "Say", "Others advance." ],
+          [ "Say", "*r0 on at first." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "0 1 e d" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 1 ]
+        ]
+      ],
+
+      [
+        "n474",
+        [
+          [ "Say", "Squeeze play" ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r0 out at first" ],
+          [ "Adv", "3 4 d r" ],
+          [ "BatDis", 12 ]
+        ]
+      ],
+
+      [
+        "n475",
+        [
+          [ "Say", "Squeeze play" ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r0 out at first" ],
+          [ "Say", "*r1 to second" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 2 d d" ],
+          [ "BatDis", 12 ]
+        ]
+      ],
+
+      [
+        "n476",
+        [
+          [ "Say", "Squeeze play" ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r0 out at first" ],
+          [ "Say", "*r2 to third" ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 12 ]
+        ]
+      ],
+
+
+      [
+        "n477",
+        [
+          [ "Say", "Squeeze play" ],
+          [ "Say", "*r3 scores" ],
+          [ "Say", "*r0 out at first" ],
+          [ "Say", "Others advance." ],
+          [ "Adv", "3 4 d r" ],
+          [ "Adv", "1 2 d d" ],
+          [ "Adv", "2 3 d d" ],
+          [ "BatDis", 12 ]
+        ]
+      ],
+
+      [
+        "n478",
+        [
+          [ "Say", "Squeeze play" ],
+          [ "Say", "*r0 out at first" ],
+          [ "BatDis", 7 ]
+        ]
+      ],
+
+      [
+        "n479",
+        [
+          [ "SacBunt" ],
+          [ "Comment", "Squeeze attempt w no one on 3rd" ]
+        ]
+      ],
+
+      [
+        "n480",
+        [
+          [ "Squeeze" ],
+          [ "Comment", "Bunt attempt w runner on 3rd" ]
+        ]
+      ],
+
+      [
+        "n481",
+        [
+          [ "Same" ]
+        ]
+      ]
+
+
+    ]
+
+}

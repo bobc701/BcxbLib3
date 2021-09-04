@@ -212,9 +212,9 @@ namespace BCX.BCXB {
         "EndDoOneIx", "GetTlr"};
 
       string[] aSay;
-      int[,] gres = new int[101, 16];  // array[1..100, 0..15] of integer;
+      int[,] gres; // array[1..100, 0..15] of integer;
 
-      public int[,] Gres{ get { return gres; } }
+      public int[,] Gres { get { return gres; } set { gres = value; } }
       
    // #1601.01: Added GetTlr, #25, len=2...
       int[] atLen = {0,
@@ -267,7 +267,7 @@ namespace BCX.BCXB {
 	   }
 
 
-      //public void SetupEngineAndModel() {
+      public void SetupEngineAndModel() {
       //// -----------------------------------------------------------------------
       //// Can't do this in the constructor because the event handlers need to
       //// be instantiated first.
@@ -282,10 +282,10 @@ namespace BCX.BCXB {
          
       //   mEng.atLen = atLen;
       //// Read the model files (CFEng1 and CFEng3)...
-      //   ReadModel();
+         ReadModel();
 
-      //}
-
+      }
+      
 
       public void SetupSimModel() 
       {
@@ -471,18 +471,16 @@ namespace BCX.BCXB {
                Debug.WriteLine($"Doing DoOne: r={r:#0.0000}");
 
                cum = 0.0;
-               foreach (DItemAction ditem in act.AList)
-               {
+               foreach (DItemAction ditem in act.AList) {
+
                   if (ditem.Prob >= 0)
                      prob = ditem.Prob;
-                  else
-                  {
+                  else {
                      // This is a negative parameter.
                      // For these, probs are not hard coded in model, they must be 
                      // supplied by the client application...
                      // i= slot[ab]; j = curp[1-ab];
-                     prob = ditem.Prob switch
-                     {
+                     prob = ditem.Prob switch {
                         -1.0 => cpara.h,
                         -2.0 => cpara.b2, // double
                         -3.0 => cpara.b3,  // triple
@@ -497,20 +495,17 @@ namespace BCX.BCXB {
                         -98.0 => 1.0 - (cpara.b2 + cpara.b3 + cpara.hr),  // single
                         _ => ditem.Prob
                      };
+                  }
 
-                     cum += prob;
-                     if (r <= cum)
-                     {
-                        Debug.Indent();
-                        ditem.DoIt();
-                        Debug.Unindent();
-                        break;
-                     }
-
+                  cum += prob;
+                  if (r <= cum) {
+                     Debug.Indent();
+                     ditem.DoIt();
+                     Debug.Unindent();
+                     break;
                   }
 
                }
-
                break;
 
             case DoAction act:
@@ -617,9 +612,16 @@ namespace BCX.BCXB {
                sameguy = true; 
                break;
 
-            //Note: These are just list names, not actions!...
-            //case SacBuntAction act: Debug.WriteLine ("  at=SacBunt"); break;
-            //case SSqueezeAction act: Debug.WriteLine ("  at=SSqueeze"); break;
+            //Note: These next 2 are called from code, not model...
+            case SacBuntAction act: 
+               Debug.WriteLine ("Doing SacBuntAction");
+               mSim.DoList(act.AList);
+               break;
+
+            case SSqueezeAction act: 
+               Debug.WriteLine ("Doing SSqueezeAction");
+               mSim.DoList(act.AList);
+               break;
             
             case HomerAction: 
                Debug.WriteLine ("Doing Homer"); 
@@ -1871,33 +1873,33 @@ namespace BCX.BCXB {
          string rec;
          int n;
 
-         // Scan CFEng2, converting it to array, aSay.
-         //
-         // Open CFEng2 for input -- read util eof, get n and the string, and
-         // fill aSay. Upper bound to be found at: #RECCNT: 139.
-         // rec looks like this: 0x00000000,0x0000,1,"Base hit."   }
-         //
-         using (StreamReader f = fileAccess.GetModelFile(2))
-         {
-            while ((rec = f.ReadLine()) != null)
-            {
-               if (rec.Length >= 7 && rec.Substring(0, 7) == "#RECCNT")
-               {
-                  n = int.Parse(rec.Substring(9));
-                  aSay = new string[n + 1]; //So that last elt is #n
-               }
-               if (rec[0] == '#') continue;
-               n = rec.IndexOf(",");
-               if (n == 0)
-               {
-                  throw new Exception("Invalid format in cfeng2.bcx");
-               }
-               int ix = int.Parse(rec.Substring(0, n));
-               string s = rec.Substring(n + 1);
-               CBCXCommon.DeQuote(ref s);
-               aSay[ix] = s;
-            }
-         }
+         //// Scan CFEng2, converting it to array, aSay.
+         ////
+         //// Open CFEng2 for input -- read util eof, get n and the string, and
+         //// fill aSay. Upper bound to be found at: #RECCNT: 139.
+         //// rec looks like this: 0x00000000,0x0000,1,"Base hit."   }
+         ////
+         //using (StreamReader f = fileAccess.GetModelFile(2))
+         //{
+         //   while ((rec = f.ReadLine()) != null)
+         //   {
+         //      if (rec.Length >= 7 && rec.Substring(0, 7) == "#RECCNT")
+         //      {
+         //         n = int.Parse(rec.Substring(9));
+         //         aSay = new string[n + 1]; //So that last elt is #n
+         //      }
+         //      if (rec[0] == '#') continue;
+         //      n = rec.IndexOf(",");
+         //      if (n == 0)
+         //      {
+         //         throw new Exception("Invalid format in cfeng2.bcx");
+         //      }
+         //      int ix = int.Parse(rec.Substring(0, n));
+         //      string s = rec.Substring(n + 1);
+         //      CBCXCommon.DeQuote(ref s);
+         //      aSay[ix] = s;
+         //   }
+         //}
 
 
          // Scan CFEng3, converting it to array, gres.
