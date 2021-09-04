@@ -448,6 +448,7 @@ namespace SimEngine
       public SameAction(CSimEngine sim)
       {
          this.AType = TAction.Same;
+         this.mSim = sim;
       }
 
       public override int DoIt()
@@ -592,11 +593,8 @@ namespace SimEngine
 
    public class SacBuntAction : BaseSimAction
    {
-      public List<BaseSimAction> AList { get; set; }
-
-      public SacBuntAction(List<BaseSimAction> alist, CSimEngine sim) {
+      public SacBuntAction(CSimEngine sim) {
          this.AType = TAction.SacBunt;
-         this.AList = alist;
          this.mSim = sim;
 
       }
@@ -616,11 +614,8 @@ namespace SimEngine
 
    public class SSqueezeAction : BaseSimAction
    {
-      public List<BaseSimAction> AList { get; set; }
-
-      public SSqueezeAction(List<BaseSimAction> alist, CSimEngine sim) {
+      public SSqueezeAction(CSimEngine sim) {
          this.AType = TAction.SSqueeze;
-         this.AList = alist;
          this.mSim = sim;
 
       }

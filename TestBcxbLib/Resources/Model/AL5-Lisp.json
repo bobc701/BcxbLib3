@@ -6383,7 +6383,7 @@
       [
         "n480",
         [
-          [ "Squeeze" ],
+          [ "SSqueeze" ],
           [ "Comment", "Bunt attempt w runner on 3rd" ]
         ]
       ],

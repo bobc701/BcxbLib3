@@ -612,15 +612,13 @@ namespace BCX.BCXB {
                sameguy = true; 
                break;
 
-            //Note: These next 2 are called from code, not model...
+            //Note: I have confirmed that in old version, there 2 did nothing.
             case SacBuntAction act: 
                Debug.WriteLine ("Doing SacBuntAction");
-               mSim.DoList(act.AList);
                break;
 
             case SSqueezeAction act: 
                Debug.WriteLine ("Doing SSqueezeAction");
-               mSim.DoList(act.AList);
                break;
             
             case HomerAction: 

@@ -53,92 +53,90 @@ namespace SimEngine
 
          foreach (JsonElement jAction in jsonList.EnumerateArray()) {
 
-            string actionType = jAction[0].GetString();
+            string actionType = jAction[0].GetString().ToLower();
             switch (actionType) {
 
-               case "DoOne":
+               case "doone":
                   //act = new DoOneAction(jAction, Gm1);
                   alist = BldActionList(jAction[1], sim);
                   act = new DoOneAction(alist, sim);
                   break;
-               case "DItem":
+               case "ditem":
                   double prob = jAction[1].GetDouble();
                   alist = BldActionList(jAction[2], sim);
                   act = new DItemAction(prob, alist, sim);
                   break;
-               case "Do":
+               case "do":
                   string listIDs = jAction[1].GetString();
                   act = new DoAction(listIDs, sim);
                   break;
-               case "GetTlr":
+               case "gettlr":
                   int tlr = jAction[1].GetInt32();
                   act = new GetTlrAction(tlr, sim);
                   break;
-               case "Gres":
+               case "gres":
                   int gres = jAction[1].GetInt32();
                   act = new GresAction(gres, sim);
                   break;
-               case "Select":
+               case "select":
                   alist = BldActionList(jAction[1], sim);
                   act = new SelectAction(alist, sim);
                   break;
-               case "SItem":
+               case "sitem":
                   prob = jAction[1].GetDouble();
                   int res = jAction[2].GetInt32();
                   act = new SItemAction(prob, res, sim);
                   break;
-               case "Comment":
+               case "comment":
                   string text = jAction[1].GetString();
                   act = new CommentAction(text);
                   break;
-               case "BatDis":
+               case "batdis":
                   int disp = jAction[1].GetInt32();
                   act = new BatDisAction(disp, sim);
                   break;
-               case "Say":
+               case "say":
                   text = jAction[1].GetString();
                   act = new SayAction(text, sim);
                   break;
-               case "Say1":
+               case "say1":
                   text = jAction[1].GetString();
                   act = new SayAction(text, sim);
                   break;
-               case "Adv":
+               case "adv":
                   string bases = jAction[1].GetString();
                   act = new AdvAction(bases, sim);
                   break;
-               case "Choose":
+               case "choose":
                   string choices = jAction[1].GetString();
                   act = new ChooseAction(choices, sim);
                   break;
-               case "Err":
+               case "err":
                   int pos = jAction[1].GetInt32();
                   act = new ErrAction(pos, sim);
                   break;
-               case "Homer":
+               case "homer":
                   act = new HomerAction(sim);
                   break;
-               case "Same":
+               case "same":
                   act = new SameAction(sim);
                   break;
-               case "GPlay":
+               case "gplay":
                   int n = jAction[1].GetInt32();
                   act = new GPlayAction(n, sim);
                   break;
-               case "GPlays":
+               case "gplays":
                   string s = jAction[1].GetString();
                   act = new GPlaysAction(s, sim);
                   break;
-               case "Pos":
+               case "pos":
                   act = new PosAction(sim);
                   break;
-               case "SacBunt":
-                  alist = BldActionList(jAction[1], sim);
-                  act = new SacBuntAction(alist, sim);
+               case "sacbunt":
+                  act = new SacBuntAction(sim);
                   break;
-               case "SSqueeze":
-                  alist = BldActionList(jAction[1], sim);
-                  act = new SSqueezeAction(alist, sim);
+               case "ssqueeze":
+                  act = new SSqueezeAction(sim);
                   break;
                default:
                   throw new Exception($"ActionType not found in BldActionList: {actionType}");

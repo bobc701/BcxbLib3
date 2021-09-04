@@ -128,8 +128,10 @@ namespace TestBcxbLib {
                   throw new Exception($"Invalid format in gtab.txt: {rec}");
                }
                ix = arr[0];
-               for (int i = 1; i <= 15; i++) {
-                  mGame.Gres[ix, i-1] = arr[i];
+            // Index goes in col 0, informational only.
+            // Actual n-numbers go in col 1..15, corresponding to 'onsit'.
+               for (int i = 0; i <= 15; i++) {
+                  mGame.Gres[ix, i] = arr[i];
                }
             }
          }
