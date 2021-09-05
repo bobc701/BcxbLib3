@@ -11,6 +11,11 @@ namespace TestBcxbLib
    class ResourceReader
    {
 
+   /* ------------------------------------------------------
+    * The purpose oft his class is to deal with the vagaries of
+    * embedded resource files.
+    * -----------------------------------------------------
+    */
 
 
       public static string ReadEmbeddedRecouce(string path) {

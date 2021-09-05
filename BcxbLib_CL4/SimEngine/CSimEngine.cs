@@ -8,6 +8,13 @@ using System.Text.Json;
 
 namespace SimEngine {
 
+/* ------------------------------------------------------------
+ * This class is the simulation model. It doesn't know the 
+ * source of it's data or how it got populated.
+ * It's used by CGame for running the game.
+ * ------------------------------------------------------------
+ */
+
    // Example: To do an at bat, you would say:
 
    //int n = sim.Model["AdBat"].DoIt();
@@ -21,6 +28,10 @@ namespace SimEngine {
       public string Version { get; set; } = "";
       public string ModelName { get; set; } = "";
       public Dictionary<string, List<BaseSimAction>> Model { get; set; } = new();
+
+      private int[,] gres;
+      public int[,] Gres { get =>  gres; set => gres = value; } 
+
 
       public event Action<BaseSimAction> RaiseHandler;
       public event Func<string, StreamReader> RequestEngineFile;

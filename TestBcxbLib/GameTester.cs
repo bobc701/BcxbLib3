@@ -9,8 +9,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
@@ -78,6 +76,13 @@ namespace TestBcxbLib {
 
       public async Task SetupNewGame() {
 
+      /* --------------------------------------------------------
+       * The whole prurpose of this class is to build a CSimEngine object,
+       * populating it with model file(s) (json), the 
+       * GTab table, and team data, and finally injecting the model and
+       * team objects into mGame as mGame.mSim and mGame.t, respectively.
+       * --------------------------------------------------------
+       */
 
          Console.WriteLine($"Press enter to start loading team data...");
          Console.ReadLine();
@@ -85,7 +90,7 @@ namespace TestBcxbLib {
          mGame = new CGame();
 
 
-      // Step 1. Load the engine
+      // Step 1. Load the engine (the model plus GTab.txt)
       // -----------------------
          CSimEngine sim = new();
          sim.RaiseHandler += mGame.DoSimAction;
@@ -103,42 +108,10 @@ namespace TestBcxbLib {
          jsonString = ResourceReader.ReadEmbeddedRecouce("TestBcxbLib.Resources.Model.AL5-Lisp.json");
          CModelBldr.LoadModel(jsonString, sim);
 
+         StreamReader rdr = ResourceReader.GetEmbeddedRdr("TestBcxbLib.Resources.Model.GTAB5.txt");
+         CModelBldr.LoadGTab(rdr, sim);
 
          mGame.mSim = sim; // Here we 'inject' the dependancy into the CGame obj.
-
-
-      // Step 1a. Read GTab.txt into CGame's gres matrix
-      // -----------------------------------------------
-         GFileAccess fileAccess = new();
-         mGame.fileAccess = fileAccess; // Here we "inject" the dependancy, GFileAccess.
-         //mGame.ReadModel();
-
-         string rec;
-         int ix;
-         int[] arr;
-         char[] delims = new char[] { ' ' };
-
-         mGame.Gres = new int[101, 16];
-         using (StreamReader f = ResourceReader.GetEmbeddedRdr("TestBcxbLib.Resources.Model.GTAB5.txt")) {
-            while ((rec = f.ReadLine()) != null) {
-               arr = rec.Split(delims, StringSplitOptions.RemoveEmptyEntries).Select(n => int.Parse(n)).ToArray();
-
-            // arr should have index plus 15 numbers... 
-               if (arr.Length != 16) {
-                  throw new Exception($"Invalid format in gtab.txt: {rec}");
-               }
-               ix = arr[0];
-            // Index goes in col 0, informational only.
-            // Actual n-numbers go in col 1..15, corresponding to 'onsit'.
-               for (int i = 0; i <= 15; i++) {
-                  mGame.Gres[ix, i] = arr[i];
-               }
-            }
-         }
-
-
-
-
 
 
          // Step 2. Assign eventhandlers (we just do one)

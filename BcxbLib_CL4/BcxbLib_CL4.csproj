@@ -8,6 +8,7 @@
   <ItemGroup>
     <Compile Remove="CEngine.cs" />
     <Compile Remove="DTO_TeamRoster.cs" />
+    <Compile Remove="IFileAccess.cs" />
   </ItemGroup>
 
   <ItemGroup>

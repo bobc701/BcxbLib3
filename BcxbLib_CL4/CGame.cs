@@ -27,7 +27,7 @@ namespace BCX.BCXB {
       public System.Random rn;
 
       public CTeam[] t; // = new CTeam[2]; 
-      public IFileAccess fileAccess;
+      //public IFileAccess fileAccess; -our 8'21
 
       /// <summary>
       /// CGame manages the contents of this list, and then on the
@@ -212,9 +212,9 @@ namespace BCX.BCXB {
         "EndDoOneIx", "GetTlr"};
 
       string[] aSay;
-      int[,] gres; // array[1..100, 0..15] of integer;
+      //int[,] gres; // array[1..100, 0..15] of integer;
 
-      public int[,] Gres { get { return gres; } set { gres = value; } }
+      //public int[,] Gres { get { return gres; } set { gres = value; } } Moved to CSimEngine
       
    // #1601.01: Added GetTlr, #25, len=2...
       int[] atLen = {0,
@@ -266,71 +266,72 @@ namespace BCX.BCXB {
          
 	   }
 
+      // The following sections -out 8'21
 
-      public void SetupEngineAndModel() {
-      //// -----------------------------------------------------------------------
-      //// Can't do this in the constructor because the event handlers need to
-      //// be instantiated first.
+      //public void SetupEngineAndModel() {
+      ////// -----------------------------------------------------------------------
+      ////// Can't do this in the constructor because the event handlers need to
+      ////// be instantiated first.
 
-      //// Instantiate the engine object, mEng,  
-      //   var fEngine = fileAccess.GetModelFile("cfeng1");
-      //   mEng = new CEngine(fEngine);
-      //  // mEng.EDoAction += new DDoAction(DoAction);
-      //   mEng.EEngineError += delegate (int n, string list) {
-      //      ENotifyUser?.Invoke("Exception in DoList in CEngine: " + n + ": " + list);
-      //   };
+      ////// Instantiate the engine object, mEng,  
+      ////   var fEngine = fileAccess.GetModelFile("cfeng1");
+      ////   mEng = new CEngine(fEngine);
+      ////  // mEng.EDoAction += new DDoAction(DoAction);
+      ////   mEng.EEngineError += delegate (int n, string list) {
+      ////      ENotifyUser?.Invoke("Exception in DoList in CEngine: " + n + ": " + list);
+      ////   };
          
-      //   mEng.atLen = atLen;
-      //// Read the model files (CFEng1 and CFEng3)...
-         ReadModel();
+      ////   mEng.atLen = atLen;
+      ////// Read the model files (CFEng1 and CFEng3)...
+      //   ReadModel();
 
-      }
+      //}
       
 
-      public void SetupSimModel() 
-      {
-         // This replaces the old SetupEngineAndModel whic
-         // instantiated CEngine.
+      //public void SetupSimModel() 
+      //{
+      //   // This replaces the old SetupEngineAndModel whic
+      //   // instantiated CEngine.
 
-         // This is not currently used... these steps should be done by
-         // the client process and the CSimEngine object 'injected' as mSim.
+      //   // This is not currently used... these steps should be done by
+      //   // the client process and the CSimEngine object 'injected' as mSim.
 
-         mSim = new CSimEngine();
-         mSim.RaiseHandler += DoSimAction;
-         string jsonString1 = FileHandler.GetTextFileOnDisk("model1.json");
-         string jsonString2 = FileHandler.GetTextFileOnDisk("model2.json");
+      //   mSim = new CSimEngine();
+      //   mSim.RaiseHandler += DoSimAction;
+      //   string jsonString1 = FileHandler.GetTextFileOnDisk("model1.json");
+      //   string jsonString2 = FileHandler.GetTextFileOnDisk("model2.json");
 
-         //string jsonString1 = FileHandler.GetTextFileOnDisk("tree5.json");
-         //string jsonString2 = FileHandler.GetTextFileOnDisk("al5.json");
+      //   //string jsonString1 = FileHandler.GetTextFileOnDisk("tree5.json");
+      //   //string jsonString2 = FileHandler.GetTextFileOnDisk("al5.json");
 
-         CModelBldr.LoadModel(jsonString1, mSim);
-         CModelBldr.LoadModel(jsonString2, mSim);
+      //   CModelBldr.LoadModel(jsonString1, mSim);
+      //   CModelBldr.LoadModel(jsonString2, mSim);
 
-      }
+      //}
 
 
-      public void ResetData() {
+      //public void ResetData() {
 
          
-      }
+      //}
 
 
-      public int BBoxLim(int ab) {
-      // ---------------------------
-      // Returns the highest (used) element in batters' box score...
-         int ix;
-         for (ix=9; ix<CGame.SZ_BAT && t[ab].xbox[ix]!= 0; ix++);
-         return ix-1;
-      }
+      //public int BBoxLim(int ab) {
+      //// ---------------------------
+      //// Returns the highest (used) element in batters' box score...
+      //   int ix;
+      //   for (ix=9; ix<CGame.SZ_BAT && t[ab].xbox[ix]!= 0; ix++);
+      //   return ix-1;
+      //}
 
 
-      public int PBoxLim(int fl) {
-      // ---------------------------
-      // Returns the highest (used) element in pitchers' box score...
-         int ix;
-         for (ix=1; ix<CGame.SZ_PIT && t[fl].ybox[ix]!= 0; ix++);
-         return ix-1;
-      }
+      //public int PBoxLim(int fl) {
+      //// ---------------------------
+      //// Returns the highest (used) element in pitchers' box score...
+      //   int ix;
+      //   for (ix=1; ix<CGame.SZ_PIT && t[fl].ybox[ix]!= 0; ix++);
+      //   return ix-1;
+      //}
 
 
       void flushrnrs(CRunner[] rnr) {
@@ -604,8 +605,8 @@ namespace BCX.BCXB {
                Debug.WriteLine($" Doing Choose {act.Choices}");
                int[] arr = act.Choices.Split().Select(e => int.Parse(e)).ToArray();
                choice = choose(arr[0], arr[1], arr[2]);
-               int Gres = gres[choice, onsit];
-               mSim.DoNamedList("n" + Gres);
+               int gres = mSim.Gres[choice, onsit];
+               mSim.DoNamedList("n" + gres);
                break;
 
             case SameAction: 
@@ -631,7 +632,7 @@ namespace BCX.BCXB {
                //genericResult = a0;
                //mEng.DoList (num);
                Debug.WriteLine ($"Doing GresAction: {act.Res}, onsit={onsit}");
-               string num = "n" + gres[act.Res, onsit].ToString();
+               string num = "n" + mSim.Gres[act.Res, onsit].ToString();
                mSim.DoNamedList(num);
                break;
 
@@ -1860,164 +1861,167 @@ namespace BCX.BCXB {
 
       }
 
-      /// <summary>
-      /// This reads CFEng2 and CFEng3 filling aSay[] and gres[] respectively.
-      /// </summary>
-      /// -------------------------------------------------------------------
-      /// 
-      public void ReadModel()
-      {
+   // The following sections -out 8'21
 
-         string rec;
-         int n;
+   //   /// <summary>
+   //   /// This reads CFEng2 and CFEng3 filling aSay[] and gres[] respectively.
+   //   /// </summary>
+   //   /// -------------------------------------------------------------------
+   //   /// 
+   //   public void ReadModel()
+   //   {
 
-         //// Scan CFEng2, converting it to array, aSay.
-         ////
-         //// Open CFEng2 for input -- read util eof, get n and the string, and
-         //// fill aSay. Upper bound to be found at: #RECCNT: 139.
-         //// rec looks like this: 0x00000000,0x0000,1,"Base hit."   }
-         ////
-         //using (StreamReader f = fileAccess.GetModelFile(2))
-         //{
-         //   while ((rec = f.ReadLine()) != null)
-         //   {
-         //      if (rec.Length >= 7 && rec.Substring(0, 7) == "#RECCNT")
-         //      {
-         //         n = int.Parse(rec.Substring(9));
-         //         aSay = new string[n + 1]; //So that last elt is #n
-         //      }
-         //      if (rec[0] == '#') continue;
-         //      n = rec.IndexOf(",");
-         //      if (n == 0)
-         //      {
-         //         throw new Exception("Invalid format in cfeng2.bcx");
-         //      }
-         //      int ix = int.Parse(rec.Substring(0, n));
-         //      string s = rec.Substring(n + 1);
-         //      CBCXCommon.DeQuote(ref s);
-         //      aSay[ix] = s;
-         //   }
-         //}
+   //      string rec;
+   //      int n;
+
+   //      //// Scan CFEng2, converting it to array, aSay.
+   //      ////
+   //      //// Open CFEng2 for input -- read util eof, get n and the string, and
+   //      //// fill aSay. Upper bound to be found at: #RECCNT: 139.
+   //      //// rec looks like this: 0x00000000,0x0000,1,"Base hit."   }
+   //      ////
+   //      //using (StreamReader f = fileAccess.GetModelFile(2))
+   //      //{
+   //      //   while ((rec = f.ReadLine()) != null)
+   //      //   {
+   //      //      if (rec.Length >= 7 && rec.Substring(0, 7) == "#RECCNT")
+   //      //      {
+   //      //         n = int.Parse(rec.Substring(9));
+   //      //         aSay = new string[n + 1]; //So that last elt is #n
+   //      //      }
+   //      //      if (rec[0] == '#') continue;
+   //      //      n = rec.IndexOf(",");
+   //      //      if (n == 0)
+   //      //      {
+   //      //         throw new Exception("Invalid format in cfeng2.bcx");
+   //      //      }
+   //      //      int ix = int.Parse(rec.Substring(0, n));
+   //      //      string s = rec.Substring(n + 1);
+   //      //      CBCXCommon.DeQuote(ref s);
+   //      //      aSay[ix] = s;
+   //      //   }
+   //      //}
 
 
-         // Scan CFEng3, converting it to array, gres.
-         //
-         // Open CFEng3 for input -- read util eof, get n and the string, and
-         // fill gres. gres is 100x15. The string has 15 numbers, each in
-         // 4 character hexadecimal format.
-         // rec looks like this:
-         // 0x00000000,0x0000,2,002A002B002C0025002D002E002F0030002B002C0025002D002E002F0030   }
-         //
-         using (StreamReader f = fileAccess.GetModelFile(3))
-         {
-            while ((rec = f.ReadLine()) != null)
-            {
-               if (rec[0] == '#') continue;
-               n = rec.IndexOf(",");
-               if (n == 0)
-               {
-                  throw new Exception("Invalid format in cfeng3.bcx");
-               }
-               int ix = int.Parse(rec.Substring(0, n));
-               string s = rec.Substring(n + 1);
+   //      // Scan CFEng3, converting it to array, gres.
+   //      //
+   //      // Open CFEng3 for input -- read util eof, get n and the string, and
+   //      // fill gres. gres is 100x15. The string has 15 numbers, each in
+   //      // 4 character hexadecimal format.
+   //      // rec looks like this:
+   //      // 0x00000000,0x0000,2,002A002B002C0025002D002E002F0030002B002C0025002D002E002F0030   }
+   //      //
+   //      using (StreamReader f = fileAccess.GetModelFile(3))
+   //      {
+   //         while ((rec = f.ReadLine()) != null)
+   //         {
+   //            if (rec[0] == '#') continue;
+   //            n = rec.IndexOf(",");
+   //            if (n == 0)
+   //            {
+   //               throw new Exception("Invalid format in cfeng3.bcx");
+   //            }
+   //            int ix = int.Parse(rec.Substring(0, n));
+   //            string s = rec.Substring(n + 1);
 
-               // s should have 15 numbers, each encoded a 4 hexadecimal characters.
-               if (s.Length != 60)
-               {
-                  throw new Exception("Invalid format in cfeng3.bcx");
-               }
+   //            // s should have 15 numbers, each encoded a 4 hexadecimal characters.
+   //            if (s.Length != 60)
+   //            {
+   //               throw new Exception("Invalid format in cfeng3.bcx");
+   //            }
 
-               // Now convert the 15 hex numbers that are encoded in s...
-               for (int i = 0; i <= 14; i++)
-               {
-                  n = CBCXCommon.GetWord(s, i);
-                  gres[ix, i + 1] = n;
-               }
-            }
-         }
+   //            // Now convert the 15 hex numbers that are encoded in s...
+   //            for (int i = 0; i <= 14; i++)
+   //            {
+   //               n = CBCXCommon.GetWord(s, i);
+   //               gres[ix, i + 1] = n;
+   //            }
+   //         }
+   //      }
 
-      }
+   //   }
 
-      string rec, sVer;
-      string db_NameUse, db_SkillStr, db_stats;
+   //   string rec, sVer;
+   //   string db_NameUse, db_SkillStr, db_stats;
 
 
  
-   /// <remarks>
-   /// DELETE WHEN CTEAM IMPLIMENTED
-   /// It's been moved to CTeam.
-   /// </remarks>
-   /// 
-   private void FillBatStats(string stats, ref CBatRealSet br, ref int ptr) {
-   // -------------------------------------------------------------------
-   // GetHex returns -1 if db_stats is all F's -- this indicates missing.
+   ///// <remarks>
+   ///// DELETE WHEN CTEAM IMPLIMENTED
+   ///// It's been moved to CTeam.
+   ///// </remarks>
+   ///// 
+   //private void FillBatStats(string stats, ref CBatRealSet br, ref int ptr) {
+   //// -------------------------------------------------------------------
+   //// GetHex returns -1 if db_stats is all F's -- this indicates missing.
   
-      br.ab = CBCXCommon.GetHex(stats, ref ptr, 3);
-      if (br.ab > 15) {
-         br.hr = CBCXCommon.GetHex(stats, ref ptr, 2);
-         br.bi = CBCXCommon.GetHex(stats, ref ptr, 2);
-         br.sb = CBCXCommon.GetHex(stats, ref ptr, 2);
-         br.cs = CBCXCommon.GetHex(stats, ref ptr, 2);
-         br.h = CBCXCommon.GetHex(stats, ref ptr, 3);
-         br.ave = Math.Round((double)br.h / (double)br.ab,3);
-         br.b2 = CBCXCommon.GetHex(stats, ref ptr, 2);
-         br.b3 = CBCXCommon.GetHex(stats, ref ptr, 2);
-         br.bb = CBCXCommon.GetHex(stats, ref ptr, 2);
-         br.so = CBCXCommon.GetHex(stats, ref ptr, 3);
-      }
-      else {
-      // 15 or fewer ab's: all stats 1 digit...
-         br.hr = CBCXCommon.GetHex(stats, ref ptr, 1);
-         br.bi = CBCXCommon.GetHex(stats, ref ptr, 1);
-         br.sb = CBCXCommon.GetHex(stats, ref ptr, 1);
-         br.cs = CBCXCommon.GetHex(stats, ref ptr, 1);
-         br.h = CBCXCommon.GetHex(stats, ref ptr, 1);
-         br.ave = 0.0;
-         br.b2 = CBCXCommon.GetHex(stats, ref ptr, 1);
-         br.b3 = CBCXCommon.GetHex(stats, ref ptr, 1);
-         br.bb = CBCXCommon.GetHex(stats, ref ptr, 1);
-         br.so = CBCXCommon.GetHex(stats, ref ptr, 1);
-      }
+   //   br.ab = CBCXCommon.GetHex(stats, ref ptr, 3);
+   //   if (br.ab > 15) {
+   //      br.hr = CBCXCommon.GetHex(stats, ref ptr, 2);
+   //      br.bi = CBCXCommon.GetHex(stats, ref ptr, 2);
+   //      br.sb = CBCXCommon.GetHex(stats, ref ptr, 2);
+   //      br.cs = CBCXCommon.GetHex(stats, ref ptr, 2);
+   //      br.h = CBCXCommon.GetHex(stats, ref ptr, 3);
+   //      br.ave = Math.Round((double)br.h / (double)br.ab,3);
+   //      br.b2 = CBCXCommon.GetHex(stats, ref ptr, 2);
+   //      br.b3 = CBCXCommon.GetHex(stats, ref ptr, 2);
+   //      br.bb = CBCXCommon.GetHex(stats, ref ptr, 2);
+   //      br.so = CBCXCommon.GetHex(stats, ref ptr, 3);
+   //   }
+   //   else {
+   //   // 15 or fewer ab's: all stats 1 digit...
+   //      br.hr = CBCXCommon.GetHex(stats, ref ptr, 1);
+   //      br.bi = CBCXCommon.GetHex(stats, ref ptr, 1);
+   //      br.sb = CBCXCommon.GetHex(stats, ref ptr, 1);
+   //      br.cs = CBCXCommon.GetHex(stats, ref ptr, 1);
+   //      br.h = CBCXCommon.GetHex(stats, ref ptr, 1);
+   //      br.ave = 0.0;
+   //      br.b2 = CBCXCommon.GetHex(stats, ref ptr, 1);
+   //      br.b3 = CBCXCommon.GetHex(stats, ref ptr, 1);
+   //      br.bb = CBCXCommon.GetHex(stats, ref ptr, 1);
+   //      br.so = CBCXCommon.GetHex(stats, ref ptr, 1);
+   //   }
 
-   }
-
-
-   /// <remarks>
-   /// DELETE WHEN CTEAM IMPLIMENTED
-   /// It's been moved to CTeam.
-   /// </remarks>
-   /// 
-   private void FillPitStats(string stats, ref CPitRealSet pr, ref int ptr) {
-   // -------------------------------------------------------------------
-   // GetHex returns -1 if db_stats is all F's -- this indicates missing.
-
-      pr.g = CBCXCommon.GetHex(stats, ref ptr, 2);
-      pr.gs = CBCXCommon.GetHex(stats, ref ptr, 2);
-      pr.w = CBCXCommon.GetHex(stats, ref ptr, 2);
-      pr.l = CBCXCommon.GetHex(stats, ref ptr, 2);
-      pr.bfp = CBCXCommon.GetHex(stats, ref ptr, 3);
-      pr.ip3 = CBCXCommon.GetHex(stats, ref ptr, 3);
-      pr.h = CBCXCommon.GetHex(stats, ref ptr, 3);
-      pr.er = CBCXCommon.GetHex(stats, ref ptr, 3);
-      pr.hr = CBCXCommon.GetHex(stats, ref ptr, 3);
-      pr.so = CBCXCommon.GetHex(stats, ref ptr, 3);
-      pr.bb = CBCXCommon.GetHex(stats, ref ptr, 3);
-      pr.sv = CBCXCommon.GetHex(stats, ref ptr, 2);
-      pr.era = pr.ip3 == 0.0 ? 0.0 : pr.er / ((double)pr.ip3 / 3.0) * 9.0;
-   }
-
-
-   //public string ShowLists() {
-   //// --------------------------------------------------------------
-   //   return(mEng.ShowLists());
    //}
 
 
-   /// <summary>
-   /// Not wired in.
-   /// Purpose: get batter totals for box score.
-   /// </summary>
-   /// 
+   ///// <remarks>
+   ///// DELETE WHEN CTEAM IMPLIMENTED
+   ///// It's been moved to CTeam.
+   ///// </remarks>
+   ///// 
+   //private void FillPitStats(string stats, ref CPitRealSet pr, ref int ptr) {
+   //// -------------------------------------------------------------------
+   //// GetHex returns -1 if db_stats is all F's -- this indicates missing.
+
+   //   pr.g = CBCXCommon.GetHex(stats, ref ptr, 2);
+   //   pr.gs = CBCXCommon.GetHex(stats, ref ptr, 2);
+   //   pr.w = CBCXCommon.GetHex(stats, ref ptr, 2);
+   //   pr.l = CBCXCommon.GetHex(stats, ref ptr, 2);
+   //   pr.bfp = CBCXCommon.GetHex(stats, ref ptr, 3);
+   //   pr.ip3 = CBCXCommon.GetHex(stats, ref ptr, 3);
+   //   pr.h = CBCXCommon.GetHex(stats, ref ptr, 3);
+   //   pr.er = CBCXCommon.GetHex(stats, ref ptr, 3);
+   //   pr.hr = CBCXCommon.GetHex(stats, ref ptr, 3);
+   //   pr.so = CBCXCommon.GetHex(stats, ref ptr, 3);
+   //   pr.bb = CBCXCommon.GetHex(stats, ref ptr, 3);
+   //   pr.sv = CBCXCommon.GetHex(stats, ref ptr, 2);
+   //   pr.era = pr.ip3 == 0.0 ? 0.0 : pr.er / ((double)pr.ip3 / 3.0) * 9.0;
+   //}
+
+
+   ////public string ShowLists() {
+   ////// --------------------------------------------------------------
+   ////   return(mEng.ShowLists());
+   ////}
+
+
+   ///// <summary>
+   ///// Not wired in.
+   ///// Purpose: get batter totals for box score.
+   ///// </summary>
+   ///// 
+   ///
    public CBatBoxSet BBoxTotals(int ab) {
    // --------------------------------------------------------------
       var tot = new CBatBoxSet();

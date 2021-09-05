@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Text.Json;
 
@@ -10,6 +12,13 @@ namespace SimEngine
 {
    public class CModelBldr 
    {
+
+   /* ---------------------------------------------------------------
+    * The purpose of this class is to build a CSimEngine object (which
+    * the client passes in), by loading the model from json strings.
+    * This class is the single place for dealing with json.
+    * --------------------------------------------------------------
+    */
 
       public static void LoadModel(string jsonString, CSimEngine sim)
       {
@@ -149,6 +158,33 @@ namespace SimEngine
       }
 
 
+      public static void LoadGTab(StreamReader rdr, CSimEngine sim) {
+
+         string rec;
+         int ix;
+         int[] arr;
+         char[] delims = new char[] { ' ' };
+
+         sim.Gres = new int[101, 16];
+         
+         while ((rec = rdr.ReadLine()) != null) {
+            arr = rec.Split(delims, StringSplitOptions.RemoveEmptyEntries).Select(n => int.Parse(n)).ToArray();
+
+            // arr should have index plus 15 numbers... 
+            if (arr.Length != 16) {
+               throw new Exception($"Invalid format in gtab.txt: {rec}");
+            }
+            ix = arr[0];
+            // Index goes in col 0, informational only.
+            // Actual n-numbers go in col 1..15, corresponding to 'onsit'.
+            for (int i = 0; i <= 15; i++) {
+               sim.Gres[ix, i] = arr[i];
+            }
+         }
+      }
+
 
    }
+
 }
+
