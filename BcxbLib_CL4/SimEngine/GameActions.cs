@@ -469,15 +469,15 @@ namespace SimEngine
 
    public class SayAction : BaseSimAction
    {
-      //public int SayIx { get; } //May want this in future
-      public string Text { get; }
+      public int SayIx { get; } //May want this in future
+      //public string Text { get; }
 
       public SayAction(string text, CSimEngine sim)
       {
          this.AType = TAction.Say;
-         //this.SayIx = 0;
+         this.SayIx = sim.GetUtteranceIx(text);
          //this.SayIx = SimulationModel.GetSayIndex(jAction.GetProperty("text").ToString());
-         this.Text = text;
+         //this.Text = text;
          this.mSim = sim;
       }
 
@@ -493,7 +493,7 @@ namespace SimEngine
       public override void PrintIt()
       {
          //Debug.WriteLine($"{ATag}, text: {SimulationModel.SayList[SayIx]}, SayIx: {SayIx}");
-         Debug.WriteLine($"{AType.ToString()}:, Text:{Text}");
+         Debug.WriteLine($"{AType.ToString()}:, Text:{SayIx}");
       }
 
    }
@@ -503,16 +503,16 @@ namespace SimEngine
    {
    // Say1 is same as Say, but is only 'said' if < 2 outs.
 
-      //public int SayIx { get; } //May want this in future
-      public string Text { get; }
+      public int SayIx { get; } //May want this in future
+      //public string Text { get; }
       public CSimEngine mSim { get; }
 
       public Say1Action(string text, CSimEngine sim)
       {
          this.AType = TAction.Say1;
-         //this.SayIx = 0;
+         this.SayIx = sim.GetUtteranceIx(text);
          //this.SayIx = SimulationModel.GetSayIndex(jAction.GetProperty("text").ToString());
-         this.Text = text;
+         //this.Text = text;
          this.mSim = sim;
       }
 
@@ -527,7 +527,7 @@ namespace SimEngine
       public override void PrintIt()
       {
          //Debug.WriteLine($"{ATag}, text: {SimulationModel.SayList[SayIx]}, SayIx: {SayIx}");
-         Debug.WriteLine($"{AType.ToString()}: Text:{Text}");
+         Debug.WriteLine($"{AType.ToString()}: Text:{SayIx}");
       }
 
    }

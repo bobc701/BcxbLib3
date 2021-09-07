@@ -530,17 +530,16 @@ namespace BCX.BCXB {
 
             case SayAction act:
                //a0 = CEngine.Decoded (sList [p + 1], sList [p + 2]);
-               Debug.WriteLine($"Doing Say: Text={act.Text}");
-               Say (act.Text);
-               break;
+               string txt = act.mSim.GetUtteranceText(act.SayIx);
+               Debug.WriteLine($"Doing Say: Ix: {act.SayIx}: Text={txt}");
+               Say (txt);
+             break;
 
             case Say1Action act:
-               if (ok < 2) {
-                  //a0 = CEngine.Decoded (sList [p + 1], sList [p + 2]);
-                  //Debug.WriteLine ("  at=Say1: a0={0}, {1}", a0, aSay [a0]);
-                  Debug.WriteLine($"Doing Say1: Text={act.Text}");
-                  Say(act.Text);
-               }
+               //a0 = CEngine.Decoded (sList [p + 1], sList [p + 2]);
+               txt = act.mSim.GetUtteranceText(act.SayIx);
+               if (ok < 2) Say(txt);
+               Debug.WriteLine($"Doing Say1 ({ok} outs: Ix: {act.SayIx}: Text={txt}");
                break;
 
             case AdvAction act:

@@ -5,6 +5,10 @@
     <LangVersion>9.0</LangVersion>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;XF</DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Remove="CEngine.cs" />
     <Compile Remove="DTO_TeamRoster.cs" />

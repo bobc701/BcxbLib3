@@ -29,6 +29,22 @@ namespace SimEngine {
       public string ModelName { get; set; } = "";
       public Dictionary<string, List<BaseSimAction>> Model { get; set; } = new();
 
+      private List<string> utterances = new();
+
+      public int GetUtteranceIx(string txt) {
+         int n = utterances.IndexOf(txt);
+         if (n >= 0) {
+            return n;
+         }
+         else {
+            utterances.Add(txt);
+            Debug.WriteLine($"Added utterance: {utterances.Count - 1}: {txt}");
+            return utterances.Count - 1;
+         }
+      }
+
+      public string GetUtteranceText(int ix) { return utterances[ix]; } 
+
       private int[,] gres;
       public int[,] Gres { get =>  gres; set => gres = value; } 
 
