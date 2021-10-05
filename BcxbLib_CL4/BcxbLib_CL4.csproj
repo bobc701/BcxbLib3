@@ -9,6 +9,10 @@
     <DefineConstants>TRACE;XF</DefineConstants>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE;XF</DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Remove="CEngine.cs" />
     <Compile Remove="DTO_TeamRoster.cs" />
