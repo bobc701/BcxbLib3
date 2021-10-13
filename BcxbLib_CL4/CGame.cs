@@ -21,7 +21,7 @@ namespace BCX.BCXB {
    public class CGame {
 
       /// <summary>
-      /// The whole model shares this random number generator object...
+      /// The whole model shares this random number generator object... xxx
       /// It is instantiated in the CGame's constructor.
       /// </summary>
       public System.Random rn;
