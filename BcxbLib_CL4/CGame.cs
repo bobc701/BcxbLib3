@@ -987,35 +987,40 @@ namespace BCX.BCXB {
          CPitcher p = t[fl].pit[px];      
          switch (code) {
             case 'h': 
-               BumpB (ref b.bs.h, StatCat.h);
-               BumpP (ref p.ps.h, StatCat.h);
-               rk[ab,1]= rk[ab,1] + 1;
+               b.bs.h++; //BumpB (ref b.bs.h, StatCat.h); 
+               p.ps.h++; //BumpP (ref p.ps.h, StatCat.h);
+               rk[ab,1]++;
                EShowRHE?.Invoke();
                break;
 
-            case '2': BumpB(ref b.bs.b2, StatCat.b2); break;
-            case '3': BumpB(ref b.bs.b3, StatCat.b3); break;
-            
-            case '4': 
-               BumpB(ref b.bs.hr, StatCat.hr);
-               BumpP(ref p.ps.hr, StatCat.hr);
+            case '2': //BumpB(ref b.bs.b2, StatCat.b2);
+               b.bs.b2++;
                break;
 
-            case 'a': BumpB(ref b.bs.ab, StatCat.ab); break;
-
-            case 'k': 
-               BumpB(ref b.bs.so, StatCat.k);
-               BumpP(ref p.ps.so, StatCat.k);
+            case '3': //BumpB(ref b.bs.b3, StatCat.b3); break;
+               b.bs.b3++;
                break;
 
-            case 'w': 
-               BumpB(ref b.bs.bb, StatCat.bb);
-               BumpP(ref p.ps.bb, StatCat.bb);
+            case '4':
+               b.bs.hr++; //BumpB(ref b.bs.hr, StatCat.hr);
+               p.ps.hr++; //BumpP(ref p.ps.hr, StatCat.hr);
                break;
 
-            case 'o': 
-            // We just carry ip3, and devide by 3 at display time...
-               BumpP(ref p.ps.ip3, StatCat.ip);
+            case 'a': b.bs.ab++; break; // BumpB(ref b.bs.ab, StatCat.ab); break;
+
+            case 'k':
+               b.bs.so++; //BumpB(ref b.bs.so, StatCat.k);
+               p.ps.so++; //BumpP(ref p.ps.so, StatCat.k);
+               break;
+
+            case 'w':
+               b.bs.bb++; //BumpB(ref b.bs.bb, StatCat.bb);
+               p.ps.bb++; //BumpP(ref p.ps.bb, StatCat.bb);
+               break;
+
+            case 'o':
+               // We just carry ip3, and devide by 3 at display time...
+               p.ps.ip3++; //BumpP(ref p.ps.ip3, StatCat.ip);
                ok++;
                break;
 
@@ -1029,15 +1034,14 @@ namespace BCX.BCXB {
                ///if runMode <> 3 then play ('440, 100');
                lines[ab, inn]++;
                EShowLinescore?.Invoke();
-
                break;
 
             case 's': break; //earned run: bumped by adv
 
-            case 'b': BumpB(ref b.bs.bi, StatCat.rbi); break;
+            case 'b': b.bs.bi++; break; //BumpB(ref b.bs.bi, StatCat.rbi); break;
 
-            case 'e': 
-               rk[fl,2]= rk[fl,2] + 1;
+            case 'e':
+               rk[fl, 2]++;
                EShowRHE?.Invoke();
                break;
          }
@@ -1188,13 +1192,13 @@ namespace BCX.BCXB {
             if (n != 0) {
                if (homer || !(ab == 2 && inn > 8 && rk[1, 0] > rk[0, 0])) {
                   incr('r');
-                  BumpR(ref t[ab].bat[n].bs.r, StatCat.r, n); //r for CRunner who scored
+                  t[ab].bat[n].bs.r++; //BumpR(ref t[ab].bat[n].bs.r, StatCat.r, n); //r for CRunner who scored
                   //pit[fl, r[rnr].resp].ps.r++; Bump does it.
-                  BumpP(ref t[fl].pit[r[rnr].resp].ps.r, StatCat.r); //r for pitcher
+                  t[fl].pit[r[rnr].resp].ps.r++; //BumpP(ref t[fl].pit[r[rnr].resp].ps.r, StatCat.r); //r for pitcher
                   if (r[rnr].stat == 'e' && ok + eok < 3) {
-                  // An earned run...
+                     // An earned run...
                      //pit[fl, r[rnr].resp].ps.er++; Bump does it.
-                     BumpP(ref t[fl].pit[r[rnr].resp].ps.er, StatCat.er); //er for pitcher
+                     t[fl].pit[r[rnr].resp].ps.er++; //BumpP(ref t[fl].pit[r[rnr].resp].ps.er, StatCat.er); //er for pitcher
                   }
                   if (bi == 'r') incr('b');
                }
@@ -1642,11 +1646,23 @@ namespace BCX.BCXB {
       //   nHits = 0;
       //   totProb = 0;
 
+      /* -------------------------------------------
+       * The null check for b.bs here, and for p.ps, 
+       * is turned out to be the fix for the problem
+       * where binding in the box score ListView's would not
+       * work until a rebuid. I still don't understand this,
+       * but somehow calling 'new' was creating a new obj but
+       * the ListView was still binding to the old one?
+       * And how did doing a ReBuild() fix it??? --1/22'22
+       * ------------------------------------------
+       */
+
          CBatter b;
          CPitcher p; 
          for (ab0=0; ab0<=1; ab0++) {
-            for (bx=1; bx<=25 && t[ab0].bat[bx]!=null; bx++) {
+            for (bx = 1; bx <= SZ_BAT - 1 && t[ab0].bat[bx] != null; bx++) {
                b = t[ab0].bat[bx];
+               if (b.bs is null) b.bs = new CBatBoxSet(); //2112.1
                b.bs.ab = 0;
                b.bs.r = 0;
                b.bs.h = 0;
@@ -1664,9 +1680,10 @@ namespace BCX.BCXB {
                b.bbox = 0;
                t[ab0].xbox[bx] = 0;
             }
-            for (px=1; px<=10 && t[ab0].pit[px]!=null; px++) { 
+            for (px=1; px<=SZ_PIT-1 && t[ab0].pit[px]!=null; px++) { 
                p = t[ab0].pit[px];
                //p.ps.ip = 0;
+               if (p.ps is null) p.ps = new CPitBoxSet(); //2112.1
                p.ps.ip3 = 0;
                p.ps.h = 0;
                p.ps.r = 0;
@@ -1694,8 +1711,12 @@ namespace BCX.BCXB {
          PlayState = PLAY_STATE.START;
 
       }
-      
-      
+
+      private void Bs_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+      {
+         throw new NotImplementedException();
+      }
+
       string CvtSkill(int ab1, int bx, int opt) {return "";}
 
 
@@ -2038,6 +2059,7 @@ namespace BCX.BCXB {
       tot.so = 0;
 
       for (int i = 1; (bx = t[ab].xbox[i]) != 0; i++) {
+
          b = t[ab].bat[bx];
          tot.ab += b.bs.ab;
          tot.h += b.bs.h;

@@ -42,7 +42,7 @@ namespace TestBcxbLib {
       }
 
 
-      public async Task GetCustTeamList() {
+      public async Task GetCustTeamList() { 
 
          string userName = "bobc";
          Console.WriteLine($"Press enter to get list of custom teams for {userName}...");

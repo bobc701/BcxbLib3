@@ -1,4 +1,7 @@
-﻿namespace BCX.BCXB {
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
+namespace BCX.BCXB {
 
    public struct TextToSay {
    // -----------------------
@@ -71,7 +74,8 @@
 
    public enum side {vis=0, home=1};
 
-   public enum PLAY_STATE {
+   public enum PLAY_STATE 
+   {
       START = 0,
       NEXT = 1,
       PLAY = 2,
@@ -82,7 +86,8 @@
    // Special play lists stored in GTAB:
    //    8-Steal, 9-Steal Home, 10-Sac Bunt, 11-Squeeze, 12-Walk(IP)
 
-   public enum SPECIAL_PLAY {
+   public enum SPECIAL_PLAY 
+   {
       AtBat = 0,
       Steal = 1,
       Bunt = 2,
@@ -95,22 +100,22 @@
    };
 
 
-   public struct CRunner {
-   // -----------------
+   public struct CRunner
+   {
       public int ix, resp;
       public string name;
       public char stat;
 
-      public void Copy(CRunner r) {
-      // ---------------------------------------------------
+      public void Copy(CRunner r) 
+      {
          ix = r.ix;
          resp = r.resp;
          name = r.name;
          stat = r.stat;
       }
 
-      public void Clear() {
-      // ---------------------------------------------------
+      public void Clear() 
+      {
          ix = 0;
          resp = 0;
          name = "";
@@ -118,8 +123,8 @@
       }
    }
 
-   public struct CBatRealSet {
-   // ====================================================================
+   public struct CBatRealSet 
+   {
    // ip included here so CBatRealSet can be reused for league-level stats.      
       public int ab, hr, bi, sb, cs, h, b2, b3, bb, so;
       public int sf, ibb, hbp, sh, pa, ip3;
@@ -129,30 +134,29 @@
       //public int pa => pa == 0 ? ab + bb + hbp + sh + sf; }
    }
 
-   public struct CBatBoxSet {
-      // -----------------------------------------------------------------
+   public class CBatBoxSet : INotifyPropertyChanged {
 
-      public string boxName;
+      //public string boxName;
       public int bx; //1906.02
-      public int ab, r, h, bi, b2, b3, hr, so, bb, sb, cs;
+      public int _ab, _r, _h, _bi, _b2, _b3, _hr, _so, _bb, _sb, _cs;
 
    // These property gets are needed for binding in Xamarin Forms...
-      public string BoxName { get { return boxName; } }
-      public int Ab { get { return ab; } }
-      public int R { get { return r; } }
-      public int H { get { return h; } }
-      public int Bi { get { return bi; } }
-      public int B2 { get { return b2; } }
-      public int B3 { get { return b3; } }
-      public int Hr { get { return hr; } }
-      public int So { get { return so; } }
-      public int Bb { get { return bb; } }
-      public int Sb { get { return sb; } }
-      public int Cs { get { return cs; } }
+      public string boxName { get; set; }
+      public int ab {get { return _ab; } set { _ab = value; OnPropertyChanged(); } }   
+      public int r { get; set; }
+      public int h { get; set; }
+      public int bi { get; set; }
+      public int b2 { get; set; }
+      public int b3 { get; set; }
+      public int hr { get; set; }
+      public int so { get; set; }
+      public int bb { get; set; }
+      public int sb { get; set; }
+      public int cs { get; set; }
 
 
-      public static CBatBoxSet operator+(CBatBoxSet bs1, CBatBoxSet bs2) {
-      // ------------------------------------------------------
+      public static CBatBoxSet operator+(CBatBoxSet bs1, CBatBoxSet bs2) 
+      {
          bs1.ab += bs2.ab;
          bs1.r += bs2.r;
          bs1.h += bs2.h;
@@ -167,34 +171,95 @@
          return bs1;
       }
 
+
+
+      public event PropertyChangedEventHandler PropertyChanged;
+      void OnPropertyChanged([CallerMemberName] string propertyName = "")
+      {
+         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+      }
+
+    }
+
+
+   public static class HelperExtentions 
+   {
+
+      public static void Zero(this CBatBoxSet bs)
+      {
+         bs.ab = 0;
+         bs.r = 0;
+         bs.h = 0;
+         bs.bi = 0;
+         bs.hr = 0;
+         bs.b2 = 0;
+         bs.b3 = 0;
+         bs.bb = 0;
+         bs.so = 0;
+         bs.sb = 0;
+         bs.cs = 0;
+
+      }
+
+
+      public static void AddTo(this CBatBoxSet bs1, CBatBoxSet bs2)
+      {
+         bs1.ab += bs2.ab;
+         bs1.r += bs2.r;
+         bs1.h += bs2.h;
+         bs1.bi += bs2.bi;
+         bs1.hr += bs2.hr;
+         bs1.b2 += bs2.b2;
+         bs1.b3 += bs2.b3;
+         bs1.bb += bs2.bb;
+         bs1.so += bs2.so;
+         bs1.sb += bs2.sb;
+         bs1.cs += bs2.cs;
+      }
+
    }
 
 
-   public struct CPitRealSet {
-   // -----------------------------------------------------------------
-      public int g, gs, w, l, sv, bfp, er, h, hr, so, bb, ibb, ip3;
+   public struct CPitRealSet 
+    {
+      public int g, gs, w, l, sv, bfp, er, h, hr, 
+      so, bb, ibb, ip3;
       public double era, whip, ip;
    }
 
 
-   public struct CPitBoxSet {
-   // -----------------------------------------------------------------
-      public string boxName;
+   public class CPitBoxSet : INotifyPropertyChanged
+   {
+      //public string boxName;
       public int bx, px; //1906.02
-      public int ip3, r, h, er, so, bb, hr;
+      private int _ip3, _r, _h, _er, _so, _bb, _hr;
+      private string _boxName;
 
-   // These property gets are needed for binding in Xamarin Forms...
-      public string BoxName { get { return boxName; } }
-      //public string Ip3 { get { return IpDisplay(ip3); } } //Use 'IpDisplay' for this...
-      public int R { get { return r; } }
-      public int H { get { return h; } }
-      public int Er { get { return er; } }
-      public int So { get { return so; } }
-      public int Bb { get { return bb; } }
-      public int Hr { get { return hr; } }
+      //public int ip3, r, h, er, so, bb, hr;
+
+      // These property gets are needed for binding in Xamarin Forms...
+      public string boxName { get { return _boxName; } set { _boxName = value; OnPropertyChanged(); } }
+
+   // See here for this...
+   // https://social.msdn.microsoft.com/Forums/vstudio/en-US/3b383688-6d7e-4bca-aa9a-35c10e8a4500/notification-for-a-readonly-property?forum=netfxbcl
+      public int ip3 { 
+         get { return _ip3; } 
+         set { 
+            _ip3 = value; 
+            OnPropertyChanged("ip3");
+            OnPropertyChanged("IpDisplay");
+         } 
+      }
+      public int r { get { return _r; } set { _r = value; OnPropertyChanged(); } }
+      public int h { get { return _h; } set { _h = value; OnPropertyChanged(); } }
+      public int er { get { return _er; } set { _er = value; OnPropertyChanged(); } }
+      public int so { get { return _so; } set { _so = value; OnPropertyChanged(); } }
+      public int bb { get { return _bb; } set { _bb = value; OnPropertyChanged(); } }
+      public int hr { get { return _hr; } set { _hr = value; OnPropertyChanged(); } }
+
 
       public static CPitBoxSet operator+(CPitBoxSet ps1, CPitBoxSet ps2) {
-      // -----------------------------------------------------------------
+
          ps1.ip3 += ps2.ip3;
          ps1.r += ps2.r;
          ps1.h += ps2.h;
@@ -205,20 +270,26 @@
          return ps1;
       }
 
+
       public string IpDisplay {
-         // ------------------------------------------------------
-         // Converts ip3 to display value with .1 for 1/3 inn, etc.
+      // Converts ip3 to display value with .1 for 1/3 inn, etc.
+
          get {
             int n = ip3 % 3;
             int ip = ip3 / 3;
-            switch (n) {
-               case 0: return ip.ToString();
-               case 1: return ip.ToString() + ".1";
-               case 2: return ip.ToString() + ".2";
-               default: return ip.ToString();
-            }
+            return n switch {
+               0 => ip.ToString(),
+               1 => ip.ToString() + ".1",
+               2 => ip.ToString() + ".2",
+               _ => ip.ToString()
+            };
          }
+      }
 
+      public event PropertyChangedEventHandler PropertyChanged;
+      void OnPropertyChanged([CallerMemberName] string propertyName = "")
+      {
+         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
       }
 
    }
