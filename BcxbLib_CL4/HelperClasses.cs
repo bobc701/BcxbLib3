@@ -143,16 +143,16 @@ namespace BCX.BCXB {
    // These property gets are needed for binding in Xamarin Forms...
       public string boxName { get; set; }
       public int ab {get { return _ab; } set { _ab = value; OnPropertyChanged(); } }   
-      public int r { get; set; }
-      public int h { get; set; }
-      public int bi { get; set; }
-      public int b2 { get; set; }
-      public int b3 { get; set; }
-      public int hr { get; set; }
-      public int so { get; set; }
-      public int bb { get; set; }
-      public int sb { get; set; }
-      public int cs { get; set; }
+      public int r { get { return _r; } set { _r = value; OnPropertyChanged(); } }
+      public int h { get { return _h; } set { _h = value; OnPropertyChanged(); } }
+      public int bi { get { return _bi; } set { _bi = value; OnPropertyChanged(); } }
+      public int b2 { get { return _b2; } set { _b2 = value; OnPropertyChanged(); } }
+      public int b3 { get { return _b3; } set { _b3 = value; OnPropertyChanged(); } }
+      public int hr { get { return _hr; } set { _hr = value; OnPropertyChanged(); } }
+      public int so { get { return _so; } set { _so = value; OnPropertyChanged(); } }
+      public int bb { get { return _bb; } set { _bb = value; OnPropertyChanged(); } }
+      public int sb { get { return _sb; } set { _sb = value; OnPropertyChanged(); } }
+      public int cs { get { return _cs; } set { _cs = value; OnPropertyChanged(); } }
 
 
       public static CBatBoxSet operator+(CBatBoxSet bs1, CBatBoxSet bs2) 

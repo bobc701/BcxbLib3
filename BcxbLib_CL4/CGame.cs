@@ -983,44 +983,59 @@ namespace BCX.BCXB {
          bx = t[ab].linup[y];
          px = t[fl].curp;
 
-         CBatter b = t[ab].bat[bx];
+         CBatter b = t[ab].bat[bx]; 
          CPitcher p = t[fl].pit[px];      
          switch (code) {
             case 'h': 
                b.bs.h++; //BumpB (ref b.bs.h, StatCat.h); 
                p.ps.h++; //BumpP (ref p.ps.h, StatCat.h);
                rk[ab,1]++;
+               t[ab].btot.h++; //#2202.1
+               t[fl].ptot.h++;
                EShowRHE?.Invoke();
                break;
 
             case '2': //BumpB(ref b.bs.b2, StatCat.b2);
                b.bs.b2++;
+               t[ab].btot.b2++;
                break;
 
             case '3': //BumpB(ref b.bs.b3, StatCat.b3); break;
                b.bs.b3++;
+               t[ab].btot.b3++;
+               
                break;
 
             case '4':
                b.bs.hr++; //BumpB(ref b.bs.hr, StatCat.hr);
                p.ps.hr++; //BumpP(ref p.ps.hr, StatCat.hr);
+               t[ab].btot.hr++; //#2202.1
+               t[fl].ptot.hr++;
                break;
 
-            case 'a': b.bs.ab++; break; // BumpB(ref b.bs.ab, StatCat.ab); break;
+            case 'a':  // BumpB(ref b.bs.ab, StatCat.ab); break;
+               b.bs.ab++;
+               t[ab].btot.ab++;
+               break;
 
             case 'k':
                b.bs.so++; //BumpB(ref b.bs.so, StatCat.k);
                p.ps.so++; //BumpP(ref p.ps.so, StatCat.k);
+               t[ab].btot.so++;
+               t[fl].ptot.so++;
                break;
 
             case 'w':
                b.bs.bb++; //BumpB(ref b.bs.bb, StatCat.bb);
                p.ps.bb++; //BumpP(ref p.ps.bb, StatCat.bb);
+               t[ab].btot.bb++;
+               t[fl].ptot.bb++;
                break;
 
             case 'o':
                // We just carry ip3, and devide by 3 at display time...
                p.ps.ip3++; //BumpP(ref p.ps.ip3, StatCat.ip);
+               t[fl].ptot.ip3++;
                ok++;
                break;
 
@@ -1038,7 +1053,10 @@ namespace BCX.BCXB {
 
             case 's': break; //earned run: bumped by adv
 
-            case 'b': b.bs.bi++; break; //BumpB(ref b.bs.bi, StatCat.rbi); break;
+            case 'b': //BumpB(ref b.bs.bi, StatCat.rbi); break;
+               b.bs.bi++;
+               t[ab].btot.bi++;
+               break; 
 
             case 'e':
                rk[fl, 2]++;

@@ -22,6 +22,9 @@ namespace BCX.BCXB {
       public CBatter[] bat;  
       public CPitcher[] pit;
 
+      public CBatBoxSet btot = new() { boxName = "Total" }; //#2202.1
+      public CPitBoxSet ptot = new() { boxName = "Total" };
+
       public CBatRealSet lgStats;
       public string fileName;
       public string teamTag;
@@ -59,6 +62,19 @@ namespace BCX.BCXB {
          get { return pit[curp].pname; }
       }
 
+
+      //public CBatBoxSet BTot {
+      //   get {
+      //      return new CBatBoxSet() {
+      //         ab = bat.Sum(e => e.bs.ab),
+      //         h = bat.Sum(e => e.bs.h),
+      //         bi = bat.Sum(e => e.bs.bi),
+      //         r = bat.Sum(e => e.bs.r),
+      //         so = bat.Sum(e => e.bs.so),
+      //         bb = bat.Sum(e => e.bs.bb)
+      //      };
+      //   }
+      //}
 
    // pitcher arrays
       public int curp;  //<--px
