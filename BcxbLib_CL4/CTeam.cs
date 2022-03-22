@@ -142,7 +142,7 @@ namespace BCX.BCXB {
             {
                bool usingDh = g != null ? g.UsingDh : usesDhDefault;
                if (g == null) {
-                  usingDh = usesDhDefault;
+                  usingDh = usesDhDefault; 
                }
                else {
                   switch (ab) {
@@ -178,7 +178,6 @@ namespace BCX.BCXB {
             b.bx = bx;
             b.px = 0; //See below, this is assigned for pitchers.
             b.sidex = (side)ab; //Tells which team he's on, 0 or 1.
-
             if (ply.Playercategory == 'P' && ply.pitchingStats != null) {
                // It's a Pitcher record.
                // Note: 'B' type players CAN have pitchingStats, but we ignore that.
